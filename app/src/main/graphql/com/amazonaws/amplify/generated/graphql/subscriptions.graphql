@@ -1,0 +1,205 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateDailyInfo {
+  onCreateDailyInfo {
+    id
+    weight
+    userID
+    User {
+      id
+      username
+      age
+      height
+      targetWeight
+      currentWeight
+      profileImgKey
+      activityLevel
+      DailyInfos {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    bmi
+    currentCalorie
+    day
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnUpdateDailyInfo {
+  onUpdateDailyInfo {
+    id
+    weight
+    userID
+    User {
+      id
+      username
+      age
+      height
+      targetWeight
+      currentWeight
+      profileImgKey
+      activityLevel
+      DailyInfos {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    bmi
+    currentCalorie
+    day
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnDeleteDailyInfo {
+  onDeleteDailyInfo {
+    id
+    weight
+    userID
+    User {
+      id
+      username
+      age
+      height
+      targetWeight
+      currentWeight
+      profileImgKey
+      activityLevel
+      DailyInfos {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    bmi
+    currentCalorie
+    day
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnCreateUser {
+  onCreateUser {
+    id
+    username
+    age
+    height
+    targetWeight
+    currentWeight
+    profileImgKey
+    activityLevel
+    DailyInfos {
+      items {
+        id
+        weight
+        userID
+        bmi
+        currentCalorie
+        day
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnUpdateUser {
+  onUpdateUser {
+    id
+    username
+    age
+    height
+    targetWeight
+    currentWeight
+    profileImgKey
+    activityLevel
+    DailyInfos {
+      items {
+        id
+        weight
+        userID
+        bmi
+        currentCalorie
+        day
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+subscription OnDeleteUser {
+  onDeleteUser {
+    id
+    username
+    age
+    height
+    targetWeight
+    currentWeight
+    profileImgKey
+    activityLevel
+    DailyInfos {
+      items {
+        id
+        weight
+        userID
+        bmi
+        currentCalorie
+        day
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}

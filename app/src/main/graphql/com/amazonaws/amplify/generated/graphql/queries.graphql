@@ -1,0 +1,215 @@
+# this is an auto generated file. This will be overwritten
+query GetDailyInfo($id: ID!) {
+  getDailyInfo(id: $id) {
+    id
+    weight
+    userID
+    User {
+      id
+      username
+      age
+      height
+      targetWeight
+      currentWeight
+      profileImgKey
+      activityLevel
+      DailyInfos {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    bmi
+    currentCalorie
+    day
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+query ListDailyInfos(
+  $filter: ModelDailyInfoFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listDailyInfos(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      weight
+      userID
+      User {
+        id
+        username
+        age
+        height
+        targetWeight
+        currentWeight
+        profileImgKey
+        activityLevel
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      bmi
+      currentCalorie
+      day
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    nextToken
+    startedAt
+  }
+}
+query SyncDailyInfos(
+  $filter: ModelDailyInfoFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncDailyInfos(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      weight
+      userID
+      User {
+        id
+        username
+        age
+        height
+        targetWeight
+        currentWeight
+        profileImgKey
+        activityLevel
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      bmi
+      currentCalorie
+      day
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    nextToken
+    startedAt
+  }
+}
+query GetUser($id: ID!) {
+  getUser(id: $id) {
+    id
+    username
+    age
+    height
+    targetWeight
+    currentWeight
+    profileImgKey
+    activityLevel
+    DailyInfos {
+      items {
+        id
+        weight
+        userID
+        bmi
+        currentCalorie
+        day
+        createdAt
+        updatedAt
+        _version
+        _deleted
+        _lastChangedAt
+      }
+      nextToken
+      startedAt
+    }
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+  }
+}
+query ListUsers(
+  $filter: ModelUserFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      username
+      age
+      height
+      targetWeight
+      currentWeight
+      profileImgKey
+      activityLevel
+      DailyInfos {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    nextToken
+    startedAt
+  }
+}
+query SyncUsers(
+  $filter: ModelUserFilterInput
+  $limit: Int
+  $nextToken: String
+  $lastSync: AWSTimestamp
+) {
+  syncUsers(
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+    lastSync: $lastSync
+  ) {
+    items {
+      id
+      username
+      age
+      height
+      targetWeight
+      currentWeight
+      profileImgKey
+      activityLevel
+      DailyInfos {
+        nextToken
+        startedAt
+      }
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+    }
+    nextToken
+    startedAt
+  }
+}
