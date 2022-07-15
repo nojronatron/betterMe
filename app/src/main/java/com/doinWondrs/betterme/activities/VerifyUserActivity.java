@@ -21,7 +21,6 @@ public class VerifyUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verify_user);
 
-        verifyBtn();
     }
 
     public void verifyBtn() {
