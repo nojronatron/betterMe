@@ -26,9 +26,21 @@
 
 ## Data Flow
 
-<!-- describe the flow of data in the application for example: from when the user opens the app, logs in
+<!-- describe the flow of data in the application for example: from when the user opens the app, logs in -->
 
+-- -
 
+## Dev and Test Installation and Setup
+
+<!-- input required software, packages, dependencies, dev and test keys files etc and commands necessary to build this App and run it on an Android Emulator or Physical Device -->
+
+- gradle:4.1.2
+- amplify-tools-gradle-plugin:1.0.2
+- AWS Account
+- AWS Cognito
+- AWS S3 Storage
+- Android APK v
+- Java JDK
 
 -- -
 
