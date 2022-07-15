@@ -1,8 +1,10 @@
-package com.doinWondrs.betterme;
+package com.doinWondrs.betterme.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.doinWondrs.betterme.R;
 
 public class MainActivity extends AppCompatActivity {
 
