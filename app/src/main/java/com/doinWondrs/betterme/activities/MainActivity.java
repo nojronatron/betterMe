@@ -42,12 +42,13 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId())
                 {
-                    case R.id.home_nav: //if at home we dont select home
+                    case R.id.home_nav:
+                        //we are here right now
                         break;
                     case R.id.workouts_nav:
-                        //gotoHelper.gotoWorkouts
                         startActivity
-                                (new Intent(getApplicationContext(), WorkoutpageMainActivity.class));
+                                (new Intent(getApplicationContext(),
+                                        WorkoutpageMainActivity.class));
                         overridePendingTransition(0,0);
                         break;
                     default: return false;// this is to cover all other cases if not working properly
