@@ -17,95 +17,95 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-<!--    <ImageView-->
-<!--        android:id="@+id/Icon2"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="21dp"-->
-<!--        android:layout_marginEnd="263dp"-->
-<!--        android:contentDescription="@string/bettermesecondimage"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        tools:ignore="ImageContrastCheck"-->
-<!--        tools:srcCompat="@tools:sample/avatars" />-->
+    <ImageView
+        android:id="@+id/Icon2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="263dp"
+        android:contentDescription="@string/bettermesecondimage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ImageContrastCheck"
+        tools:srcCompat="@tools:sample/avatars" />
 
-<!--    <ImageButton-->
-<!--        android:id="@+id/buttonStrength"-->
-<!--        android:layout_width="150dp"-->
-<!--        android:layout_height="120dp"-->
-<!--        android:layout_marginTop="176dp"-->
-<!--        android:layout_marginEnd="60dp"-->
-<!--        android:contentDescription="@string/ok"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:srcCompat="@android:drawable/progress_horizontal"-->
-<!--        tools:ignore="DuplicateSpeakableTextCheck" />-->
+    <ImageButton
+        android:id="@+id/buttonStrength"
+        android:layout_width="150dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="176dp"
+        android:layout_marginEnd="60dp"
+        android:contentDescription="@string/ok"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/progress_horizontal"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
-<!--    <ImageButton-->
-<!--        android:id="@+id/buttonWeightlifting"-->
-<!--        android:layout_width="150dp"-->
-<!--        android:layout_height="120dp"-->
-<!--        android:layout_marginTop="176dp"-->
-<!--        android:layout_marginEnd="212dp"-->
-<!--        android:contentDescription="@string/weightLiftButtonWithGif"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:srcCompat="@android:drawable/progress_horizontal" />-->
+    <ImageButton
+        android:id="@+id/buttonWeightlifting"
+        android:layout_width="150dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="176dp"
+        android:layout_marginEnd="212dp"
+        android:contentDescription="@string/weightLiftButtonWithGif"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/progress_horizontal" />
 
-<!--    <ImageButton-->
-<!--        android:id="@+id/buttonOlympic"-->
-<!--        android:layout_width="150dp"-->
-<!--        android:layout_height="120dp"-->
-<!--        android:layout_marginTop="424dp"-->
-<!--        android:layout_marginEnd="60dp"-->
+    <ImageButton
+        android:id="@+id/buttonOlympic"
+        android:layout_width="150dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="424dp"
+        android:layout_marginEnd="60dp"
 
-<!--        android:contentDescription="@string/ok"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:srcCompat="@android:drawable/progress_horizontal" />-->
+        android:contentDescription="@string/ok"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/progress_horizontal" />
 
-<!--    <ImageButton-->
-<!--        android:id="@+id/buttonCalisthenics"-->
-<!--        android:layout_width="150dp"-->
-<!--        android:layout_height="120dp"-->
-<!--        android:layout_marginTop="424dp"-->
-<!--        android:layout_marginEnd="212dp"-->
-<!--        android:contentDescription="@string/ok"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:srcCompat="@android:drawable/progress_horizontal" />-->
+    <ImageButton
+        android:id="@+id/buttonCalisthenics"
+        android:layout_width="150dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="424dp"
+        android:layout_marginEnd="212dp"
+        android:contentDescription="@string/ok"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/progress_horizontal" />
 
-<!--    <ImageButton-->
-<!--        android:id="@+id/buttonHiit"-->
-<!--        android:layout_width="150dp"-->
-<!--        android:layout_height="120dp"-->
-<!--        android:layout_marginTop="304dp"-->
-<!--        android:layout_marginEnd="212dp"-->
-<!--        android:contentDescription="@string/ok"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:srcCompat="@android:drawable/progress_horizontal" />-->
+    <ImageButton
+        android:id="@+id/buttonHiit"
+        android:layout_width="150dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="304dp"
+        android:layout_marginEnd="212dp"
+        android:contentDescription="@string/ok"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/progress_horizontal" />
 
-<!--    <ImageButton-->
-<!--        android:id="@+id/buttonCrossfit"-->
-<!--        android:layout_width="150dp"-->
-<!--        android:layout_height="120dp"-->
-<!--        android:layout_marginTop="304dp"-->
-<!--        android:layout_marginEnd="60dp"-->
-<!--        android:contentDescription="@string/ok"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:srcCompat="@android:drawable/progress_horizontal" />-->
+    <ImageButton
+        android:id="@+id/buttonCrossfit"
+        android:layout_width="150dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="304dp"
+        android:layout_marginEnd="60dp"
+        android:contentDescription="@string/ok"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/progress_horizontal" />
 
-<!--    <Button-->
-<!--        android:id="@+id/button2"-->
-<!--        android:layout_width="209dp"-->
-<!--        android:layout_height="79dp"-->
-<!--        android:layout_marginTop="620dp"-->
-<!--        android:layout_marginEnd="100dp"-->
-<!--        android:text="@string/buttonNext"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="209dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="620dp"
+        android:layout_marginEnd="100dp"
+        android:text="@string/buttonNext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
         android:layout_width="0dp"

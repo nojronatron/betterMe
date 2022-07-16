@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.amplifyframework.datastore.generated.model.User;
 import com.doinWondrs.betterme.R;
 import com.doinWondrs.betterme.helpers.GoToNav;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
@@ -65,6 +66,11 @@ public class MainActivity extends AppCompatActivity {
                                 (new Intent(getApplicationContext(),
                                                 WorkoutPageFirst.class));
                         overridePendingTransition(0,0);
+                        break;
+                    case R.id.settings_nav:
+                        startActivity
+                                (new Intent(getApplicationContext(),
+                                        UserProfileActivity.class));
                         break;
                     default: return false;// this is to cover all other cases if not working properly
                 }
