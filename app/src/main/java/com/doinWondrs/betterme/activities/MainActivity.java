@@ -22,20 +22,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        navGoTo();
-
-    }
-
-    public void navGoTo()
-    {
-        //notes: https://www.geeksforgeeks.org/how-to-implement-bottom-navigation-with-activities-in-android/
-        //TODO: bottomnavbar is deprecated: https://developer.android.com/reference/com/google/android/material/bottomnavigation/BottomNavigationView.OnNavigationItemSelectedListener
 
         //initialize, instantiate
         NavigationBarView navigationBarView;//new way to do nav's but more research needed
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        //iset home selected
+        //set home selected: home
         bottomNavigationView.setSelectedItemId(R.id.home_nav);
+
+        navGoTo(bottomNavigationView);
+
+    }
+
+    public void navGoTo(BottomNavigationView bottomNavigationView)
+    {
+        //notes: https://www.geeksforgeeks.org/how-to-implement-bottom-navigation-with-activities-in-android/
+        //TODO: bottomnavbar is deprecated: https://developer.android.com/reference/com/google/android/material/bottomnavigation/BottomNavigationView.OnNavigationItemSelectedListener
+
+
         //perform item selected listener
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -48,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.workouts_nav:
                         startActivity
                                 (new Intent(getApplicationContext(),
-                                        WorkoutpageMainActivity.class));
+                                                WorkoutPageFirst.class));
                         overridePendingTransition(0,0);
                         break;
                     default: return false;// this is to cover all other cases if not working properly
