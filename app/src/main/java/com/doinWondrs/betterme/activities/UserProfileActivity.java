@@ -5,6 +5,7 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -16,8 +17,10 @@ import android.provider.OpenableColumns;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.generated.model.User;
 import com.doinWondrs.betterme.R;
 
 import java.io.File;
@@ -27,7 +30,9 @@ import java.io.InputStream;
 public class UserProfileActivity extends AppCompatActivity {
     private static final String TAG = "UserProfileActivity";
     private String s3ImageKey = "";
+    private User userInfo;
     ActivityResultLauncher<Intent> activityResultLauncher;
+
 
 
 
@@ -36,32 +41,38 @@ public class UserProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
+
+        setUpAddImageButton();
+        setUpLogout();
     }
 
-//    TODO:Adjust to Better me
+    // Makes the Profile Image clickable to upload profile pic
     private void setUpAddImageButton(){
-        Button addImageButton = findViewById(R.id.taskDetailAddImageB);
+        ImageView addImageButton = findViewById(R.id.userProfileImg);
         addImageButton.setOnClickListener(v -> {
             launchImageSelectionIntent();
         });
     }
 
-//    TODO:Adjust to Better me
+    // Grabs s3Image key from current user
+    //TODO: pull user from database and save to userInfo to use .getProfileImgKey();
     private void getS3ImageKey(){
-        s3ImageKey = taskToEdit.getTaskImageKey();
+        s3ImageKey = userInfo.getProfileImgKey();
         if (s3ImageKey != null && !s3ImageKey.isEmpty()){
             Amplify.Storage.downloadFile(
                     s3ImageKey,
                     new File(getApplication().getFilesDir(), s3ImageKey),
                     success -> {
-                        ImageView productImageView = findViewById(R.id.taskDetailImageV);
-                        productImageView.setImageBitmap(BitmapFactory.decodeFile(success.getFile().getPath()));
+                        ImageView profileImage = findViewById(R.id.userProfileImg);
+                        profileImage.setImageBitmap(BitmapFactory.decodeFile(success.getFile().getPath()));
                     },
                     failure -> Log.e(TAG, "Unable to get image from S3 for the task with s3 key: " + s3ImageKey + "with error: " + failure.getMessage(), failure)
             );
         }
     }
 
+    // Launches image selector
+    //TODO: Inform User only PNG and JPEG work
     private void launchImageSelectionIntent(){
         Intent imageFilePickingIntent = new Intent(Intent.ACTION_GET_CONTENT);
         imageFilePickingIntent.setType("*/*");
@@ -69,27 +80,25 @@ public class UserProfileActivity extends AppCompatActivity {
         activityResultLauncher.launch(imageFilePickingIntent);
     }
 
+    // Grabs input stream from selected file on our phone and calls to upload to S3
     private ActivityResultLauncher<Intent> getImagePickingActivityResultLauncher() {
         return registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
-                new ActivityResultCallback<ActivityResult>() {
-                    @Override
-                    public void onActivityResult(ActivityResult result) {
-                        Uri pickedImageUri = result.getData().getData();
-                        try{
-                            InputStream pickedImageInputStream = getContentResolver().openInputStream(pickedImageUri);
-                            String pickedImageFileName = getFileNameFromUri(pickedImageUri);
-                            uploadInputStreamToS3(pickedImageInputStream, pickedImageFileName, pickedImageUri);
-                            Log.i(TAG, "Succeeded in getting input stream from a file on our phone");
-                        } catch (FileNotFoundException fnfe){
-                            Log.e(TAG, "Could not get file from phone: " + fnfe.getMessage(), fnfe);
-                        }
+                result -> {
+                    Uri pickedImageUri = result.getData().getData();
+                    try{
+                        InputStream pickedImageInputStream = getContentResolver().openInputStream(pickedImageUri);
+                        String pickedImageFileName = getFileNameFromUri(pickedImageUri);
+                        uploadInputStreamToS3(pickedImageInputStream, pickedImageFileName, pickedImageUri);
+                        Log.i(TAG, "Succeeded in getting input stream from a file on our phone");
+                    } catch (FileNotFoundException fnfe){
+                        Log.e(TAG, "Could not get file from phone: " + fnfe.getMessage(), fnfe);
                     }
                 }
         );
     }
 
-//    TODO:Adjust to Better me
+    // Uploads image to S3 buckets and sets the image immediately as user profile image
     private void uploadInputStreamToS3(InputStream pickedImageInputStream, String pickedImageFileName, Uri pickedImageUri){
         Amplify.Storage.uploadInputStream(
                 pickedImageFileName,
@@ -97,14 +106,14 @@ public class UserProfileActivity extends AppCompatActivity {
                 success -> {
                     Log.i(TAG, "Succeeded in uploading file to s3: " + success.getKey());
                     s3ImageKey = success.getKey();
-                    ImageView taskImageView = findViewById(R.id.taskDetailImageV);
+                    ImageView profileImg = findViewById(R.id.userProfileImg);
                     InputStream pickedImageInputStreamCopy = null;
                     try{
                         pickedImageInputStreamCopy = getContentResolver().openInputStream(pickedImageUri);
                     } catch(FileNotFoundException fnfe){
                         Log.e(TAG, "Could not get input stream from uri: " + fnfe.getMessage(), fnfe);
                     }
-                    taskImageView.setImageBitmap(BitmapFactory.decodeStream(pickedImageInputStreamCopy));
+                    profileImg.setImageBitmap(BitmapFactory.decodeStream(pickedImageInputStreamCopy));
                 },
                 failure -> Log.e(TAG, "Failure in uploading file to S3 with filename: " + pickedImageFileName + " with error: " + failure.getMessage())
         );
@@ -134,4 +143,29 @@ public class UserProfileActivity extends AppCompatActivity {
         }
         return result;
     }
+
+    // Attaches onClick listener to logout container. Clears backstack and starts loginpage activity
+    //TODO: Verify Works
+    private void setUpLogout(){
+        ConstraintLayout logout = findViewById(R.id.profileLogoutContainer);
+        logout.setOnClickListener(v -> {
+            Amplify.Auth.signOut(
+                    () ->
+                    {
+                        Log.i(TAG, "Logout succeeded!");
+                    },
+                    failure ->
+                    {
+                        Log.i(TAG, "Logout failed: " + failure);
+                    }
+            );
+            Toast.makeText(UserProfileActivity.this, "Logged Out!", Toast.LENGTH_SHORT).show();
+            Intent goToLoginIntent = new Intent(UserProfileActivity.this, LogInActivity.class);
+            goToLoginIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(goToLoginIntent);
+        });
+    }
+
+    // TODO: Setup Intent to go to AboutUs Activity
+    // TODO: Setup update info
 }

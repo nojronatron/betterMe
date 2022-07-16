@@ -19,20 +19,15 @@ public class LogInActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
-
-
+        setUpLoginBtn();
+        setUpSignInBtn();
     }
 
-
-    public void loginLoginBtn() {
+    // RR: Takes in User input to login
+    public void setUpLoginBtn() {
         Button loginBtn = findViewById(R.id.loginButton);
-        Intent gettingIntent = getIntent();
-
-        String email = gettingIntent.getStringExtra(VerifyUserActivity.TAG_VERIFY);
         EditText loginEmail = findViewById(R.id.loginTextEmailAddress);
         EditText loginPassword = findViewById(R.id.loginTextPassword);
-
-        loginEmail.setText(email);
 
         loginBtn.setOnClickListener(v -> {
             String userEmail = loginEmail.getText().toString();
@@ -53,7 +48,7 @@ public class LogInActivity extends AppCompatActivity {
 
                         runOnUiThread(() ->
                         {
-                            Toast.makeText(LogInActivity.this, "LOGIN Failed!", Toast.LENGTH_SHORT);
+                            Toast.makeText(LogInActivity.this, "LOGIN Failed!", Toast.LENGTH_SHORT).show();
                         });
 
                     }
@@ -63,8 +58,8 @@ public class LogInActivity extends AppCompatActivity {
 
     }
 
-
-    public void goSignUpBtn() {
+    // RR: Directs to SignUp Page
+    public void setUpSignInBtn() {
         Button signUpBtn = findViewById(R.id.loginSignUpButton);
 
         signUpBtn.setOnClickListener(v -> {

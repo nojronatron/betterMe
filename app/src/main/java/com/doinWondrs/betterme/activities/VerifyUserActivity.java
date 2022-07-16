@@ -14,7 +14,6 @@ import com.doinWondrs.betterme.R;
 
 public class VerifyUserActivity extends AppCompatActivity {
     String TAG = "VerifyUserActivity";
-    static String TAG_VERIFY = "VerifyUserTAG";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +22,7 @@ public class VerifyUserActivity extends AppCompatActivity {
 
     }
 
+    // RR: On Successful Verification closes Activity to return to Login Page
     public void verifyBtn() {
         Button verifyBtn = findViewById(R.id.verifyButton);
         Intent gettingIntent = getIntent();
@@ -39,15 +39,14 @@ public class VerifyUserActivity extends AppCompatActivity {
                     verification,
                     success -> {
                         Log.i(TAG, "Verify successful " + success);
-                        Intent goLogin = new Intent(VerifyUserActivity.this, LogInActivity.class);
-                        startActivity(goLogin);
+                        finish();
                     },
                     fail -> {
                         Log.e(TAG, "Failed Verify :" + fail);
 
                         runOnUiThread(() ->
                         {
-                            Toast.makeText(VerifyUserActivity.this, "Verification Failed!", Toast.LENGTH_SHORT);
+                            Toast.makeText(VerifyUserActivity.this, "Verification Failed!", Toast.LENGTH_SHORT).show();
                         });
 
                     });
