@@ -29,18 +29,36 @@ public class WorkoutPageFirst extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_page_first);
 
+
+
+        //function declarations:
+
+        navGoTo();//Our Bottom Navigation
+    }//end of on create
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void navGoTo() {
         //initialize, instantiate
         //NavigationBarView navigationBarView;//TODO: new way to do nav's but more research needed
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         //set home selected:workout_nav
         bottomNavigationView.setSelectedItemId(R.id.workouts_nav);
-
-        //function declarations:
-
-        navGoTo(bottomNavigationView);
-    }//end of on create
-
-    public void navGoTo(BottomNavigationView bottomNavigationView) {
 
         //perform item selected listener
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

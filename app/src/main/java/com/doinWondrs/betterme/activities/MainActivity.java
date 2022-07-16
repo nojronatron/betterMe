@@ -23,20 +23,29 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        navGoTo();
+
+    }
+
+
+
+
+
+
+    //Bottom Navbar: NOTE: to link new activity just create a new switch cases and use new intents
+    //EXCEPT if you are at workoutpagefirst.java then you dont need to do anything just break out of switch case.
+    public void navGoTo()
+    {
+        //notes: https://www.geeksforgeeks.org/how-to-implement-bottom-navigation-with-activities-in-android/
+        //TODO: bottomnavbar is deprecated: https://developer.android.com/reference/com/google/android/material/bottomnavigation/BottomNavigationView.OnNavigationItemSelectedListener
+
+
+
         //initialize, instantiate
         NavigationBarView navigationBarView;//new way to do nav's but more research needed
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         //set home selected: home
         bottomNavigationView.setSelectedItemId(R.id.home_nav);
-
-        navGoTo(bottomNavigationView);
-
-    }
-
-    public void navGoTo(BottomNavigationView bottomNavigationView)
-    {
-        //notes: https://www.geeksforgeeks.org/how-to-implement-bottom-navigation-with-activities-in-android/
-        //TODO: bottomnavbar is deprecated: https://developer.android.com/reference/com/google/android/material/bottomnavigation/BottomNavigationView.OnNavigationItemSelectedListener
 
 
         //perform item selected listener
@@ -60,29 +69,5 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });//end lambda: bottomNavview
-
-        //this is how to do with new way but didn't finish it
-        /*
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item)
-
-        /*
-        navigationBarView.setOnItemSelectedListener
-        (item ->{
-            switch (item.getItemId()){
-                case R.id.home_nav:
-                    gotoHelper.gotoHome(new MainActivity());
-                    break;
-                case R.id.workouts_nav:
-                    gotoHelper.gotoWorkouts(new WorkoutpageMainActivity());
-                    break;
-            }
-            return true;
-        });
-
-        return;
-    }
-    */
-
     }//end method: navGoTo
 }//end class
