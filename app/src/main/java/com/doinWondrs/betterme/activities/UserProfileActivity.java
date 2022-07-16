@@ -40,7 +40,7 @@ public class UserProfileActivity extends AppCompatActivity {
 
 //    TODO:Adjust to Better me
     private void setUpAddImageButton(){
-        Button addImageButton = findViewById(R.id.taskDetailAddImageB);
+        Button addImageButton = null;//findViewById(R.id.taskDetailAddImageB);
         addImageButton.setOnClickListener(v -> {
             launchImageSelectionIntent();
         });
@@ -48,13 +48,13 @@ public class UserProfileActivity extends AppCompatActivity {
 
 //    TODO:Adjust to Better me
     private void getS3ImageKey(){
-        s3ImageKey = taskToEdit.getTaskImageKey();
+        s3ImageKey = null;//taskToEdit.getTaskImageKey();
         if (s3ImageKey != null && !s3ImageKey.isEmpty()){
             Amplify.Storage.downloadFile(
                     s3ImageKey,
                     new File(getApplication().getFilesDir(), s3ImageKey),
                     success -> {
-                        ImageView productImageView = findViewById(R.id.taskDetailImageV);
+                        ImageView productImageView =null;// findViewById(R.id.taskDetailImageV);
                         productImageView.setImageBitmap(BitmapFactory.decodeFile(success.getFile().getPath()));
                     },
                     failure -> Log.e(TAG, "Unable to get image from S3 for the task with s3 key: " + s3ImageKey + "with error: " + failure.getMessage(), failure)
@@ -97,7 +97,7 @@ public class UserProfileActivity extends AppCompatActivity {
                 success -> {
                     Log.i(TAG, "Succeeded in uploading file to s3: " + success.getKey());
                     s3ImageKey = success.getKey();
-                    ImageView taskImageView = findViewById(R.id.taskDetailImageV);
+                    ImageView taskImageView = null;//findViewById(R.id.taskDetailImageV);
                     InputStream pickedImageInputStreamCopy = null;
                     try{
                         pickedImageInputStreamCopy = getContentResolver().openInputStream(pickedImageUri);
