@@ -28,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    //TODO: Use current auth user to Pull "nickname/username" and save User to use
+
+
 
 
 
@@ -71,3 +74,4 @@ public class MainActivity extends AppCompatActivity {
         });//end lambda: bottomNavview
     }//end method: navGoTo
 }//end class
+
