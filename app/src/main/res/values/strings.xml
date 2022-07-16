@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">BetterMe</string>
+    <string name="titleTypeOfWorkouts">Type Of Workouts?</string>
+    <string name="buttonNext">Next</string>
+    <string name="bettermesecondimage">BetterMeSecondImage</string>
+    <string name="weightLiftButtonWithGif">WeightLiftButton</string>
 </resources>

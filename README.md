@@ -4,6 +4,15 @@
 
 ## Requirements
 
+## Instructions:
+### SETUP
+ - We are using IntelliJ IDE for our project
+ - Build the project after you pull. 
+ - Make sure you have correct gradle version 7.3,
+ - android gradle plugin version 4.1.2, 
+ - and finally file>settings>Build,Execution, 
+ - Deployment>BuildTools>gradle> GradleJDK: 17
+ - Build you gradle and run program.
 See [REQUIREMENTS.md](./REQUIREMENTS.md)
 
 ## The Team

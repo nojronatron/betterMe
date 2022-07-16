@@ -15,8 +15,13 @@
         android:theme="@style/Theme.BetterMe"
         tools:targetApi="31">
         <activity
+
             android:name=".RecordWorkout"
             android:exported="false" />
+        <activity
+            android:name=".activities.WorkoutPageFirst"
+            android:exported="false" />
+
         <activity
             android:name=".activities.UserProfileActivity"
             android:exported="false" />

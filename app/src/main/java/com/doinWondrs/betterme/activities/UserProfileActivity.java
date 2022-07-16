@@ -48,6 +48,7 @@ public class UserProfileActivity extends AppCompatActivity {
 
     // Makes the Profile Image clickable to upload profile pic
     private void setUpAddImageButton(){
+
         ImageView addImageButton = findViewById(R.id.userProfileImg);
         addImageButton.setOnClickListener(v -> {
             launchImageSelectionIntent();
@@ -63,8 +64,10 @@ public class UserProfileActivity extends AppCompatActivity {
                     s3ImageKey,
                     new File(getApplication().getFilesDir(), s3ImageKey),
                     success -> {
+
                         ImageView profileImage = findViewById(R.id.userProfileImg);
                         profileImage.setImageBitmap(BitmapFactory.decodeFile(success.getFile().getPath()));
+
                     },
                     failure -> Log.e(TAG, "Unable to get image from S3 for the task with s3 key: " + s3ImageKey + "with error: " + failure.getMessage(), failure)
             );
@@ -106,7 +109,9 @@ public class UserProfileActivity extends AppCompatActivity {
                 success -> {
                     Log.i(TAG, "Succeeded in uploading file to s3: " + success.getKey());
                     s3ImageKey = success.getKey();
+
                     ImageView profileImg = findViewById(R.id.userProfileImg);
+
                     InputStream pickedImageInputStreamCopy = null;
                     try{
                         pickedImageInputStreamCopy = getContentResolver().openInputStream(pickedImageUri);
