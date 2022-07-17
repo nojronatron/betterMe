@@ -6,11 +6,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.doinWondrs.betterme.R;
+import com.doinWondrs.betterme.helpers.*;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class WorkoutPageSecond extends AppCompatActivity {
+    public static String typeWorkoutString;
+    public TypesOfWorkouts workoutsHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,8 +23,31 @@ public class WorkoutPageSecond extends AppCompatActivity {
 
 
         //declarations
-        navGoTo();
+        navGoTo();//creates bottomnavbar
+        typesOfWorkouts();//sets workout types
     }//END: OnCreate
+
+
+    //pull all the extra's
+
+    public void typesOfWorkouts()
+    {
+        //get intents extra's here
+        Intent intent = getIntent();
+        typeWorkoutString = intent.getStringExtra(typeWorkoutString);
+        //set title
+        TextView workoutTitle = findViewById(R.id.textViewTest);
+        workoutTitle.setText(typeWorkoutString);
+
+        //set workouts to object for later
+        workoutsHelper = new TypesOfWorkouts(typeWorkoutString);
+
+        //use workout helper to get reps, sets, strings
+
+        //pass onto xml to view new stuff by using .set...
+
+
+    }//END: typesWOrkouts
 
     public void navGoTo() {
         //initialize, instantiate
