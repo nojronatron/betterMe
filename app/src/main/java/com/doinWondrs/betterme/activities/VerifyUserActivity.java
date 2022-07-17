@@ -20,6 +20,7 @@ public class VerifyUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verify_user);
 
+        verifyBtn();
     }
 
     // RR: On Successful Verification closes Activity to return to Login Page
@@ -39,7 +40,6 @@ public class VerifyUserActivity extends AppCompatActivity {
                     verification,
                     success -> {
                         Log.i(TAG, "Verify successful " + success);
-                        finish();
                     },
                     fail -> {
                         Log.e(TAG, "Failed Verify :" + fail);
@@ -50,6 +50,8 @@ public class VerifyUserActivity extends AppCompatActivity {
                         });
 
                     });
+            Toast.makeText(VerifyUserActivity.this, "Verification Success!", Toast.LENGTH_SHORT).show();
+            finish();
         });
     }
 }
