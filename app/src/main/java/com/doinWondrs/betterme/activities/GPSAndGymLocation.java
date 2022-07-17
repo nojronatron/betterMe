@@ -2,26 +2,25 @@ package com.doinWondrs.betterme.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import com.doinWondrs.betterme.R;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-public class RecordWorkout extends AppCompatActivity {
+import com.doinWondrs.betterme.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
+
+public class GPSAndGymLocation extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_record_workout);
+        setContentView(R.layout.activity_gpsand_gym_location);
 
+        //declaration
         navGoTo();
-    }//END: onCreate
-
-    //TODO: Create page to allow User to add workout and body Information
-    //TODO: Takes information and saves as DailyInfo connected to current User
+    }//END: OnCreate
 
     public void navGoTo()
     {
@@ -44,11 +43,11 @@ public class RecordWorkout extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         break;
                     case R.id.calendar_nav:
-                        //we are here right now
+                        startActivity(new Intent(getApplicationContext(), RecordWorkout.class));
+                        overridePendingTransition(0,0);
                         break;
                     case R.id.gps_nav:
-                        startActivity(new Intent(getApplicationContext(), GPSAndGymLocation.class));
-                        overridePendingTransition(0,0);
+                        //we are here right now
                         break;
                     case R.id.workouts_nav:
                         startActivity(new Intent(getApplicationContext(), WorkoutPageFirst.class));
@@ -65,6 +64,5 @@ public class RecordWorkout extends AppCompatActivity {
             }
         });//end lambda: bottomNavview
     }//end method: navGoTo
-
 
 }//END: class

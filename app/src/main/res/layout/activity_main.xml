@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
 
+
+    <!--NAVBAR STUFF-->
     <FrameLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -24,4 +26,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav_menu"/>
+    <!--NAVBAR STUFF-->
 </androidx.constraintlayout.widget.ConstraintLayout>
