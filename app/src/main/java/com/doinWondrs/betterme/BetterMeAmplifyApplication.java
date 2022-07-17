@@ -22,8 +22,7 @@ public class BetterMeAmplifyApplication extends Application {
             Amplify.addPlugin(new AWSApiPlugin());
             Amplify.configure(getApplicationContext());
         } catch (AmplifyException aEx) {
-            Log.e(TAG,"Error with initializing AMplify" + aEx.getMessage());
+            Log.e(TAG,"Error with initializing Amplify" + aEx.getMessage());
         }
     }
-
 }
