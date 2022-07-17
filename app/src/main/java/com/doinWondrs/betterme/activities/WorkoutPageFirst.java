@@ -1,5 +1,6 @@
 package com.doinWondrs.betterme.activities;
 
+import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.doinWondrs.betterme.R;
+import com.doinWondrs.betterme.helpers.GoToNav;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
         import androidx.annotation.NonNull;
@@ -17,13 +19,18 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
         import android.os.Bundle;
         import android.view.MenuItem;
         import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
-        import com.doinWondrs.betterme.R;
+import com.doinWondrs.betterme.R;
         import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
         import com.google.android.material.bottomnavigation.BottomNavigationView;
         import com.google.android.material.navigation.NavigationBarView;
 
 public class WorkoutPageFirst extends AppCompatActivity {
+    //Field Declarations
+    GoToNav helper = new GoToNav();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,10 +40,24 @@ public class WorkoutPageFirst extends AppCompatActivity {
 
         //function declarations:
 
+        setUpAddImageButton();//clickable imagebuttons
         navGoTo();//Our Bottom Navigation
     }//end of on create
 
 
+
+    // Makes the ImageViewbutton clickable to upload profile pic
+    private void setUpAddImageButton(){
+        ImageButton hiitButton = this.findViewById(R.id.buttonHiit);
+
+        //set event listener
+        hiitButton.setOnClickListener(view -> {
+            Intent hiitWorkoutFocus = new Intent(this, WorkoutPageSecond.class);
+            //helper.gotoWorkouts(hiitWorkoutFocus);
+            startActivity(hiitWorkoutFocus);
+        });
+
+    }
 
 
 
