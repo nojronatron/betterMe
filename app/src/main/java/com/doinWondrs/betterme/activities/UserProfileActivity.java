@@ -25,6 +25,7 @@ import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.User;
 import com.doinWondrs.betterme.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -175,42 +176,50 @@ public class UserProfileActivity extends AppCompatActivity {
         });
     }//END: setupLogout
 
+    // TODO: Setup Intent to go to AboutUs Activity
+    // TODO: Setup update info
 
-    public void navGoTo() {
+    public void navGoTo()
+    {
+        //notes: https://www.geeksforgeeks.org/how-to-implement-bottom-navigation-with-activities-in-android/
+        //TODO: bottomnavbar is deprecated: https://developer.android.com/reference/com/google/android/material/bottomnavigation/BottomNavigationView.OnNavigationItemSelectedListener
+
         //initialize, instantiate
-        //NavigationBarView navigationBarView;//TODO: new way to do nav's but more research needed
+        NavigationBarView navigationBarView;//new way to do nav's but more research needed
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        //set home selected:workout_nav
+        //set home selected: home
         bottomNavigationView.setSelectedItemId(R.id.settings_nav);
-
         //perform item selected listener
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
+                switch (item.getItemId())
+                {
                     case R.id.home_nav:
-                        startActivity
-                                (new Intent(getApplicationContext(), MainActivity.class));
-                        overridePendingTransition(0, 0);
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        overridePendingTransition(0,0);
+                        break;
+                    case R.id.calendar_nav:
+                        startActivity(new Intent(getApplicationContext(), RecordWorkout.class));
+                        overridePendingTransition(0,0);
+                        break;
+                    case R.id.gps_nav:
+                        startActivity(new Intent(getApplicationContext(), GPSAndGymLocation.class));
+                        overridePendingTransition(0,0);
                         break;
                     case R.id.workouts_nav:
-                        startActivity
-                                (new Intent(getApplicationContext(), WorkoutPageFirst.class));
-                        overridePendingTransition(0, 0);
+                        startActivity(new Intent(getApplicationContext(), WorkoutPageFirst.class));
+                        overridePendingTransition(0,0);
                         break;
                     case R.id.settings_nav:
-                        //we are here
+                        //we are here right now
                         break;
-
-                    default:
-                        return false;// this is to cover all other cases if not working properly
+                    default: return false;// this is to cover all other cases if not working properly
                 }
 
                 return true;
-            }//end method: onNavItemSelected
+            }
         });//end lambda: bottomNavview
-    }//end method: navGOTO
+    }//end method: navGoTo
 
-    // TODO: Setup Intent to go to AboutUs Activity
-    // TODO: Setup update info
 }//END: Class

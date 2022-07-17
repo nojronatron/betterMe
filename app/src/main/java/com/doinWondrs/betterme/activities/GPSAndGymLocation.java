@@ -31,7 +31,7 @@ public class GPSAndGymLocation extends AppCompatActivity {
         NavigationBarView navigationBarView;//new way to do nav's but more research needed
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         //set home selected: home
-        bottomNavigationView.setSelectedItemId(R.id.home_nav);
+        bottomNavigationView.setSelectedItemId(R.id.gps_nav);
         //perform item selected listener
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
