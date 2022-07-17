@@ -31,8 +31,8 @@ public class RecordWorkout extends AppCompatActivity {
         //initialize, instantiate
         NavigationBarView navigationBarView;//new way to do nav's but more research needed
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        //set home selected: home
-        bottomNavigationView.setSelectedItemId(R.id.home_nav);
+        //set home selected: calendar
+        bottomNavigationView.setSelectedItemId(R.id.calendar_nav);
         //perform item selected listener
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
