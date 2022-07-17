@@ -4,6 +4,7 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -15,6 +16,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.OpenableColumns;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -22,6 +24,7 @@ import android.widget.Toast;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.User;
 import com.doinWondrs.betterme.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -42,12 +45,14 @@ public class UserProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
 
+        navGoTo();//Bottom NAVBAR
         setUpAddImageButton();
         setUpLogout();
-    }
+    }//END onCreate
 
     // Makes the Profile Image clickable to upload profile pic
     private void setUpAddImageButton(){
+
         ImageView addImageButton = findViewById(R.id.userProfileImg);
         addImageButton.setOnClickListener(v -> {
             launchImageSelectionIntent();
@@ -63,8 +68,10 @@ public class UserProfileActivity extends AppCompatActivity {
                     s3ImageKey,
                     new File(getApplication().getFilesDir(), s3ImageKey),
                     success -> {
+
                         ImageView profileImage = findViewById(R.id.userProfileImg);
                         profileImage.setImageBitmap(BitmapFactory.decodeFile(success.getFile().getPath()));
+
                     },
                     failure -> Log.e(TAG, "Unable to get image from S3 for the task with s3 key: " + s3ImageKey + "with error: " + failure.getMessage(), failure)
             );
@@ -106,7 +113,9 @@ public class UserProfileActivity extends AppCompatActivity {
                 success -> {
                     Log.i(TAG, "Succeeded in uploading file to s3: " + success.getKey());
                     s3ImageKey = success.getKey();
+
                     ImageView profileImg = findViewById(R.id.userProfileImg);
+
                     InputStream pickedImageInputStreamCopy = null;
                     try{
                         pickedImageInputStreamCopy = getContentResolver().openInputStream(pickedImageUri);
@@ -164,8 +173,44 @@ public class UserProfileActivity extends AppCompatActivity {
             goToLoginIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(goToLoginIntent);
         });
-    }
+    }//END: setupLogout
+
+
+    public void navGoTo() {
+        //initialize, instantiate
+        //NavigationBarView navigationBarView;//TODO: new way to do nav's but more research needed
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        //set home selected:workout_nav
+        bottomNavigationView.setSelectedItemId(R.id.settings_nav);
+
+        //perform item selected listener
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.home_nav:
+                        startActivity
+                                (new Intent(getApplicationContext(), MainActivity.class));
+                        overridePendingTransition(0, 0);
+                        break;
+                    case R.id.workouts_nav:
+                        startActivity
+                                (new Intent(getApplicationContext(), WorkoutPageFirst.class));
+                        overridePendingTransition(0, 0);
+                        break;
+                    case R.id.settings_nav:
+                        //we are here
+                        break;
+
+                    default:
+                        return false;// this is to cover all other cases if not working properly
+                }
+
+                return true;
+            }//end method: onNavItemSelected
+        });//end lambda: bottomNavview
+    }//end method: navGOTO
 
     // TODO: Setup Intent to go to AboutUs Activity
     // TODO: Setup update info
-}
+}//END: Class
