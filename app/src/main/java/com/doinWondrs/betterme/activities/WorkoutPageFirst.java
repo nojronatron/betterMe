@@ -53,9 +53,10 @@ public class WorkoutPageFirst extends AppCompatActivity {
         //set event listener
         hiitButton.setOnClickListener(view -> {
             Intent hiitWorkoutFocus = new Intent(this, WorkoutPageSecond.class);
-            //helper.gotoWorkouts(hiitWorkoutFocus);
+            //helper.gotoWorkouts(hiitWorkoutFocus, passed on stuff to second workout page, etc, etc); - or something like that where workoutpagesecond will
             startActivity(hiitWorkoutFocus);
         });
+        //more buttons like this one here
 
     }
 
