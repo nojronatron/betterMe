@@ -48,7 +48,7 @@ public class WorkoutPageFirst extends AppCompatActivity {
 
     // Makes the ImageViewbutton clickable to upload profile pic
     private void setUpAddImageButton(){
-        ImageButton workoutFocusButtonWeightlifting = this.findViewById(R.id.buttonWeightlifting);
+        ImageButton abdominalFocusButtonWeightlifting = this.findViewById(R.id.buttonWeightlifting);
         ImageButton workoutFocusButtonStrength = this.findViewById(R.id.buttonStrength);
         ImageButton workoutFocusButtonHiit = this.findViewById(R.id.buttonHiit);
 
@@ -56,62 +56,62 @@ public class WorkoutPageFirst extends AppCompatActivity {
         ImageButton workoutFocusButtonOlympic = this.findViewById(R.id.buttonOlympic);
         ImageButton workoutFocusButtonCalisthenics = this.findViewById(R.id.buttonCalisthenics);
 
-        //1. Weightlifting Focus
+        //1. Abdominal Focus
         //set event listener
-        workoutFocusButtonWeightlifting.setOnClickListener(view -> {
+        abdominalFocusButtonWeightlifting.setOnClickListener(view -> {
             Intent workoutFocus = new Intent(this, WorkoutPageSecond.class);
             //passing extras for workout - library for this information
-            workoutFocus.putExtra(WorkoutPageSecond.typeWorkoutString, "WeightliftingFocus");
+            workoutFocus.putExtra(WorkoutPageSecond.typeWorkoutString, "Abdominal Focus");
             //call the startActivity
             startActivity(workoutFocus);
         });
 
-        //2. Setup Strength Focus
+        //2. Setup Chest Focus
         //set event listener
         workoutFocusButtonStrength.setOnClickListener(view -> {
             Intent workoutFocus = new Intent(this, WorkoutPageSecond.class);
             //passing extras for workout - library for this information
-            workoutFocus.putExtra(WorkoutPageSecond.typeWorkoutString, "StrengthFocus");
+            workoutFocus.putExtra(WorkoutPageSecond.typeWorkoutString, "Chest Focus");
             //call the startActivity
             startActivity(workoutFocus);
         });
 
-        //3. Setup Hiit Focus
+        //3. Setup Legs Focus
         //set event listener
         workoutFocusButtonHiit.setOnClickListener(view -> {
             Intent workoutFocus = new Intent(this, WorkoutPageSecond.class);
             //passing extras for workout - library for this information
-            workoutFocus.putExtra(WorkoutPageSecond.typeWorkoutString, "Hiit Focus");
+            workoutFocus.putExtra(WorkoutPageSecond.typeWorkoutString, "Legs Focus");
             //call the startActivity
             startActivity(workoutFocus);
         });
 
-        //4. Setup Crossfit Focus
+        //4. Setup Back Focus
         //set event listener
         workoutFocusButtonCrossfit.setOnClickListener(view -> {
             Intent workoutFocus = new Intent(this, WorkoutPageSecond.class);
             //passing extras for workout - library for this information
-            workoutFocus.putExtra(WorkoutPageSecond.typeWorkoutString, "Crossfit Focus");
+            workoutFocus.putExtra(WorkoutPageSecond.typeWorkoutString, "Back Focus");
             //call the startActivity
             startActivity(workoutFocus);
         });
 
-        //5. Setup Olympic Focus
+        //5. Setup Arms Focus
         //set event listener
         workoutFocusButtonOlympic.setOnClickListener(view -> {
             Intent workoutFocus = new Intent(this, WorkoutPageSecond.class);
             //passing extras for workout - library for this information
-            workoutFocus.putExtra(WorkoutPageSecond.typeWorkoutString, "Olympic Focus");
+            workoutFocus.putExtra(WorkoutPageSecond.typeWorkoutString, "Arms Focus");
             //call the startActivity
             startActivity(workoutFocus);
         });
 
-        //6. Setup Calisthenics Focus
+        //6. Setup Shoulders Focus
         //set event listener
         workoutFocusButtonCalisthenics.setOnClickListener(view -> {
             Intent workoutFocus = new Intent(this, WorkoutPageSecond.class);
             //passing extras for workout - library for this information
-            workoutFocus.putExtra(WorkoutPageSecond.typeWorkoutString, "Calisthenics Focus");
+            workoutFocus.putExtra(WorkoutPageSecond.typeWorkoutString, "Shoulders Focus");
             //call the startActivity
             startActivity(workoutFocus);
         });
