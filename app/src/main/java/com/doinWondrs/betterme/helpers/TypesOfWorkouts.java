@@ -16,49 +16,52 @@ public class TypesOfWorkouts {
 
 
 
-    //TODO: refactor for json format to amplify?
-    public void weightliftingWorkouts(){
+
+    public void abdominalWorkouts(){
 
     }
 
-    public void strengthWorkouts(){
+    public void chestWorkouts(){
 
         this.workoutRoutine = new HashMap<>();
-        //set excercise routine up [what this is: lifting , what muscles groups: legs, gif or image of workout]
+        //set exercise routine up [what this is: lifting , what muscles groups: legs, gif or image of workout]
 
-        workoutRoutine.put("firstRoutine",  "Strength training,chest,stuff.gif");
-        workoutRoutine.put("secondRoutine", "");
-        workoutRoutine.put("thirdRoutine",  "");
+        workoutRoutine.put("Bench Press","Barbell Bench press,chest,stuff.gif");
+        workoutRoutine.put("secondRoutine","Machine Inner Chest Press,chest,stuff.gif");
+        workoutRoutine.put("thirdRoutine","Medicine Ball Supine Chest Throw,chest,stuff.gif");
 
     }
-    public void hiitWorkouts(){}
 
-    public void crossfitWorkouts(){}
-    public void calisthenicsWorkouts(){}
-    public void olympicWorkouts(){}
+    public void LegWorkouts(){
+
+    }
+
+    public void armWorkouts(){}
+    public void backWorkouts(){}
+    public void shoulderWorkouts(){}
 
     public void buildWorkout(String wType)//workout type string
     {
         //check string with TypesOfWorkouts class
-        //if the are the same, then populate the WokroutPageSecond.java with workouts
+        //if the are the same, then populate the WorkoutPageSecond.java with workouts
         switch (wType) {
-            case "Weightlifting Focus":
-                weightliftingWorkouts();
+            case "Abdominal Focus":
+                abdominalWorkouts();
                 break;
-            case "Strength Focus":
-                strengthWorkouts();
+            case "Chest Focus":
+                chestWorkouts();
                 break;
-            case "Hiit Focus":
-                hiitWorkouts();
+            case "Legs Focus":
+                LegWorkouts();
                 break;
-            case "Calisthenics Focus":
-                calisthenicsWorkouts();
+            case "Back Focus":
+                backWorkouts();
                 break;
-            case "Crossfit Focus":
-                crossfitWorkouts();
+            case "Arms Focus":
+                armWorkouts();
                 break;
-            case "Olympic Focus":
-                olympicWorkouts();
+            case "Shoulders Focus":
+                shoulderWorkouts();
                 break;
 
         }//END: swtich : types of workouts

@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.TextView;
 
 import com.doinWondrs.betterme.R;
@@ -13,6 +15,7 @@ import com.doinWondrs.betterme.helpers.*;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class WorkoutPageSecond extends AppCompatActivity {
     public static String typeWorkoutString;
@@ -68,9 +71,14 @@ public class WorkoutPageSecond extends AppCompatActivity {
         TextView workoutTitle = findViewById(R.id.textViewTest);
         workoutTitle.setText(typeWorkoutString);
 
+
         //TextView workout1TextView
 //        TextView workoutNameOne = findViewById(R.id.workoutOneName);
 //        workoutTitle.setText(workoutName.get(0));
+
+
+        HashMap<String, Integer> map = new HashMap<>();
+
 
     }//END: typesWorkouts
 
