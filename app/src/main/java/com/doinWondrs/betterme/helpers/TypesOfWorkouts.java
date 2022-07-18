@@ -1,29 +1,12 @@
 package com.doinWondrs.betterme.helpers;
 
-import android.widget.TextView;
 
-import com.doinWondrs.betterme.R;
-
-import org.w3c.dom.Text;
-
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class TypesOfWorkouts {
 
-    public String typeWorkoutString;
-    //1. sets should be more than 3,
-    public ArrayList<Integer> sets;
-    // 2. reps should be more ,
-    public ArrayList<Integer> reps;
-    // 3. jpg/images,
-    public ArrayList<String> image;
-    // 4. mp4/gif,
-    public ArrayList<String> instructionVideo;
-    // 5. Strings
-    public ArrayList<String> excercise;
-
+    public HashMap<String, String> workoutRoutine;
 
     public TypesOfWorkouts(String pWType)
     {
@@ -35,14 +18,18 @@ public class TypesOfWorkouts {
 
     //TODO: refactor for json format to amplify?
     public void weightliftingWorkouts(){
-        this.sets.add(3);
-        this.reps.add(10);
-        this.image.add("anImageTest");
-        this.instructionVideo.add("aVideoTest");
-        this.excercise.add("firstWorkoutTest");
+
     }
 
-    public void strengthWorkouts(){}
+    public void strengthWorkouts(){
+
+        this.workoutRoutine = new HashMap<>();
+        //set excercise routine up [sets, reps/duration, load, rest, jpg/images, mp4/gif]
+        workoutRoutine.put("firstRoutine", "3,12,9999,1 min, test.jpg, test.mp4");
+        workoutRoutine.put("secondRoutine", "3,12,9999,1 min, test.jpg, test.mp4");
+        workoutRoutine.put("thirdRoutine", "3,12,9999,1 min, test.jpg, test.mp4");
+
+    }
     public void hiitWorkouts(){}
 
     public void crossfitWorkouts(){}

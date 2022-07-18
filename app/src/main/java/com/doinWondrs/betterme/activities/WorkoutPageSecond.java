@@ -43,8 +43,12 @@ public class WorkoutPageSecond extends AppCompatActivity {
         workoutsHelper = new TypesOfWorkouts(typeWorkoutString);
 
         //use workout helper to get reps, sets, strings
+        String workout1 = workoutsHelper.workoutRoutine.get("firstExcercise");
+        String workout2 = workoutsHelper.workoutRoutine.get("secondExcercise");
+        String workout3 = workoutsHelper.workoutRoutine.get("thirdExcercise");
 
         //pass onto xml to view new stuff by using .set...
+        //String info : workout1.split(",");
 
 
     }//END: typesWOrkouts
