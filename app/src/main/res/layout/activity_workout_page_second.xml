@@ -83,9 +83,17 @@
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="517dp" />
 
-
-
-
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/workoutGif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="56dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/chestmachineinnerchestpress"
+        android:src="@drawable/chestmachineinnerchestpress" />
+    <!--    <pl.droidsonroids.gif.GifImageButton-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
