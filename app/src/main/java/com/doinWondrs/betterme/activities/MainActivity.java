@@ -40,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
     //EXCEPT if you are at workoutpagefirst.java then you dont need to do anything just break out of switch case.
     public void navGoTo()
     {
-        //notes: https://www.geeksforgeeks.org/how-to-implement-bottom-navigation-with-activities-in-android/
-        //TODO: bottomnavbar is deprecated: https://developer.android.com/reference/com/google/android/material/bottomnavigation/BottomNavigationView.OnNavigationItemSelectedListener
+        //NOTES: https://www.geeksforgeeks.org/how-to-implement-bottom-navigation-with-activities-in-android/
+        //NOTES: bottomnavbar is deprecated: https://developer.android.com/reference/com/google/android/material/bottomnavigation/BottomNavigationView.OnNavigationItemSelectedListener
 
         //initialize, instantiate
         NavigationBarView navigationBarView;//new way to do nav's but more research needed

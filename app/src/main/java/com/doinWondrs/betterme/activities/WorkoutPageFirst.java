@@ -1,5 +1,6 @@
 package com.doinWondrs.betterme.activities;
 
+import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.doinWondrs.betterme.R;
+import com.doinWondrs.betterme.helpers.GoToNav;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
         import androidx.annotation.NonNull;
@@ -17,13 +19,18 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
         import android.os.Bundle;
         import android.view.MenuItem;
         import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
-        import com.doinWondrs.betterme.R;
+import com.doinWondrs.betterme.R;
         import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
         import com.google.android.material.bottomnavigation.BottomNavigationView;
         import com.google.android.material.navigation.NavigationBarView;
 
 public class WorkoutPageFirst extends AppCompatActivity {
+    //Field Declarations
+    GoToNav helper = new GoToNav();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,14 +40,86 @@ public class WorkoutPageFirst extends AppCompatActivity {
 
         //function declarations:
 
+        setUpAddImageButton();//clickable imagebuttons
         navGoTo();//Our Bottom Navigation
     }//end of on create
 
 
 
+    // Makes the ImageViewbutton clickable to upload profile pic
+    private void setUpAddImageButton(){
+        ImageButton workoutFocusButtonWeightlifting = this.findViewById(R.id.buttonWeightlifting);
+        ImageButton workoutFocusButtonStrength = this.findViewById(R.id.buttonStrength);
+        ImageButton workoutFocusButtonHiit = this.findViewById(R.id.buttonHiit);
 
+        ImageButton workoutFocusButtonCrossfit = this.findViewById(R.id.buttonCrossfit);
+        ImageButton workoutFocusButtonOlympic = this.findViewById(R.id.buttonOlympic);
+        ImageButton workoutFocusButtonCalisthenics = this.findViewById(R.id.buttonCalisthenics);
 
+        //1. Weightlifting Focus
+        //set event listener
+        workoutFocusButtonWeightlifting.setOnClickListener(view -> {
+            Intent workoutFocus = new Intent(this, WorkoutPageSecond.class);
+            //passing extras for workout - library for this information
+            workoutFocus.putExtra(WorkoutPageSecond.typeWorkoutString, "WeightliftingFocus");
+            //call the startActivity
+            startActivity(workoutFocus);
+        });
 
+        //2. Setup Strength Focus
+        //set event listener
+        workoutFocusButtonStrength.setOnClickListener(view -> {
+            Intent workoutFocus = new Intent(this, WorkoutPageSecond.class);
+            //passing extras for workout - library for this information
+            workoutFocus.putExtra(WorkoutPageSecond.typeWorkoutString, "StrengthFocus");
+            //call the startActivity
+            startActivity(workoutFocus);
+        });
+
+        //3. Setup Hiit Focus
+        //set event listener
+        workoutFocusButtonHiit.setOnClickListener(view -> {
+            Intent workoutFocus = new Intent(this, WorkoutPageSecond.class);
+            //passing extras for workout - library for this information
+            workoutFocus.putExtra(WorkoutPageSecond.typeWorkoutString, "Hiit Focus");
+            //call the startActivity
+            startActivity(workoutFocus);
+        });
+
+        //4. Setup Crossfit Focus
+        //set event listener
+        workoutFocusButtonCrossfit.setOnClickListener(view -> {
+            Intent workoutFocus = new Intent(this, WorkoutPageSecond.class);
+            //passing extras for workout - library for this information
+            workoutFocus.putExtra(WorkoutPageSecond.typeWorkoutString, "Crossfit Focus");
+            //call the startActivity
+            startActivity(workoutFocus);
+        });
+
+        //5. Setup Olympic Focus
+        //set event listener
+        workoutFocusButtonOlympic.setOnClickListener(view -> {
+            Intent workoutFocus = new Intent(this, WorkoutPageSecond.class);
+            //passing extras for workout - library for this information
+            workoutFocus.putExtra(WorkoutPageSecond.typeWorkoutString, "Olympic Focus");
+            //call the startActivity
+            startActivity(workoutFocus);
+        });
+
+        //6. Setup Calisthenics Focus
+        //set event listener
+        workoutFocusButtonCalisthenics.setOnClickListener(view -> {
+            Intent workoutFocus = new Intent(this, WorkoutPageSecond.class);
+            //passing extras for workout - library for this information
+            workoutFocus.putExtra(WorkoutPageSecond.typeWorkoutString, "Calisthenics Focus");
+            //call the startActivity
+            startActivity(workoutFocus);
+        });
+
+    }//END: setupImagButton
+
+//ON RESUME: next button should go back to second workout page with previous workouts
+//TODO:  Implement OnResume() for the next button
 
 
 
@@ -55,8 +134,8 @@ public class WorkoutPageFirst extends AppCompatActivity {
 
     public void navGoTo()
     {
-        //notes: https://www.geeksforgeeks.org/how-to-implement-bottom-navigation-with-activities-in-android/
-        //TODO: bottomnavbar is deprecated: https://developer.android.com/reference/com/google/android/material/bottomnavigation/BottomNavigationView.OnNavigationItemSelectedListener
+        //NOTES: https://www.geeksforgeeks.org/how-to-implement-bottom-navigation-with-activities-in-android/
+        //NOTES: bottomnavbar is deprecated: https://developer.android.com/reference/com/google/android/material/bottomnavigation/BottomNavigationView.OnNavigationItemSelectedListener
 
         //initialize, instantiate
         NavigationBarView navigationBarView;//new way to do nav's but more research needed
