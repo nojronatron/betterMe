@@ -25,9 +25,9 @@ public class TypesOfWorkouts {
 
         this.workoutRoutine = new HashMap<>();
         //set excercise routine up [sets, reps/duration, load, rest, jpg/images, mp4/gif]
-        workoutRoutine.put("firstRoutine", "3,12,9999,1 min, test.jpg, test.mp4");
-        workoutRoutine.put("secondRoutine", "3,12,9999,1 min, test.jpg, test.mp4");
-        workoutRoutine.put("thirdRoutine", "3,12,9999,1 min, test.jpg, test.mp4");
+        workoutRoutine.put("firstRoutine",  "3,12,9999,1 min,test.jpg, test.mp4/or gif");
+        workoutRoutine.put("secondRoutine", "3,12,9999,1 min,test.jpg,test.mp4");
+        workoutRoutine.put("thirdRoutine",  "3,12,9999,1 min,test.jpg,test.mp4");
 
     }
     public void hiitWorkouts(){}

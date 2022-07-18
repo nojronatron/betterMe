@@ -12,9 +12,13 @@ import com.doinWondrs.betterme.R;
 import com.doinWondrs.betterme.helpers.*;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.ArrayList;
+
 public class WorkoutPageSecond extends AppCompatActivity {
     public static String typeWorkoutString;
     public TypesOfWorkouts workoutsHelper;
+    public ArrayList<String> workoutName;
+    private ArrayList<String> infoWorkouts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,13 +47,20 @@ public class WorkoutPageSecond extends AppCompatActivity {
         workoutsHelper = new TypesOfWorkouts(typeWorkoutString);
 
         //use workout helper to get reps, sets, strings
+        workoutName = new ArrayList<>();
+        for(String key : workoutsHelper.workoutRoutine.keySet())
+            workoutName.add(key);
         String workout1 = workoutsHelper.workoutRoutine.get("firstExcercise");
         String workout2 = workoutsHelper.workoutRoutine.get("secondExcercise");
         String workout3 = workoutsHelper.workoutRoutine.get("thirdExcercise");
 
         //pass onto xml to view new stuff by using .set...
-        //String info : workout1.split(",");
-
+        infoWorkouts = new ArrayList<>();
+        for(String workoutInfoTemp : workout1.split(","))
+            infoWorkouts.add(workoutInfoTemp);
+        //TextView workout1TextView_
+        TextView workoutNameOne = findViewById(R.id.workoutOne);
+        workoutTitle.setText(workoutName.get(0));
 
     }//END: typesWOrkouts
 
