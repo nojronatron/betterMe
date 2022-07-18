@@ -59,10 +59,10 @@ public class WorkoutPageSecond extends AppCompatActivity {
         for(String workoutInfoTemp : workout1.split(","))
             infoWorkouts.add(workoutInfoTemp);
         //TextView workout1TextView_
-        TextView workoutNameOne = findViewById(R.id.workoutOne);
+        TextView workoutNameOne = findViewById(R.id.workoutOneName);
         workoutTitle.setText(workoutName.get(0));
 
-    }//END: typesWOrkouts
+    }//END: typesWorkouts
 
     public void navGoTo() {
         //initialize, instantiate
