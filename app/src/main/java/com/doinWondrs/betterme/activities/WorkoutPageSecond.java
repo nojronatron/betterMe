@@ -44,6 +44,7 @@ public class WorkoutPageSecond extends AppCompatActivity {
         //set workouts to object for later
         workoutsHelper = new TypesOfWorkouts(typeWorkoutString);
 
+        /*
         //use workout helper to get reps, sets, strings
         workoutName = new ArrayList<>();
         for(String key : workoutsHelper.workoutRoutine.keySet())
@@ -62,6 +63,7 @@ public class WorkoutPageSecond extends AppCompatActivity {
                 infoWorkouts.add(workoutInfoTemp);//has split data such as sets, reps, jpg, etc
             }
         }
+        */
         //set title
         TextView workoutTitle = findViewById(R.id.textViewTest);
         workoutTitle.setText(typeWorkoutString);

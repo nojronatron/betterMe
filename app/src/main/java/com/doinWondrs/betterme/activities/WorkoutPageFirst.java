@@ -61,7 +61,7 @@ public class WorkoutPageFirst extends AppCompatActivity {
         workoutFocusButtonWeightlifting.setOnClickListener(view -> {
             Intent workoutFocus = new Intent(this, WorkoutPageSecond.class);
             //passing extras for workout - library for this information
-            workoutFocus.putExtra(WorkoutPageSecond.typeWorkoutString, "WeightliftingFocus");
+            workoutFocus.putExtra(WorkoutPageSecond.typeWorkoutString, "Weightlifting Focus");
             //call the startActivity
             startActivity(workoutFocus);
         });
@@ -71,7 +71,7 @@ public class WorkoutPageFirst extends AppCompatActivity {
         workoutFocusButtonStrength.setOnClickListener(view -> {
             Intent workoutFocus = new Intent(this, WorkoutPageSecond.class);
             //passing extras for workout - library for this information
-            workoutFocus.putExtra(WorkoutPageSecond.typeWorkoutString, "StrengthFocus");
+            workoutFocus.putExtra(WorkoutPageSecond.typeWorkoutString, "Strength Focus");
             //call the startActivity
             startActivity(workoutFocus);
         });
