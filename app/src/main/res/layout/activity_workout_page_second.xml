@@ -47,31 +47,39 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        tools:layout_editor_absoluteX="213dp"
-        tools:layout_editor_absoluteY="411dp" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="469dp" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        tools:layout_editor_absoluteX="102dp"
-        tools:layout_editor_absoluteY="473dp" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="607dp" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        tools:layout_editor_absoluteX="213dp"
-        tools:layout_editor_absoluteY="473dp" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="561dp" />
 
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        tools:layout_editor_absoluteX="102dp"
-        tools:layout_editor_absoluteY="403dp" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="432dp" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="517dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
