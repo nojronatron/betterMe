@@ -18,22 +18,16 @@ mutation CreateDailyInfo(
       activityLevel
       DailyInfos {
         nextToken
-        startedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
     bmi
     currentCalorie
     day
+    dateCreated
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
   }
 }
 mutation UpdateDailyInfo(
@@ -55,22 +49,16 @@ mutation UpdateDailyInfo(
       activityLevel
       DailyInfos {
         nextToken
-        startedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
     bmi
     currentCalorie
     day
+    dateCreated
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
   }
 }
 mutation DeleteDailyInfo(
@@ -92,22 +80,16 @@ mutation DeleteDailyInfo(
       activityLevel
       DailyInfos {
         nextToken
-        startedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
     bmi
     currentCalorie
     day
+    dateCreated
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
   }
 }
 mutation CreateUser(
@@ -131,20 +113,14 @@ mutation CreateUser(
         bmi
         currentCalorie
         day
+        dateCreated
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       nextToken
-      startedAt
     }
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
   }
 }
 mutation UpdateUser(
@@ -168,20 +144,14 @@ mutation UpdateUser(
         bmi
         currentCalorie
         day
+        dateCreated
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       nextToken
-      startedAt
     }
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
   }
 }
 mutation DeleteUser(
@@ -205,19 +175,13 @@ mutation DeleteUser(
         bmi
         currentCalorie
         day
+        dateCreated
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       nextToken
-      startedAt
     }
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
   }
 }

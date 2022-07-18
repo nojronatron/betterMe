@@ -34,6 +34,7 @@ public final class DailyInfo implements Model {
   public static final QueryField BMI = field("DailyInfo", "bmi");
   public static final QueryField CURRENT_CALORIE = field("DailyInfo", "currentCalorie");
   public static final QueryField DAY = field("DailyInfo", "day");
+  public static final QueryField DATE_CREATED = field("DailyInfo", "dateCreated");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="Int") Integer weight;
   private final @ModelField(targetType="ID", isRequired = true) String userID;
@@ -41,6 +42,7 @@ public final class DailyInfo implements Model {
   private final @ModelField(targetType="Int") Integer bmi;
   private final @ModelField(targetType="Int") Integer currentCalorie;
   private final @ModelField(targetType="Int") Integer day;
+  private final @ModelField(targetType="AWSDateTime") Temporal.DateTime dateCreated;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   public String getId() {
@@ -71,6 +73,10 @@ public final class DailyInfo implements Model {
       return day;
   }
   
+  public Temporal.DateTime getDateCreated() {
+      return dateCreated;
+  }
+  
   public Temporal.DateTime getCreatedAt() {
       return createdAt;
   }
@@ -79,7 +85,7 @@ public final class DailyInfo implements Model {
       return updatedAt;
   }
   
-  private DailyInfo(String id, Integer weight, String userID, User User, Integer bmi, Integer currentCalorie, Integer day) {
+  private DailyInfo(String id, Integer weight, String userID, User User, Integer bmi, Integer currentCalorie, Integer day, Temporal.DateTime dateCreated) {
     this.id = id;
     this.weight = weight;
     this.userID = userID;
@@ -87,6 +93,7 @@ public final class DailyInfo implements Model {
     this.bmi = bmi;
     this.currentCalorie = currentCalorie;
     this.day = day;
+    this.dateCreated = dateCreated;
   }
   
   @Override
@@ -104,6 +111,7 @@ public final class DailyInfo implements Model {
               ObjectsCompat.equals(getBmi(), dailyInfo.getBmi()) &&
               ObjectsCompat.equals(getCurrentCalorie(), dailyInfo.getCurrentCalorie()) &&
               ObjectsCompat.equals(getDay(), dailyInfo.getDay()) &&
+              ObjectsCompat.equals(getDateCreated(), dailyInfo.getDateCreated()) &&
               ObjectsCompat.equals(getCreatedAt(), dailyInfo.getCreatedAt()) &&
               ObjectsCompat.equals(getUpdatedAt(), dailyInfo.getUpdatedAt());
       }
@@ -119,6 +127,7 @@ public final class DailyInfo implements Model {
       .append(getBmi())
       .append(getCurrentCalorie())
       .append(getDay())
+      .append(getDateCreated())
       .append(getCreatedAt())
       .append(getUpdatedAt())
       .toString()
@@ -136,6 +145,7 @@ public final class DailyInfo implements Model {
       .append("bmi=" + String.valueOf(getBmi()) + ", ")
       .append("currentCalorie=" + String.valueOf(getCurrentCalorie()) + ", ")
       .append("day=" + String.valueOf(getDay()) + ", ")
+      .append("dateCreated=" + String.valueOf(getDateCreated()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
       .append("}")
@@ -162,6 +172,7 @@ public final class DailyInfo implements Model {
       null,
       null,
       null,
+      null,
       null
     );
   }
@@ -173,7 +184,8 @@ public final class DailyInfo implements Model {
       User,
       bmi,
       currentCalorie,
-      day);
+      day,
+      dateCreated);
   }
   public interface UserIdStep {
     BuildStep userId(String userId);
@@ -188,6 +200,7 @@ public final class DailyInfo implements Model {
     BuildStep bmi(Integer bmi);
     BuildStep currentCalorie(Integer currentCalorie);
     BuildStep day(Integer day);
+    BuildStep dateCreated(Temporal.DateTime dateCreated);
   }
   
 
@@ -199,6 +212,7 @@ public final class DailyInfo implements Model {
     private Integer bmi;
     private Integer currentCalorie;
     private Integer day;
+    private Temporal.DateTime dateCreated;
     @Override
      public DailyInfo build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
@@ -210,7 +224,8 @@ public final class DailyInfo implements Model {
           User,
           bmi,
           currentCalorie,
-          day);
+          day,
+          dateCreated);
     }
     
     @Override
@@ -250,6 +265,12 @@ public final class DailyInfo implements Model {
         return this;
     }
     
+    @Override
+     public BuildStep dateCreated(Temporal.DateTime dateCreated) {
+        this.dateCreated = dateCreated;
+        return this;
+    }
+    
     /** 
      * @param id id
      * @return Current Builder instance, for fluent method chaining
@@ -262,14 +283,15 @@ public final class DailyInfo implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, Integer weight, String userId, User user, Integer bmi, Integer currentCalorie, Integer day) {
+    private CopyOfBuilder(String id, Integer weight, String userId, User user, Integer bmi, Integer currentCalorie, Integer day, Temporal.DateTime dateCreated) {
       super.id(id);
       super.userId(userId)
         .weight(weight)
         .user(user)
         .bmi(bmi)
         .currentCalorie(currentCalorie)
-        .day(day);
+        .day(day)
+        .dateCreated(dateCreated);
     }
     
     @Override
@@ -300,6 +322,11 @@ public final class DailyInfo implements Model {
     @Override
      public CopyOfBuilder day(Integer day) {
       return (CopyOfBuilder) super.day(day);
+    }
+    
+    @Override
+     public CopyOfBuilder dateCreated(Temporal.DateTime dateCreated) {
+      return (CopyOfBuilder) super.dateCreated(dateCreated);
     }
   }
   

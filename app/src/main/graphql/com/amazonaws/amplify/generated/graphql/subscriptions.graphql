@@ -15,22 +15,16 @@ subscription OnCreateDailyInfo {
       activityLevel
       DailyInfos {
         nextToken
-        startedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
     bmi
     currentCalorie
     day
+    dateCreated
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
   }
 }
 subscription OnUpdateDailyInfo {
@@ -49,22 +43,16 @@ subscription OnUpdateDailyInfo {
       activityLevel
       DailyInfos {
         nextToken
-        startedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
     bmi
     currentCalorie
     day
+    dateCreated
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
   }
 }
 subscription OnDeleteDailyInfo {
@@ -83,22 +71,16 @@ subscription OnDeleteDailyInfo {
       activityLevel
       DailyInfos {
         nextToken
-        startedAt
       }
       createdAt
       updatedAt
-      _version
-      _deleted
-      _lastChangedAt
     }
     bmi
     currentCalorie
     day
+    dateCreated
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
   }
 }
 subscription OnCreateUser {
@@ -119,20 +101,14 @@ subscription OnCreateUser {
         bmi
         currentCalorie
         day
+        dateCreated
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       nextToken
-      startedAt
     }
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
   }
 }
 subscription OnUpdateUser {
@@ -153,20 +129,14 @@ subscription OnUpdateUser {
         bmi
         currentCalorie
         day
+        dateCreated
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       nextToken
-      startedAt
     }
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
   }
 }
 subscription OnDeleteUser {
@@ -187,19 +157,13 @@ subscription OnDeleteUser {
         bmi
         currentCalorie
         day
+        dateCreated
         createdAt
         updatedAt
-        _version
-        _deleted
-        _lastChangedAt
       }
       nextToken
-      startedAt
     }
     createdAt
     updatedAt
-    _version
-    _deleted
-    _lastChangedAt
   }
 }
