@@ -7,7 +7,9 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.WorkoutPageSecond">
+    tools:context=".activities.WorkoutPageSecond"
+    tools:layout_editor_absoluteX="-3dp"
+    tools:layout_editor_absoluteY="-40dp">
 
 
     <!--NAVBAR STUFF-->
@@ -41,25 +43,48 @@
         app:layout_constraintVertical_bias="0.061" />
 
 
-    <!-- TESTING API -->
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="469dp" />
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="abhiandroid.com.volleycustomrequestqueueexample.MainActivity">
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="607dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="561dp" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="432dp" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="517dp" />
 
 
-        <Button
-            android:id="@+id/btnRequest"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#414af4"
-            android:text="Click Here To Send HTTP Request To Server And See Response Displayed As Toast"
-            android:textColor="#ffffff"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="50dp" />
-    </RelativeLayout>
+
 
 
 

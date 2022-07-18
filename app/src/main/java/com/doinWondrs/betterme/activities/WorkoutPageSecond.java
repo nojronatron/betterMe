@@ -12,9 +12,14 @@ import com.doinWondrs.betterme.R;
 import com.doinWondrs.betterme.helpers.*;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.ArrayList;
+
 public class WorkoutPageSecond extends AppCompatActivity {
     public static String typeWorkoutString;
     public TypesOfWorkouts workoutsHelper;
+    public ArrayList<String> workoutName;
+    private ArrayList<String> infoWorkouts;
+    private ArrayList<String> workoutInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,23 +40,39 @@ public class WorkoutPageSecond extends AppCompatActivity {
         //get intents extra's here
         Intent intent = getIntent();
         typeWorkoutString = intent.getStringExtra(typeWorkoutString);
-        //set title
-        TextView workoutTitle = findViewById(R.id.textViewTest);
-        workoutTitle.setText(typeWorkoutString);
 
         //set workouts to object for later
         workoutsHelper = new TypesOfWorkouts(typeWorkoutString);
 
+        /*
         //use workout helper to get reps, sets, strings
-        String workout1 = workoutsHelper.workoutRoutine.get("firstExcercise");
-        String workout2 = workoutsHelper.workoutRoutine.get("secondExcercise");
-        String workout3 = workoutsHelper.workoutRoutine.get("thirdExcercise");
+        workoutName = new ArrayList<>();
+        for(String key : workoutsHelper.workoutRoutine.keySet())
+        {
+            workoutName.add(key);
+            workoutInfo.add(workoutsHelper.workoutRoutine.get(key));
+
+        }
 
         //pass onto xml to view new stuff by using .set...
-        //String info : workout1.split(",");
+        infoWorkouts = new ArrayList<>();
+        for(int i = 0 ; i < infoWorkouts.size(); ++i)
+        {
+            for(String workoutInfoTemp : workoutInfo.get(i).split(","))
+            {
+                infoWorkouts.add(workoutInfoTemp);//has split data such as sets, reps, jpg, etc
+            }
+        }
+        */
+        //set title
+        TextView workoutTitle = findViewById(R.id.textViewTest);
+        workoutTitle.setText(typeWorkoutString);
 
+        //TextView workout1TextView
+//        TextView workoutNameOne = findViewById(R.id.workoutOneName);
+//        workoutTitle.setText(workoutName.get(0));
 
-    }//END: typesWOrkouts
+    }//END: typesWorkouts
 
     public void navGoTo() {
         //initialize, instantiate
