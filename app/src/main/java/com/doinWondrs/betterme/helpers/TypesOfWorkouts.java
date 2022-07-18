@@ -26,7 +26,7 @@ public class TypesOfWorkouts {
         this.workoutRoutine = new HashMap<>();
         //set excercise routine up [what this is: lifting , what muscles groups: legs, gif or image of workout]
 
-        workoutRoutine.put("firstRoutine",  "");
+        workoutRoutine.put("firstRoutine",  "Strength training,chest,stuff.gif");
         workoutRoutine.put("secondRoutine", "");
         workoutRoutine.put("thirdRoutine",  "");
 
