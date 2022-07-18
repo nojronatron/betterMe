@@ -8,6 +8,7 @@
     tools:context=".activities.WorkoutPageFirst">
 
 
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -122,4 +123,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav_menu"/>
+
+
+    <!-- TESTING API START -->
+<!--    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--        xmlns:tools="http://schemas.android.com/tools"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        tools:context="abhiandroid.com.volleycustomrequestqueueexample.MainActivity">-->
+
+
+<!--        <Button-->
+<!--            android:id="@+id/btnRequest"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="#414af4"-->
+<!--            android:text="Click Here To Send HTTP Request To Server And See Response Displayed As Toast"-->
+<!--            android:textColor="#ffffff"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:layout_marginTop="50dp" />-->
+<!--    </RelativeLayout>-->
+    <!-- TESTING API END -->
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
