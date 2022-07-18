@@ -8,11 +8,7 @@
       "apiKeyExpirationDate": "2023-07-15T21:53:53.889Z",
       "keyDescription": "betterMe"
     },
-    "conflictResolution": {
-      "defaultResolutionStrategy": {
-        "type": "AUTOMERGE"
-      }
-    },
+    "conflictResolution": {},
     "apiName": "amplifyDatasource",
     "gqlSchemaPath": "D:\\401-Java\\401\\doinWondrs\\betterMe\\amplify\\backend\\api\\amplifyDatasource\\schema.graphql",
     "additionalAuthTypes": []
