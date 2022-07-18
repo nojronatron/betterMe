@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.doinWondrs.betterme">
 
+<!--    <uses-permission android:name="android.permission.INTERNET" />  &lt;!&ndash;why is this not working????&ndash;&gt;-->
+
     <application
         android:name=".BetterMeAmplifyApplication"
         android:allowBackup="true"
