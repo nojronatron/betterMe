@@ -17,11 +17,21 @@ import android.os.Bundle;
 import android.provider.OpenableColumns;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.amazonaws.mobileconnectors.cognitoauth.Auth;
+import com.amplifyframework.api.graphql.model.ModelMutation;
+import com.amplifyframework.api.graphql.model.ModelQuery;
+import com.amplifyframework.auth.AuthUser;
+import com.amplifyframework.auth.AuthUserAttribute;
 import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.generated.model.ActivityEnum;
 import com.amplifyframework.datastore.generated.model.User;
 import com.doinWondrs.betterme.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -30,12 +40,22 @@ import com.google.android.material.navigation.NavigationBarView;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 public class UserProfileActivity extends AppCompatActivity {
     private static final String TAG = "UserProfileActivity";
     private String s3ImageKey = "";
+    private CompletableFuture<User> userFuture;
     private User userInfo;
+    private String userEmail = null;
+    private String userNickName = null;
+    private TextView usernameView;
+    private EditText profileAgeInput;
+    private EditText profileHeightInput;
+    private EditText profileTargetWeightInput;
     ActivityResultLauncher<Intent> activityResultLauncher;
+    private Spinner activitySpinner = null;
 
 
 
@@ -47,7 +67,13 @@ public class UserProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_profile);
 
         navGoTo();//Bottom NAVBAR
+        getUserAttributes();
+        getUser();
+        getS3ImageKey();
         setUpAddImageButton();
+        setUpSpinner();
+        setUpInfo();
+        setUpUpdateBtn();
         setUpLogout();
     }//END onCreate
 
@@ -60,8 +86,107 @@ public class UserProfileActivity extends AppCompatActivity {
         });
     }
 
+    private void setUpSpinner() {
+        activitySpinner = findViewById(R.id.profileActivityLevelSpinner);
+        activitySpinner.setAdapter(new ArrayAdapter<>(
+                this,
+                androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
+                ActivityEnum.values()
+        ));
+    }
+
+    private void getUserAttributes(){
+        Amplify.Auth.fetchUserAttributes(
+                success -> {
+                    for(AuthUserAttribute attribute : success){
+                        if(attribute.getKey().getKeyString().equals("email")){
+                            userEmail = attribute.getValue();
+                        }
+                        if(attribute.getKey().getKeyString().equals("nickname")){
+                            userNickName = attribute.getValue();
+                        }
+                    }
+                },
+                error -> Log.e(TAG, "failed")
+        );
+    }
+
+    private void getUser(){
+        userFuture = new CompletableFuture<>();
+        Amplify.API.query(
+                ModelQuery.list(User.class),
+                success -> {
+                    Log.i(TAG, "Read Users successfully");
+                    for(User user : success.getData()){
+                        if(user.getUsername().equals(userNickName)){
+                            userFuture.complete(user);
+                        }
+                    }
+                },
+                failure -> Log.i(TAG,"Failed to read Users")
+        );
+        try {
+            userInfo = userFuture.get();
+        } catch (InterruptedException ie) {
+            Log.e(TAG, "InterruptedException while getting product");
+            Thread.currentThread().interrupt();
+        } catch (ExecutionException ee) {
+            Log.e(TAG, "ExecutionException while getting product");
+        }
+    }
+
+    private void setUpInfo(){
+         EditText profileEmailInput = findViewById(R.id.profileEmailInput);
+         usernameView = findViewById(R.id.profileUsernameDisplay);
+         profileAgeInput = findViewById(R.id.profileAgeInput);
+         profileHeightInput = findViewById(R.id.profileHeightInput);
+         profileTargetWeightInput = findViewById(R.id.profileTargetWeightInput);
+
+        profileEmailInput.setText(userEmail);
+        usernameView.setText(userInfo.getUsername());
+        if(userInfo.getAge() != null){
+                profileAgeInput.setText(userInfo.getAge());
+        }else{
+                profileAgeInput.setText("N/A");
+        }
+        if(userInfo.getHeight() != null){
+            profileHeightInput.setText(userInfo.getHeight());
+        }else{
+            profileHeightInput.setText("N/A");
+        }
+        if(userInfo.getTargetWeight() != null){
+            profileTargetWeightInput.setText(userInfo.getTargetWeight());
+        }else{
+            profileTargetWeightInput.setText("N/A");
+        }
+    }
+
+    private void setUpUpdateBtn(){
+        Button updateBtn = findViewById(R.id.updateUserInfoBtn);
+        Spinner profileActSpin = findViewById(R.id.profileActivityLevelSpinner);
+
+        ActivityEnum actlevel = (ActivityEnum) profileActSpin.getSelectedItem();
+        updateBtn.setOnClickListener(v -> {
+            User userToUpdate = User.builder()
+                    .age(Integer.parseInt(profileAgeInput.getText().toString()))
+                    .height(Integer.parseInt(profileHeightInput.getText().toString()))
+                    .targetWeight(Integer.parseInt(profileTargetWeightInput.getText().toString()))
+                    .activityLevel(actlevel)
+                    .profileImgKey(s3ImageKey)
+                    .build();
+
+        Amplify.API.mutate(
+                ModelMutation.update(userToUpdate),
+                successResponse -> Log.i(TAG, "Updated User successfully"),
+                failureResponse -> Log.i(TAG, "Update failed with this response: " + failureResponse)
+        );
+
+        Toast.makeText(UserProfileActivity.this, "User Updated", Toast.LENGTH_SHORT).show();
+        });
+    }
+
+
     // Grabs s3Image key from current user
-    //TODO: pull user from database and save to userInfo to use .getProfileImgKey();
     private void getS3ImageKey(){
         s3ImageKey = userInfo.getProfileImgKey();
         if (s3ImageKey != null && !s3ImageKey.isEmpty()){
