@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.doinWondrs.betterme.R;
@@ -23,6 +24,9 @@ public class WorkoutPageSecond extends AppCompatActivity {
     public ArrayList<String> workoutName;
     private ArrayList<String> infoWorkouts;
     private ArrayList<String> workoutInfo;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +51,11 @@ public class WorkoutPageSecond extends AppCompatActivity {
         //set workouts to object for later
         workoutsHelper = new TypesOfWorkouts(typeWorkoutString);
 
-        /*
+
+
         //use workout helper to get reps, sets, strings
         workoutName = new ArrayList<>();
+        workoutInfo = new ArrayList<>();
         for(String key : workoutsHelper.workoutRoutine.keySet())
         {
             workoutName.add(key);
@@ -59,17 +65,23 @@ public class WorkoutPageSecond extends AppCompatActivity {
 
         //pass onto xml to view new stuff by using .set...
         infoWorkouts = new ArrayList<>();
-        for(int i = 0 ; i < infoWorkouts.size(); ++i)
+        for(int i = 0 ; i < workoutInfo.size(); ++i)
         {
             for(String workoutInfoTemp : workoutInfo.get(i).split(","))
             {
                 infoWorkouts.add(workoutInfoTemp);//has split data such as sets, reps, jpg, etc
             }
         }
-        */
+
         //set title
         TextView workoutTitle = findViewById(R.id.textViewTest);
         workoutTitle.setText(typeWorkoutString);
+
+        //set imageView
+        ImageView chestTest = (ImageView) findViewById(R.id.workoutGif);
+//        int hello = R.drawable.bench;
+//        chestTest.setImageResource(hello);
+
 
 
         //TextView workout1TextView
@@ -77,7 +89,7 @@ public class WorkoutPageSecond extends AppCompatActivity {
 //        workoutTitle.setText(workoutName.get(0));
 
 
-        HashMap<String, Integer> map = new HashMap<>();
+
 
 
     }//END: typesWorkouts

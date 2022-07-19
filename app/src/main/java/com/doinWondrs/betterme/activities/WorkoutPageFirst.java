@@ -11,6 +11,7 @@ import com.doinWondrs.betterme.R;
 import com.doinWondrs.betterme.helpers.GoToNav;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import android.view.View;
 import android.widget.ImageButton;
 
 import com.google.android.material.navigation.NavigationBarView;
@@ -108,14 +109,6 @@ public class WorkoutPageFirst extends AppCompatActivity {
 
 //ON RESUME: next button should go back to second workout page with previous workouts
 //TODO:  Implement OnResume() for the next button
-
-
-
-
-
-
-
-
 
 
 
