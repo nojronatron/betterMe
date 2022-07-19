@@ -46,16 +46,22 @@ public class WorkoutPageSecond extends AppCompatActivity {
     {
         //get intents extra's here
         Intent intent = getIntent();
+        //use this to determine what workouts in helper
         typeWorkoutString = intent.getStringExtra(typeWorkoutString);
 
         //set workouts to object for later
         workoutsHelper = new TypesOfWorkouts(typeWorkoutString);
 
-
-
-        //use workout helper to get reps, sets, strings
+        //set arraylist for usage
         workoutName = new ArrayList<>();
         workoutInfo = new ArrayList<>();
+        infoWorkouts = new ArrayList<>();
+
+        /* ***********************
+        *Logic for setting arraylist from helper class workouts
+        * *******************/
+        //use workout helper to get reps, sets, strings
+
         for(String key : workoutsHelper.workoutRoutine.keySet())
         {
             workoutName.add(key);
@@ -63,8 +69,7 @@ public class WorkoutPageSecond extends AppCompatActivity {
 
         }
 
-        //pass onto xml to view new stuff by using .set...
-        infoWorkouts = new ArrayList<>();
+        //GET DATA from workouts helper class - pass iti to an array
         for(int i = 0 ; i < workoutInfo.size(); ++i)
         {
             for(String workoutInfoTemp : workoutInfo.get(i).split(","))
@@ -72,24 +77,45 @@ public class WorkoutPageSecond extends AppCompatActivity {
                 infoWorkouts.add(workoutInfoTemp);//has split data such as sets, reps, jpg, etc
             }
         }
+        /* ******************
+         * END: Logic for setting arraylist from helper class workouts
+         ************* */
 
-        //set title
+        //GET location from .xml file
         TextView workoutTitle = findViewById(R.id.textViewTest);
-        workoutTitle.setText(typeWorkoutString);
-
-        ImageView workoutGif = (ImageView) findViewById(R.id.workoutGif);
+        ImageView workoutGif  = (ImageView) findViewById(R.id.workoutGif);
         ImageView workoutGif2 = (ImageView) findViewById(R.id.workoutGif2);
         ImageView workoutGif3 = (ImageView) findViewById(R.id.workoutGif3);
-        //use helper class.this is how to get info, sets, reps
-        //get from helper - this does work
 
-        //String gifImage1 = infoWorkouts.get(2);
-        //String gifImage2 = infoWorkouts.get(5);
-        //String gifImage3 = infoWorkouts.get(8);
+        //GET gifs
         int gifLocation1 = workoutsHelper.gif1;
         int gifLocation2 = workoutsHelper.gif2;
         int gifLocation3 = workoutsHelper.gif3;
-        //set imageView
+
+        //GET values from helper - to place to .xml
+
+        //first workout data
+        String workoutInstructions1 = infoWorkouts.get(0);
+        String workoutLocation1     = infoWorkouts.get(1);
+        String workoutOtherInfo1    = infoWorkouts.get(2);
+
+        //second workout data
+        String workoutInstructions2 = infoWorkouts.get(3);
+        String workoutLocation2     = infoWorkouts.get(4);
+        String workoutOtherInfo2    = infoWorkouts.get(5);
+
+        //third workout data
+        String workoutInstructions3 = infoWorkouts.get(6);
+        String workoutLocation3     = infoWorkouts.get(7);
+        String workoutOtherInfo3    = infoWorkouts.get(8);
+
+        //SET title
+        workoutTitle.setText(typeWorkoutString);
+        //SET Text View
+
+        //TODO: @JWilsonHub
+
+        //SET imageView
         workoutGif.setImageResource(gifLocation1);
         workoutGif2.setImageResource(gifLocation2);
         workoutGif3.setImageResource(gifLocation3);

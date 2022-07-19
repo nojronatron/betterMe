@@ -11,6 +11,7 @@ public class TypesOfWorkouts {
     public HashMap<String, String> workoutRoutine;
     public int gif1, gif2, gif3;
 
+    //Constructor
     public TypesOfWorkouts(String pWType)
     {
         this.workoutRoutine = new HashMap<>();
