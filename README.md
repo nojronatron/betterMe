@@ -10,15 +10,6 @@ It also provides its users with motivational quotes to keep them fired up and re
 
 See [REQUIREMENTS](./REQUIREMENTS.md)
 
-### Development
-
-- AndroidStudio 2021.2.1 patch 1
-- Gradle version 7.3.3
-- Android gradle plugin version 4.1.2
-- Android API 32 SDK (minimum v.24)
-- Java Version 17
-- Physical Android device (optional)
-
 ## Instructions
 
 ### SETUP
