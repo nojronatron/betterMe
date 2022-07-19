@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.amplifyframework.core.Amplify;
@@ -21,6 +22,16 @@ public class LogInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_log_in);
         setUpLoginBtn();
         setUpSignInBtn();
+        setUpVerify();
+    }
+
+    private void setUpVerify() {
+        TextView verify = findViewById(R.id.verifyText);
+        verify.setOnClickListener(v -> {
+            Intent goToVerify = new Intent(LogInActivity.this, VerifyUserActivity.class);
+            startActivity(goToVerify);
+        });
+
     }
 
     // RR: Takes in User input to login
