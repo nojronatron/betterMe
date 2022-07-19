@@ -24,10 +24,11 @@ public class TypesOfWorkouts {
     public void strengthWorkouts(){
 
         this.workoutRoutine = new HashMap<>();
-        //set excercise routine up [sets, reps/duration, load, rest, jpg/images, mp4/gif]
-        workoutRoutine.put("firstRoutine", "3,12,9999,1 min, test.jpg, test.mp4");
-        workoutRoutine.put("secondRoutine", "3,12,9999,1 min, test.jpg, test.mp4");
-        workoutRoutine.put("thirdRoutine", "3,12,9999,1 min, test.jpg, test.mp4");
+        //set excercise routine up [what this is: lifting , what muscles groups: legs, gif or image of workout]
+
+        workoutRoutine.put("firstRoutine",  "Strength training,chest,stuff.gif");
+        workoutRoutine.put("secondRoutine", "");
+        workoutRoutine.put("thirdRoutine",  "");
 
     }
     public void hiitWorkouts(){}
