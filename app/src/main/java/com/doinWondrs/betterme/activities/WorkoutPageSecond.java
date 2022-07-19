@@ -77,11 +77,18 @@ public class WorkoutPageSecond extends AppCompatActivity {
         TextView workoutTitle = findViewById(R.id.textViewTest);
         workoutTitle.setText(typeWorkoutString);
 
-        //set imageView
         ImageView chestTest = (ImageView) findViewById(R.id.workoutGif);
-        // TODO: Figure this out. parseInt is not working. Need to modify.
-        int gifLocation = Integer.parseInt((infoWorkouts.get(2))); //infoWorkouts.get(2));
-        chestTest.setImageResource(gifLocation);
+        //use helper class.this is how to get info, sets, reps
+        //get from helper - this does work
+
+        //String gifImage1 = infoWorkouts.get(2);
+        //String gifImage2 = infoWorkouts.get(5);
+        //String gifImage3 = infoWorkouts.get(8);
+        int gifLocation1 = workoutsHelper.gif1;
+        int gifLocation2 = workoutsHelper.gif2;
+        int gifLocation3 = workoutsHelper.gif3;
+        //set imageView
+        chestTest.setImageResource(gifLocation2);
 
 
 
