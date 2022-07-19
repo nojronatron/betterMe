@@ -57,7 +57,15 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="607dp" />
+        tools:layout_editor_absoluteY="590dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="638dp" />
 
     <TextView
         android:id="@+id/textView3"
@@ -89,10 +97,10 @@
         android:layout_height="124dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="80dp"
-        android:src="@drawable/chestmachineinnerchestpress"
+        android:src="@drawable/chest1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/chestmachineinnerchestpress" />
+        app:srcCompat="@drawable/chest1" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
