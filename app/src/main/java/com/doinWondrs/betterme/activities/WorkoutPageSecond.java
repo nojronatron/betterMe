@@ -79,8 +79,9 @@ public class WorkoutPageSecond extends AppCompatActivity {
 
         //set imageView
         ImageView chestTest = (ImageView) findViewById(R.id.workoutGif);
-//        int hello = R.drawable.bench;
-//        chestTest.setImageResource(hello);
+        // TODO: Figure this out. parseInt is not working. Need to modify.
+        int gifLocation = Integer.parseInt((infoWorkouts.get(2))); //infoWorkouts.get(2));
+        chestTest.setImageResource(gifLocation);
 
 
 
