@@ -143,19 +143,19 @@ public class UserProfileActivity extends AppCompatActivity {
          profileTargetWeightInput = findViewById(R.id.profileTargetWeightInput);
 
         profileEmailInput.setText(userEmail);
-        usernameView.setText(userInfo.getUsername());
+        usernameView.setText(String.valueOf(userInfo.getUsername()));
         if(userInfo.getAge() != null){
-                profileAgeInput.setText(userInfo.getAge());
+                profileAgeInput.setText(String.valueOf(userInfo.getAge()));
         }else{
                 profileAgeInput.setText("N/A");
         }
         if(userInfo.getHeight() != null){
-            profileHeightInput.setText(userInfo.getHeight());
+            profileHeightInput.setText(String.valueOf(userInfo.getHeight()));
         }else{
             profileHeightInput.setText("N/A");
         }
         if(userInfo.getTargetWeight() != null){
-            profileTargetWeightInput.setText(userInfo.getTargetWeight());
+            profileTargetWeightInput.setText(String.valueOf(userInfo.getTargetWeight()));
         }else{
             profileTargetWeightInput.setText("N/A");
         }
@@ -163,11 +163,12 @@ public class UserProfileActivity extends AppCompatActivity {
 
     private void setUpUpdateBtn(){
         Button updateBtn = findViewById(R.id.updateUserInfoBtn);
-        Spinner profileActSpin = findViewById(R.id.profileActivityLevelSpinner);
-
-        ActivityEnum actlevel = (ActivityEnum) profileActSpin.getSelectedItem();
         updateBtn.setOnClickListener(v -> {
+        Spinner profileActSpin = findViewById(R.id.profileActivityLevelSpinner);
+        ActivityEnum actlevel = (ActivityEnum) profileActSpin.getSelectedItem();
             User userToUpdate = User.builder()
+                    .id(userInfo.getId())
+                    .username(userInfo.getUsername())
                     .age(Integer.parseInt(profileAgeInput.getText().toString()))
                     .height(Integer.parseInt(profileHeightInput.getText().toString()))
                     .targetWeight(Integer.parseInt(profileTargetWeightInput.getText().toString()))
