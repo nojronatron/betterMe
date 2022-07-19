@@ -10,7 +10,7 @@
     },
     "conflictResolution": {},
     "apiName": "amplifyDatasource",
-    "gqlSchemaPath": "D:\\401-Java\\401\\doinWondrs\\betterMe\\amplify\\backend\\api\\amplifyDatasource\\schema.graphql",
+    "gqlSchemaPath": "C:\\Users\\roger\\Java\\CF401\\BetterMe\\amplify\\backend\\api\\amplifyDatasource\\schema.graphql",
     "additionalAuthTypes": []
   }
 }

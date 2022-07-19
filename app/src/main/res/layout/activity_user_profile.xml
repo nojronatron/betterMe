@@ -8,21 +8,67 @@
     tools:context=".activities.UserProfileActivity">
 
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#464646"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/profileUsernameDisplay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="34sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userProfileImg"
+            tools:text="Username" />
+
+        <ImageView
+            android:id="@+id/userProfileImg"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="4dp"
+            android:contentDescription="user profile img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_launcher_foreground" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="68dp"
+            android:layout_marginTop="16dp"
+            android:background="#02FFFFFF"
+            android:scaleType="fitCenter"
+            app:layout_constraintStart_toEndOf="@+id/userProfileImg"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/icons8_settings_48" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     <androidx.cardview.widget.CardView
-        android:layout_width="313dp"
-        android:layout_height="405dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="29dp"
+        android:layout_width="336dp"
+        android:layout_height="428dp"
+        android:layout_marginTop="32dp"
         app:cardBackgroundColor="#464646"
         app:cardCornerRadius="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" >
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/profileAboutUsContainer"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="285dp">
+            android:layout_marginTop="305dp">
 
             <TextView
                 android:id="@+id/textView5"
@@ -51,7 +97,7 @@
             android:id="@+id/profileLogoutContainer"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="335dp"
+            android:layout_marginTop="355dp"
             tools:layout_editor_absoluteY="76dp">
 
             <TextView
@@ -80,7 +126,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/profileInfoContainer"
             android:layout_width="match_parent"
-            android:layout_height="285dp">
+            android:layout_height="300dp">
 
             <TextView
                 android:id="@+id/textView10"
@@ -89,6 +135,7 @@
                 android:layout_marginStart="35dp"
                 android:layout_marginTop="30dp"
                 android:text="Activity Level:"
+                android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider7" />
 
@@ -99,6 +146,7 @@
                 android:layout_marginStart="35dp"
                 android:layout_marginTop="30dp"
                 android:text="Target Weight:"
+                android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider6" />
 
@@ -109,6 +157,7 @@
                 android:layout_marginStart="35dp"
                 android:layout_marginTop="30dp"
                 android:text="Height:"
+                android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider5" />
 
@@ -119,6 +168,7 @@
                 android:layout_marginStart="35dp"
                 android:layout_marginTop="30dp"
                 android:text="Age:"
+                android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider4" />
 
@@ -129,6 +179,7 @@
                 android:layout_marginStart="35dp"
                 android:layout_marginTop="25dp"
                 android:text="Email:"
+                android:textColor="@color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -181,45 +232,84 @@
                 app:layout_constraintHorizontal_bias="0.507"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+            <Button
+                android:id="@+id/updateUserInfoBtn"
+                android:layout_width="86dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="208dp"
+                android:layout_marginTop="56dp"
+                android:text="Update"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider7" />
+
+            <EditText
+                android:id="@+id/profileEmailInput"
+                android:layout_width="205dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/black"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="N/A"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toEndOf="@+id/textView6"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/profileAgeInput"
+                android:layout_width="213dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="25dp"
+                android:background="@color/black"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="N/A"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toEndOf="@+id/textView7"
+                app:layout_constraintTop_toBottomOf="@+id/divider4" />
+
+            <EditText
+                android:id="@+id/profileHeightInput"
+                android:layout_width="198dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="25dp"
+                android:background="@color/black"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="N/A"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toEndOf="@+id/textView8"
+                app:layout_constraintTop_toBottomOf="@+id/divider5" />
+
+            <EditText
+                android:id="@+id/profileTargetWeightInput"
+                android:layout_width="150dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="25dp"
+                android:background="@color/black"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="N/A"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toEndOf="@+id/textView9"
+                app:layout_constraintTop_toBottomOf="@+id/divider6" />
+
+            <Spinner
+                android:id="@+id/profileActivityLevelSpinner"
+                android:layout_width="169dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintStart_toEndOf="@+id/textView10"
+                app:layout_constraintTop_toBottomOf="@+id/divider7" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:background="#464646"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/profileUsernameDisplay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="116dp"
-            android:layout_marginTop="20dp"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="34sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/userProfileImg"
-            tools:text="Username" />
-
-        <ImageView
-            android:id="@+id/userProfileImg"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginStart="120dp"
-            android:layout_marginTop="16dp"
-            android:contentDescription="user profile img"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_launcher_foreground" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
