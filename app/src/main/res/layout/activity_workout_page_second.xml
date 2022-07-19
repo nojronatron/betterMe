@@ -44,7 +44,7 @@
 
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/workoutTitle2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -57,7 +57,15 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="607dp" />
+        tools:layout_editor_absoluteY="590dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="638dp" />
 
     <TextView
         android:id="@+id/textView3"
@@ -68,7 +76,7 @@
         tools:layout_editor_absoluteY="561dp" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/workoutTitle1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -76,34 +84,23 @@
         tools:layout_editor_absoluteY="432dp" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/workoutTitle3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="517dp" />
 
-
-    <!-- TESTING API -->
-
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="abhiandroid.com.volleycustomrequestqueueexample.MainActivity">
-
-
-        <Button
-            android:id="@+id/btnRequest"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#414af4"
-            android:text="Click Here To Send HTTP Request To Server And See Response Displayed As Toast"
-            android:textColor="#ffffff"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="50dp" />
-    </RelativeLayout>
-
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/workoutGif"
+        android:layout_width="180dp"
+        android:layout_height="124dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/chest1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/chest1" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

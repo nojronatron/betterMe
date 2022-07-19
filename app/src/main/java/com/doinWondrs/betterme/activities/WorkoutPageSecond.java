@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.doinWondrs.betterme.R;
@@ -13,6 +16,7 @@ import com.doinWondrs.betterme.helpers.*;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class WorkoutPageSecond extends AppCompatActivity {
     public static String typeWorkoutString;
@@ -20,6 +24,9 @@ public class WorkoutPageSecond extends AppCompatActivity {
     public ArrayList<String> workoutName;
     private ArrayList<String> infoWorkouts;
     private ArrayList<String> workoutInfo;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +51,11 @@ public class WorkoutPageSecond extends AppCompatActivity {
         //set workouts to object for later
         workoutsHelper = new TypesOfWorkouts(typeWorkoutString);
 
+
+
         //use workout helper to get reps, sets, strings
         workoutName = new ArrayList<>();
+        workoutInfo = new ArrayList<>();
         for(String key : workoutsHelper.workoutRoutine.keySet())
         {
             workoutName.add(key);
@@ -55,20 +65,40 @@ public class WorkoutPageSecond extends AppCompatActivity {
 
         //pass onto xml to view new stuff by using .set...
         infoWorkouts = new ArrayList<>();
-        for(int i = 0 ; i < infoWorkouts.size(); ++i)
+        for(int i = 0 ; i < workoutInfo.size(); ++i)
         {
             for(String workoutInfoTemp : workoutInfo.get(i).split(","))
             {
                 infoWorkouts.add(workoutInfoTemp);//has split data such as sets, reps, jpg, etc
             }
         }
+
         //set title
         TextView workoutTitle = findViewById(R.id.textViewTest);
         workoutTitle.setText(typeWorkoutString);
 
+        ImageView chestTest = (ImageView) findViewById(R.id.workoutGif);
+        //use helper class.this is how to get info, sets, reps
+        //get from helper - this does work
+
+        //String gifImage1 = infoWorkouts.get(2);
+        //String gifImage2 = infoWorkouts.get(5);
+        //String gifImage3 = infoWorkouts.get(8);
+        int gifLocation1 = workoutsHelper.gif1;
+        int gifLocation2 = workoutsHelper.gif2;
+        int gifLocation3 = workoutsHelper.gif3;
+        //set imageView
+        chestTest.setImageResource(gifLocation2);
+
+
+
         //TextView workout1TextView
 //        TextView workoutNameOne = findViewById(R.id.workoutOneName);
 //        workoutTitle.setText(workoutName.get(0));
+
+
+
+
 
     }//END: typesWorkouts
 
