@@ -6,6 +6,7 @@ type DailyInfo @model @auth(rules: [{allow: public}]) {
   bmi: Int
   currentCalorie: Int
   day: Int
+  calendarDate: String
   dateCreated: AWSDateTime
 }
 

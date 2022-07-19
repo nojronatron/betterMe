@@ -22,6 +22,7 @@ query GetDailyInfo($id: ID!) {
     bmi
     currentCalorie
     day
+    calendarDate
     dateCreated
     createdAt
     updatedAt
@@ -52,6 +53,7 @@ query ListDailyInfos(
       bmi
       currentCalorie
       day
+      calendarDate
       dateCreated
       createdAt
       updatedAt
@@ -77,6 +79,7 @@ query GetUser($id: ID!) {
         bmi
         currentCalorie
         day
+        calendarDate
         dateCreated
         createdAt
         updatedAt
