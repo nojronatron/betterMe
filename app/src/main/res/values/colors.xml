@@ -15,7 +15,7 @@
     <color name="BlackRed">#050000</color>
 
     <color name="DarkGrey">#464646</color>
-    <color name="MidGrey">908CBC</color>
+    <color name="MidGrey">#908CBC</color>
     <color name="LightGrey">#DBCECE</color>
     <color name="LightestGrey">#FFF0F0</color>
     <color name="LightestGrey2">#DFDFDF</color>
@@ -36,5 +36,5 @@
     <color name="DarkerGreen">#008B00</color>
     <color name="DarkestGreen">#006A00</color>
 
-    <color name="Transparent">00FFFFFF</color>
+    <color name="Transparent">#00FFFFFF</color>
 </resources>
