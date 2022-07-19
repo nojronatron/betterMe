@@ -44,7 +44,7 @@
 
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/workoutTitle2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -68,7 +68,7 @@
         tools:layout_editor_absoluteY="561dp" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/workoutTitle1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -76,7 +76,7 @@
         tools:layout_editor_absoluteY="432dp" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/workoutTitle3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"

@@ -25,6 +25,9 @@ public class WorkoutPageSecond extends AppCompatActivity {
     private ArrayList<String> infoWorkouts;
     private ArrayList<String> workoutInfo;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,9 +51,11 @@ public class WorkoutPageSecond extends AppCompatActivity {
         //set workouts to object for later
         workoutsHelper = new TypesOfWorkouts(typeWorkoutString);
 
-        /*
+
+
         //use workout helper to get reps, sets, strings
         workoutName = new ArrayList<>();
+        workoutInfo = new ArrayList<>();
         for(String key : workoutsHelper.workoutRoutine.keySet())
         {
             workoutName.add(key);
@@ -60,14 +65,13 @@ public class WorkoutPageSecond extends AppCompatActivity {
 
         //pass onto xml to view new stuff by using .set...
         infoWorkouts = new ArrayList<>();
-        for(int i = 0 ; i < infoWorkouts.size(); ++i)
+        for(int i = 0 ; i < workoutInfo.size(); ++i)
         {
             for(String workoutInfoTemp : workoutInfo.get(i).split(","))
             {
                 infoWorkouts.add(workoutInfoTemp);//has split data such as sets, reps, jpg, etc
             }
         }
-        */
 
         //set title
         TextView workoutTitle = findViewById(R.id.textViewTest);
@@ -75,7 +79,9 @@ public class WorkoutPageSecond extends AppCompatActivity {
 
         //set imageView
         ImageView chestTest = (ImageView) findViewById(R.id.workoutGif);
-        chestTest.setImageResource(R.drawable.bench2);
+//        int hello = R.drawable.bench;
+//        chestTest.setImageResource(hello);
+
 
 
         //TextView workout1TextView
