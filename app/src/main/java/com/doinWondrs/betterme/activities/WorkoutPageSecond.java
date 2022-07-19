@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.doinWondrs.betterme.R;
@@ -67,9 +68,14 @@ public class WorkoutPageSecond extends AppCompatActivity {
             }
         }
         */
+
         //set title
         TextView workoutTitle = findViewById(R.id.textViewTest);
         workoutTitle.setText(typeWorkoutString);
+
+        //set imageView
+        ImageView chestTest = (ImageView) findViewById(R.id.workoutGif);
+        chestTest.setImageResource(R.drawable.bench2);
 
 
         //TextView workout1TextView
@@ -77,7 +83,7 @@ public class WorkoutPageSecond extends AppCompatActivity {
 //        workoutTitle.setText(workoutName.get(0));
 
 
-        HashMap<String, Integer> map = new HashMap<>();
+
 
 
     }//END: typesWorkouts
