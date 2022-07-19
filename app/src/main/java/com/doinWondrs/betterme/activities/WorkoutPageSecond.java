@@ -77,7 +77,9 @@ public class WorkoutPageSecond extends AppCompatActivity {
         TextView workoutTitle = findViewById(R.id.textViewTest);
         workoutTitle.setText(typeWorkoutString);
 
-        ImageView chestTest = (ImageView) findViewById(R.id.workoutGif);
+        ImageView workoutGif = (ImageView) findViewById(R.id.workoutGif);
+        ImageView workoutGif2 = (ImageView) findViewById(R.id.workoutGif2);
+        ImageView workoutGif3 = (ImageView) findViewById(R.id.workoutGif3);
         //use helper class.this is how to get info, sets, reps
         //get from helper - this does work
 
@@ -88,7 +90,18 @@ public class WorkoutPageSecond extends AppCompatActivity {
         int gifLocation2 = workoutsHelper.gif2;
         int gifLocation3 = workoutsHelper.gif3;
         //set imageView
-        chestTest.setImageResource(gifLocation2);
+        workoutGif.setImageResource(gifLocation1);
+        workoutGif2.setImageResource(gifLocation2);
+        workoutGif3.setImageResource(gifLocation3);
+
+
+
+
+
+
+
+
+
 
 
 
