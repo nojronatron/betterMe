@@ -3,8 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.doinWondrs.betterme">
 
-<!--    <uses-permission android:name="android.permission.INTERNET" />  &lt;!&ndash;why is this not working????&ndash;&gt;-->
-
     <application
         android:name=".BetterMeAmplifyApplication"
         android:allowBackup="true"
@@ -17,18 +15,24 @@
         android:theme="@style/Theme.BetterMe"
         tools:targetApi="31">
         <activity
-
+            android:name=".activities.EventEditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.WeekViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.CalendarActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.GPSAndGymLocation"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activities.WorkoutPageSecond"
-            android:exported="false" />
-        <activity
-            android:name=".activities.RecordWorkout"
-            android:exported="false" />
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".activities.RecordWorkout" -->
+        <!-- android:exported="false" /> -->
         <activity
             android:name=".activities.WorkoutPageFirst"
-
             android:exported="false" />
         <activity
             android:name=".activities.UserProfileActivity"
