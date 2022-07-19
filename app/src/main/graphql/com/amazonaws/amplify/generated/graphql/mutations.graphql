@@ -25,6 +25,7 @@ mutation CreateDailyInfo(
     bmi
     currentCalorie
     day
+    calendarDate
     dateCreated
     createdAt
     updatedAt
@@ -56,6 +57,7 @@ mutation UpdateDailyInfo(
     bmi
     currentCalorie
     day
+    calendarDate
     dateCreated
     createdAt
     updatedAt
@@ -87,6 +89,7 @@ mutation DeleteDailyInfo(
     bmi
     currentCalorie
     day
+    calendarDate
     dateCreated
     createdAt
     updatedAt
@@ -113,6 +116,7 @@ mutation CreateUser(
         bmi
         currentCalorie
         day
+        calendarDate
         dateCreated
         createdAt
         updatedAt
@@ -144,6 +148,7 @@ mutation UpdateUser(
         bmi
         currentCalorie
         day
+        calendarDate
         dateCreated
         createdAt
         updatedAt
@@ -175,6 +180,7 @@ mutation DeleteUser(
         bmi
         currentCalorie
         day
+        calendarDate
         dateCreated
         createdAt
         updatedAt

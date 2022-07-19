@@ -34,6 +34,7 @@ public final class DailyInfo implements Model {
   public static final QueryField BMI = field("DailyInfo", "bmi");
   public static final QueryField CURRENT_CALORIE = field("DailyInfo", "currentCalorie");
   public static final QueryField DAY = field("DailyInfo", "day");
+  public static final QueryField CALENDAR_DATE = field("DailyInfo", "calendarDate");
   public static final QueryField DATE_CREATED = field("DailyInfo", "dateCreated");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="Int") Integer weight;
@@ -42,6 +43,7 @@ public final class DailyInfo implements Model {
   private final @ModelField(targetType="Int") Integer bmi;
   private final @ModelField(targetType="Int") Integer currentCalorie;
   private final @ModelField(targetType="Int") Integer day;
+  private final @ModelField(targetType="String") String calendarDate;
   private final @ModelField(targetType="AWSDateTime") Temporal.DateTime dateCreated;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
@@ -73,6 +75,10 @@ public final class DailyInfo implements Model {
       return day;
   }
   
+  public String getCalendarDate() {
+      return calendarDate;
+  }
+  
   public Temporal.DateTime getDateCreated() {
       return dateCreated;
   }
@@ -85,7 +91,7 @@ public final class DailyInfo implements Model {
       return updatedAt;
   }
   
-  private DailyInfo(String id, Integer weight, String userID, User User, Integer bmi, Integer currentCalorie, Integer day, Temporal.DateTime dateCreated) {
+  private DailyInfo(String id, Integer weight, String userID, User User, Integer bmi, Integer currentCalorie, Integer day, String calendarDate, Temporal.DateTime dateCreated) {
     this.id = id;
     this.weight = weight;
     this.userID = userID;
@@ -93,6 +99,7 @@ public final class DailyInfo implements Model {
     this.bmi = bmi;
     this.currentCalorie = currentCalorie;
     this.day = day;
+    this.calendarDate = calendarDate;
     this.dateCreated = dateCreated;
   }
   
@@ -111,6 +118,7 @@ public final class DailyInfo implements Model {
               ObjectsCompat.equals(getBmi(), dailyInfo.getBmi()) &&
               ObjectsCompat.equals(getCurrentCalorie(), dailyInfo.getCurrentCalorie()) &&
               ObjectsCompat.equals(getDay(), dailyInfo.getDay()) &&
+              ObjectsCompat.equals(getCalendarDate(), dailyInfo.getCalendarDate()) &&
               ObjectsCompat.equals(getDateCreated(), dailyInfo.getDateCreated()) &&
               ObjectsCompat.equals(getCreatedAt(), dailyInfo.getCreatedAt()) &&
               ObjectsCompat.equals(getUpdatedAt(), dailyInfo.getUpdatedAt());
@@ -127,6 +135,7 @@ public final class DailyInfo implements Model {
       .append(getBmi())
       .append(getCurrentCalorie())
       .append(getDay())
+      .append(getCalendarDate())
       .append(getDateCreated())
       .append(getCreatedAt())
       .append(getUpdatedAt())
@@ -145,6 +154,7 @@ public final class DailyInfo implements Model {
       .append("bmi=" + String.valueOf(getBmi()) + ", ")
       .append("currentCalorie=" + String.valueOf(getCurrentCalorie()) + ", ")
       .append("day=" + String.valueOf(getDay()) + ", ")
+      .append("calendarDate=" + String.valueOf(getCalendarDate()) + ", ")
       .append("dateCreated=" + String.valueOf(getDateCreated()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
@@ -173,6 +183,7 @@ public final class DailyInfo implements Model {
       null,
       null,
       null,
+      null,
       null
     );
   }
@@ -185,6 +196,7 @@ public final class DailyInfo implements Model {
       bmi,
       currentCalorie,
       day,
+      calendarDate,
       dateCreated);
   }
   public interface UserIdStep {
@@ -200,6 +212,7 @@ public final class DailyInfo implements Model {
     BuildStep bmi(Integer bmi);
     BuildStep currentCalorie(Integer currentCalorie);
     BuildStep day(Integer day);
+    BuildStep calendarDate(String calendarDate);
     BuildStep dateCreated(Temporal.DateTime dateCreated);
   }
   
@@ -212,6 +225,7 @@ public final class DailyInfo implements Model {
     private Integer bmi;
     private Integer currentCalorie;
     private Integer day;
+    private String calendarDate;
     private Temporal.DateTime dateCreated;
     @Override
      public DailyInfo build() {
@@ -225,6 +239,7 @@ public final class DailyInfo implements Model {
           bmi,
           currentCalorie,
           day,
+          calendarDate,
           dateCreated);
     }
     
@@ -266,6 +281,12 @@ public final class DailyInfo implements Model {
     }
     
     @Override
+     public BuildStep calendarDate(String calendarDate) {
+        this.calendarDate = calendarDate;
+        return this;
+    }
+    
+    @Override
      public BuildStep dateCreated(Temporal.DateTime dateCreated) {
         this.dateCreated = dateCreated;
         return this;
@@ -283,7 +304,7 @@ public final class DailyInfo implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, Integer weight, String userId, User user, Integer bmi, Integer currentCalorie, Integer day, Temporal.DateTime dateCreated) {
+    private CopyOfBuilder(String id, Integer weight, String userId, User user, Integer bmi, Integer currentCalorie, Integer day, String calendarDate, Temporal.DateTime dateCreated) {
       super.id(id);
       super.userId(userId)
         .weight(weight)
@@ -291,6 +312,7 @@ public final class DailyInfo implements Model {
         .bmi(bmi)
         .currentCalorie(currentCalorie)
         .day(day)
+        .calendarDate(calendarDate)
         .dateCreated(dateCreated);
     }
     
@@ -322,6 +344,11 @@ public final class DailyInfo implements Model {
     @Override
      public CopyOfBuilder day(Integer day) {
       return (CopyOfBuilder) super.day(day);
+    }
+    
+    @Override
+     public CopyOfBuilder calendarDate(String calendarDate) {
+      return (CopyOfBuilder) super.calendarDate(calendarDate);
     }
     
     @Override
