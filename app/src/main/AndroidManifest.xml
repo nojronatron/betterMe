@@ -60,9 +60,6 @@
             android:name=".activities.WorkoutPageSecond"
             android:exported="false" />
         <activity
-            android:name=".activities.RecordWorkout"
-            android:exported="false" />
-        <activity
             android:name=".activities.WorkoutPageFirst"
             android:exported="false" />
         <activity
