@@ -100,6 +100,7 @@ public class WorkoutPageSecond extends AppCompatActivity {
 
 
 
+
     }//END: typesWorkouts
 
     public void navGoTo() {
