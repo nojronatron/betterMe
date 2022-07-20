@@ -4,5 +4,7 @@
     <string name="buttonNext">Next</string>
     <string name="bettermesecondimage">BetterMeSecondImage</string>
     <string name="weightLiftButtonWithGif">WeightLiftButton</string>
-    <string name="Title">Title</string>
+    <string name="test">test</string>
+    <string name="title_activity_gpsactivity">GPSActivity</string>
+    <string name="title_activity_test_google_map">TestGoogleMap</string>
 </resources>
