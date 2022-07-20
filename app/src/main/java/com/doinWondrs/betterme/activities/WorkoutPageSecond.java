@@ -101,6 +101,19 @@ public class WorkoutPageSecond extends AppCompatActivity {
 
 
 
+        workoutDescription2.setText(workoutInstructions2);
+        workoutRoutine2.setText(workoutLocation2);
+
+        workoutDescription3.setText(workoutInstructions3);
+        workoutRoutine3.setText(workoutLocation3);
+
+        //SET imageView
+        workoutGif.setImageResource(gifLocation1);
+        workoutGif2.setImageResource(gifLocation2);
+        workoutGif3.setImageResource(gifLocation3);
+        //added new comment but not important here
+
+
     }//END: typesWorkouts
 
     public void navGoTo() {
