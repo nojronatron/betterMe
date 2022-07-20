@@ -7,6 +7,10 @@
         <item name="android:shadowRadius">8</item>
         <item name="android:shadowColor">@color/BlackRed</item>
     </style>
+    <style name="PadImageButton" parent="Widget.AppCompat.ImageButton">
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+    </style>
     <style name="DefaultTextColor" parent="TextAppearance.AppCompat">
         <item name="android:textColor">@color/BlackRed</item>
     </style>
@@ -27,4 +31,5 @@
     <style name="DefaultTextViewFontColor" parent="Widget.AppCompat.TextView">
         <item name="android:textColor">@color/LightestGrey</item>
     </style>
+
 </resources>
