@@ -69,3 +69,4 @@ amplifytools.xcconfig
 .secret-*
 **.sample
 #amplify-do-not-edit-end
+app/src/main/res/values/google_map.xml
