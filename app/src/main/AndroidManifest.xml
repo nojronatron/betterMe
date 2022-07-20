@@ -15,27 +15,23 @@
         android:theme="@style/Theme.BetterMe"
         tools:targetApi="31">
         <activity
-
-            android:name=".activities.EventEditActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.WeekViewActivity"
+            android:name=".activities.RecordDailyInfo"
             android:exported="false" />
         <activity
             android:name=".activities.CalendarActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".activities.DailyInfoHistory"
-            android:exported="false"/>
-
+            android:exported="false" />
         <activity
             android:name=".activities.GPSAndGymLocation"
             android:exported="false" />
         <activity
             android:name=".activities.WorkoutPageSecond"
-            android:exported="false" /> <!-- <activity -->
-        <!-- android:name=".activities.RecordWorkout" -->
-        <!-- android:exported="false" /> -->
+            android:exported="false" />
+        <activity
+            android:name=".activities.RecordWorkout"
+            android:exported="false" />
         <activity
             android:name=".activities.WorkoutPageFirst"
             android:exported="false" />

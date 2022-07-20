@@ -22,6 +22,7 @@ subscription OnCreateDailyInfo {
     bmi
     currentCalorie
     day
+    calendarDate
     dateCreated
     createdAt
     updatedAt
@@ -50,6 +51,7 @@ subscription OnUpdateDailyInfo {
     bmi
     currentCalorie
     day
+    calendarDate
     dateCreated
     createdAt
     updatedAt
@@ -78,6 +80,7 @@ subscription OnDeleteDailyInfo {
     bmi
     currentCalorie
     day
+    calendarDate
     dateCreated
     createdAt
     updatedAt
@@ -101,6 +104,7 @@ subscription OnCreateUser {
         bmi
         currentCalorie
         day
+        calendarDate
         dateCreated
         createdAt
         updatedAt
@@ -129,6 +133,7 @@ subscription OnUpdateUser {
         bmi
         currentCalorie
         day
+        calendarDate
         dateCreated
         createdAt
         updatedAt
@@ -157,6 +162,7 @@ subscription OnDeleteUser {
         bmi
         currentCalorie
         day
+        calendarDate
         dateCreated
         createdAt
         updatedAt

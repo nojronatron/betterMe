@@ -8,6 +8,19 @@
     tools:context=".activities.WorkoutPageFirst">
 
 
+    <pl.droidsonroids.gif.GifImageButton
+        android:id="@+id/buttonChest"
+        android:layout_width="150dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="184dp"
+        android:layout_marginEnd="60dp"
+        android:contentDescription="@string/ok"
+        android:scaleType="fitXY"
+        android:src="@drawable/bench2nob"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/progress_horizontal"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
     <TextView
         android:id="@+id/textView"
@@ -34,87 +47,69 @@
         tools:ignore="ImageContrastCheck"
         tools:srcCompat="@drawable/icon2" />
 
-    <pl.droidsonroids.gif.GifImageButton
-        android:id="@+id/buttonChest"
-        android:layout_width="150dp"
-        android:layout_height="120dp"
-        android:scaleType="fitXY"
-        android:layout_marginTop="176dp"
-        android:layout_marginEnd="60dp"
-        android:src="@drawable/bench2"
-        android:contentDescription="@string/ok"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/progress_horizontal"
-        tools:ignore="DuplicateSpeakableTextCheck" />
-
 
     <pl.droidsonroids.gif.GifImageButton
-        android:id="@+id/buttonWeightlifting"
-        android:layout_width="150dp"
-        android:layout_height="120dp"
-    android:scaleType="fitXY"
-        android:layout_marginTop="176dp"
-        android:layout_marginEnd="212dp"
-        android:src="@drawable/curl2"
-        android:contentDescription="@string/ok"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/progress_horizontal"
-        tools:ignore="DuplicateSpeakableTextCheck" />
-
-
-    <ImageButton
         android:id="@+id/buttonAbdominal"
         android:layout_width="150dp"
         android:layout_height="120dp"
-        android:layout_marginTop="424dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginTop="184dp"
+        android:layout_marginEnd="212dp"
         android:contentDescription="@string/ok"
+        android:scaleType="fitXY"
+        android:src="@drawable/absnob"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/progress_horizontal" />
+        app:srcCompat="@android:drawable/progress_horizontal"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
 
-    <ImageButton
+    <pl.droidsonroids.gif.GifImageButton
         android:id="@+id/buttonShoulders"
         android:layout_width="150dp"
         android:layout_height="120dp"
         android:layout_marginTop="424dp"
         android:layout_marginEnd="60dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/rownob"
         android:contentDescription="@string/ok"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/progress_horizontal" />
 
-    <ImageButton
+    <pl.droidsonroids.gif.GifImageButton
         android:id="@+id/buttonBack"
         android:layout_width="150dp"
         android:layout_height="120dp"
         android:layout_marginTop="424dp"
         android:layout_marginEnd="212dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/shouldersnob0"
         android:contentDescription="@string/ok"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/progress_horizontal" />
 
-    <ImageButton
+    <pl.droidsonroids.gif.GifImageButton
         android:id="@+id/buttonLegs"
         android:layout_width="150dp"
         android:layout_height="120dp"
         android:layout_marginTop="304dp"
         android:layout_marginEnd="212dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/legsnob"
         android:contentDescription="@string/ok"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/progress_horizontal" />
 
-    <ImageButton
+    <pl.droidsonroids.gif.GifImageButton
         android:id="@+id/buttonArms"
         android:layout_width="150dp"
         android:layout_height="120dp"
         android:layout_marginTop="304dp"
         android:layout_marginEnd="60dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/curl2nob"
         android:contentDescription="@string/ok"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

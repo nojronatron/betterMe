@@ -1,31 +1,35 @@
 package com.doinWondrs.betterme.activities;
+
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.doinWondrs.betterme.R;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
+import com.doinWondrs.betterme.R;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>
-{
+public class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>{
     private final ArrayList<LocalDate> days;
     private final OnItemListener onItemListener;
+    private final Context callingActivity;
 
-    public CalendarAdapter(ArrayList<LocalDate> days, OnItemListener onItemListener)
-    {
+    public CalendarAdapter(ArrayList<LocalDate> days, OnItemListener onItemListener, Context callingActivity) {
         this.days = days;
         this.onItemListener = onItemListener;
+        this.callingActivity = callingActivity;
     }
 
     @NonNull
     @Override
-    public CalendarViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
-    {
+    public CalendarViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.calendar_cell, parent, false);
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
@@ -38,30 +42,34 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder>
         return new CalendarViewHolder(view, onItemListener, days);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
-    public void onBindViewHolder(@NonNull CalendarViewHolder holder, int position)
-    {
+    public void onBindViewHolder(@NonNull CalendarViewHolder holder, int position) {
         final LocalDate date = days.get(position);
         if (date ==null)
             holder.dayOfMonth.setText("");
         else{
             holder.dayOfMonth.setText(String.valueOf(date.getDayOfMonth()));
-            if (date.equals(CalendarUtils.selectedDate))
+            holder.calendarDate.setText(date.toString());
+            holder.dayOfMonth.setOnClickListener(v -> {
+                Intent goToCreateDaily = new Intent(callingActivity, RecordDailyInfo.class);
+                goToCreateDaily.putExtra(CalendarActivity.CALENDAR_DATE, date.toString());
+                callingActivity.startActivity(goToCreateDaily);
+            });
+            if (date.equals(CalendarUtils.selectedDate)){
                 holder.parentView.setBackgroundColor(Color.LTGRAY);
-
+            }
         }
-
     }
 
 
     @Override
-    public int getItemCount()
-    {
+    public int getItemCount() {
         return days.size();
     }
 
-    public interface  OnItemListener
-    {
+    public interface  OnItemListener {
         void onItemClick(int position, LocalDate date);
     }
+
 }
