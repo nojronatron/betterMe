@@ -87,12 +87,30 @@ public class WorkoutPageSecond extends AppCompatActivity {
         ImageView workoutGif2 = (ImageView) findViewById(R.id.workoutGif2);
         ImageView workoutGif3 = (ImageView) findViewById(R.id.workoutGif3);
 
-        //GET gifs
+        TextView workoutTitle1 = (TextView) findViewById((R.id.workoutTitle1));
+        TextView workoutTitle2 = (TextView) findViewById((R.id.workoutTitle2));
+        TextView workoutTitle3 = (TextView) findViewById((R.id.workoutTitle3));
+
+        TextView  workoutDescription1 = (TextView) findViewById((R.id.description1));
+        TextView workoutDescription2 = (TextView) findViewById((R.id.description2));
+        TextView workoutDescription3 = (TextView) findViewById((R.id.description3));
+
+        TextView workoutRoutine1 = (TextView) findViewById((R.id.routine1));
+        TextView workoutRoutine2 = (TextView) findViewById((R.id.routine2));
+        TextView workoutRoutine3 = (TextView) findViewById((R.id.routine3));
+
+
+        //GET gifs from helper
         int gifLocation1 = workoutsHelper.gif1;
         int gifLocation2 = workoutsHelper.gif2;
         int gifLocation3 = workoutsHelper.gif3;
 
         //GET values from helper - to place to .xml
+
+        //workout title from helper to string
+        String toTextViewTitle1 = workoutName.get(0);
+        String toTextViewTitle2 = workoutName.get(1);
+        String toTextViewTitle3 = workoutName.get(2);
 
         //first workout data
         String workoutInstructions1 = infoWorkouts.get(0);
@@ -109,37 +127,32 @@ public class WorkoutPageSecond extends AppCompatActivity {
         String workoutLocation3     = infoWorkouts.get(7);
         String workoutOtherInfo3    = infoWorkouts.get(8);
 
-        //SET title
+        //SET title of page
         workoutTitle.setText(typeWorkoutString);
-        //SET Text View
 
-        //TODO: @JWilsonHub
+        //SET Text View: titles
+        workoutTitle1.setText(toTextViewTitle1);
+        workoutTitle2.setText(toTextViewTitle2);
+        workoutTitle3.setText(toTextViewTitle3);
+
+        //SET Text View : informations
+        workoutDescription1.setText(workoutInstructions1);
+        workoutRoutine1.setText(workoutLocation1);
+
+        workoutDescription2.setText(workoutInstructions2);
+        workoutRoutine2.setText(workoutLocation2);
+
+        workoutDescription3.setText(workoutInstructions3);
+        workoutRoutine3.setText(workoutLocation3);
 
         //SET imageView
         workoutGif.setImageResource(gifLocation1);
         workoutGif2.setImageResource(gifLocation2);
         workoutGif3.setImageResource(gifLocation3);
 
-
-
-
-
-
-
-
-
-
-
-
-        //TextView workout1TextView
-//        TextView workoutNameOne = findViewById(R.id.workoutOneName);
-//        workoutTitle.setText(workoutName.get(0));
-
-
-
-
-
     }//END: typesWorkouts
+
+
 
     public void navGoTo() {
         //initialize, instantiate
