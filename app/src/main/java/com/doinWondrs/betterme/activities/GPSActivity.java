@@ -3,6 +3,9 @@ package com.doinWondrs.betterme.activities;
 
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
@@ -30,7 +33,7 @@ public class GPSActivity extends FragmentActivity implements OnMapReadyCallback 
     private ActivityTestGoogleMapBinding binding;
     private FusedLocationProviderClient fusedLocationClient;
     private double lng,lat;
-//  ImageButton gymBtn;
+    ImageButton gymBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,42 +43,38 @@ public class GPSActivity extends FragmentActivity implements OnMapReadyCallback 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(getApplicationContext());
         fusedLocationClient.flushLocations();
 
-
-
-        binding = ActivityTestGoogleMapBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        setContentView(R.layout.activity_gpsactivity);
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+
 //        navGoTo();
 
 //        findNearest(gym,"gym");
-//        gymBtn = findViewById(R.id.gymImageBtn);
-//        gymBtn.setOnClickListener(v -> {
-//
-//                StringBuilder stringBuilder = new StringBuilder("http://maps.googleapis.com/maps/api/place/nearbysearch/json?");
-//                stringBuilder.append("location=" + lat + "," + lng);
-//                stringBuilder.append("&radius=1000");
-//                stringBuilder.append("&type=gym");
-//                stringBuilder.append("&sensor=true");
-//                stringBuilder.append("&key=" + getResources().getString(R.string.google_map_key));
-//
-//
-//                String url = stringBuilder.toString();
-//
-//                Object dataFetch[] = new Object[2];
-//                dataFetch[0] = mMap;
-//                dataFetch[1] = url;
-//
-//                FetchData fetchData = new FetchData();
-//
-//                fetchData.execute(dataFetch);
-//
-//
-//
-//        });
+        gymBtn = findViewById(R.id.gymImageBtn);
+        gymBtn.setOnClickListener(v -> {
+
+                StringBuilder stringBuilder = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
+                stringBuilder.append("location=" + lat + "," + lng);
+                stringBuilder.append("&radius=8046");
+                stringBuilder.append("&types=gym");
+                stringBuilder.append("&sensor=true");
+                stringBuilder.append("&key=" + getResources().getString(R.string.google_map_key));
+
+
+                String url = stringBuilder.toString();
+
+                Object dataFetch[] = new Object[2];
+                dataFetch[0] = mMap;
+                dataFetch[1] = url;
+
+                FetchData fetchData = new FetchData();
+
+                fetchData.execute(dataFetch);
+
+        });
     }
 
 
@@ -98,7 +97,6 @@ public class GPSActivity extends FragmentActivity implements OnMapReadyCallback 
     }
 
 
-    @SuppressLint("MissingPermission")
     private void setUpLocation(){
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
