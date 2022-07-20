@@ -21,9 +21,6 @@
             android:name=".activities.CalendarActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.DailyInfoHistory"
-            android:exported="false" />
-        <activity
             android:name=".activities.GPSAndGymLocation"
             android:exported="false" />
         <activity

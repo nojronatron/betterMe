@@ -43,7 +43,7 @@ public class GPSAndGymLocation extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         break;
                     case R.id.calendar_nav:
-                        startActivity(new Intent(getApplicationContext(), RecordWorkout.class));
+                        startActivity(new Intent(getApplicationContext(), CalendarActivity.class));
                         overridePendingTransition(0,0);
                         break;
                     case R.id.gps_nav:
