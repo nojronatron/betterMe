@@ -149,6 +149,7 @@ public class WorkoutPageSecond extends AppCompatActivity {
         workoutGif.setImageResource(gifLocation1);
         workoutGif2.setImageResource(gifLocation2);
         workoutGif3.setImageResource(gifLocation3);
+        //added new comment but not important here
 
     }//END: typesWorkouts
 
