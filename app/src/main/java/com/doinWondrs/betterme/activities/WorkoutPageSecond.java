@@ -15,6 +15,7 @@ import com.doinWondrs.betterme.R;
 import com.doinWondrs.betterme.helpers.*;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -95,7 +96,6 @@ public class WorkoutPageSecond extends AppCompatActivity {
         //TextView workout1TextView
 //        TextView workoutNameOne = findViewById(R.id.workoutOneName);
 //        workoutTitle.setText(workoutName.get(0));
-
 
 
 
