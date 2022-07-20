@@ -100,10 +100,11 @@ public class WorkoutPageSecond extends AppCompatActivity {
         TextView workoutRoutine3 = (TextView) findViewById((R.id.routine3));
 
 
+        //int gifLocation3 = workoutsHelper.gif3;
         //GET gifs from helper
-        int gifLocation1 = workoutsHelper.gif1;
-        int gifLocation2 = workoutsHelper.gif2;
-        int gifLocation3 = workoutsHelper.gif3;
+        int gifLocation1 = Integer.parseInt(infoWorkouts.get(2));
+        int gifLocation2 = Integer.parseInt(infoWorkouts.get(5));
+        int gifLocation3 = Integer.parseInt(infoWorkouts.get(8));
 
         //GET values from helper - to place to .xml
 
