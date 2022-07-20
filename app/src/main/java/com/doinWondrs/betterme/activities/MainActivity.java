@@ -9,6 +9,8 @@ import android.view.MenuItem;
 
 import com.amplifyframework.datastore.generated.model.User;
 import com.doinWondrs.betterme.R;
+
+import com.doinWondrs.betterme.TestGoogleMap;
 import com.doinWondrs.betterme.helpers.GoToNav;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -62,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                         overridePendingTransition(0,0);
                         break;
                     case R.id.gps_nav:
-                        startActivity(new Intent(getApplicationContext(), GPSAndGymLocation.class));
+                        startActivity(new Intent(getApplicationContext(), GPSActivity.class));
                         overridePendingTransition(0,0);
                         break;
                     case R.id.workouts_nav:
