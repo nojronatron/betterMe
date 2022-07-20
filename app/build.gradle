@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
 
 android {
@@ -13,6 +14,11 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        Properties properties = new Properties()
+
+        properties.load(project.rootProject.file('local.properties').newDataInputStream())
+        manifestPlaceholders = [MAPS_API_KEY: "${properties.getProperty('MAPS_API_KEY')}"]
     }
 
     buildTypes {
@@ -25,9 +31,17 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
+
+    implementation 'com.google.android.libraries.places:places:2.6.0'
+    implementation 'com.android.volley:volley:1.2.1'
+
+
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
     implementation 'com.amplifyframework:aws-storage-s3:1.36.2'
     implementation 'com.amplifyframework:aws-auth-cognito:1.36.1'
@@ -35,6 +49,7 @@ dependencies {
     implementation 'com.amplifyframework:aws-api:1.36.0'
     implementation 'com.amplifyframework:aws-datastore:1.36.0'
     implementation 'com.google.android.gms:play-services-location:20.0.0'
+    implementation 'com.google.android.gms:play-services-maps:18.0.2'
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
 
     implementation 'androidx.appcompat:appcompat:1.4.2'

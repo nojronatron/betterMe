@@ -34,6 +34,11 @@ public class RecordDailyInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_record_daily_info);
 
+        getUserAttributes();
+        getUser();
+        calcBmi();
+        grabDateAndSet();
+
     }
     private void getUserAttributes(){
         Amplify.Auth.fetchUserAttributes(
@@ -75,6 +80,10 @@ public class RecordDailyInfo extends AppCompatActivity {
         }
     }
 
+    private void getDailyInfo(){
+
+    }
+
     private void calcBmi(){
         Button calcBtn = findViewById(R.id.infoCalcBmiBtn);
         calcBtn.setOnClickListener(v->{
@@ -87,8 +96,16 @@ public class RecordDailyInfo extends AppCompatActivity {
         });
 
     }
+
+    private void grabDateAndSet(){
+        Intent callingIntent = getIntent();
+        String date = "";
+        if(callingIntent != null){
+            date = callingIntent.getStringExtra(CalendarActivity.CALENDAR_DATE);
+        }
+    }
     
-    private void infoSave(){
+    private void infoCreate(){
         Intent callingIntent = getIntent();
         String date = "";
         if(callingIntent != null){
