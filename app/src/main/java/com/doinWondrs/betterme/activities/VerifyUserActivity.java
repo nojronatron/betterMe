@@ -40,6 +40,9 @@ public class VerifyUserActivity extends AppCompatActivity {
                     verification,
                     success -> {
                         Log.i(TAG, "Verify successful " + success);
+                        Intent goLogin = new Intent(VerifyUserActivity.this, LogInActivity.class);
+                        goLogin.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(goLogin);
                     },
                     fail -> {
                         Log.e(TAG, "Failed Verify :" + fail);

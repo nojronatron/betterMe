@@ -69,6 +69,7 @@ public class UserProfileActivity extends AppCompatActivity {
         navGoTo();//Bottom NAVBAR
         getUserAttributes();
         getUser();
+        fillUser();
         getS3ImageKey();
         setUpAddImageButton();
         setUpSpinner();
@@ -89,11 +90,10 @@ public class UserProfileActivity extends AppCompatActivity {
 
     private void setUpSpinner() {
         activitySpinner = findViewById(R.id.profileActivityLevelSpinner);
-        activitySpinner.setAdapter(new ArrayAdapter<>(
-                this,
-                androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
-                ActivityEnum.values()
-        ));
+        ArrayAdapter<ActivityEnum> enums = new ArrayAdapter<>(this,androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, ActivityEnum.values());
+        activitySpinner.setAdapter(enums);
+        int actLevelPosition = enums.getPosition(userInfo.getActivityLevel());
+        activitySpinner.setSelection(actLevelPosition);
     }
 
     private void getUserAttributes(){
@@ -126,6 +126,9 @@ public class UserProfileActivity extends AppCompatActivity {
                 },
                 failure -> Log.i(TAG,"Failed to read Users")
         );
+    }
+
+    private void fillUser(){
         try {
             userInfo = userFuture.get();
         } catch (InterruptedException ie) {

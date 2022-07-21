@@ -64,12 +64,12 @@ public class AboutUsActivity extends AppCompatActivity {
                 "https://www.linkedin.com/in/michael-brunette-0800b5233/",
                 "https://github.com/mcbrunette33",
                 R.drawable.icon1,
-                "Quote"));
+                ""));
         devModelArrayList.add(new DevModel("Abdulahi Mohamud",
                 "https://www.linkedin.com/in/abdulahimmohamud/",
                 "https://github.com/AbdulahiMohamud",
-                R.drawable.icon1,
-                "Quote"));
+                R.drawable.abdulahi_pic,
+                "\"And I knew exactly what to do. But in a much more real sense, I had no idea what to do.\" – Michael Scott"));
         devModelArrayList.add(new DevModel("Jason Wilson",
                 "https://www.linkedin.com/in/jason-wilson-5b5baa1a8/",
                 "https://github.com/WilsonJhub",
@@ -118,8 +118,6 @@ public class AboutUsActivity extends AppCompatActivity {
                         overridePendingTransition(0, 0);
                         break;
                     case R.id.settings_nav:
-                        startActivity(new Intent(getApplicationContext(), UserProfileActivity.class));
-                        overridePendingTransition(0, 0);
                         break;
                     default:
                         return false;// this is to cover all other cases if not working properly

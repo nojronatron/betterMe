@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/BlackRed"
     tools:context=".activities.SignUpActivity">
 
     <TextView
@@ -13,6 +14,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="56dp"
         android:text="Email :"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signupTextview" />
 
@@ -22,9 +24,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
         android:layout_marginTop="28dp"
+        android:backgroundTint="@color/PrimaryRedAndLogo"
         android:ems="10"
         android:hint="email"
         android:inputType="textEmailAddress"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/emailSignupTextView"
@@ -37,6 +41,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="44dp"
         android:text="Password  :"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailSignupTextView" />
 
@@ -45,9 +50,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:backgroundTint="@color/PrimaryRedAndLogo"
         android:ems="10"
         android:hint="password"
         android:inputType="textPassword"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.129"
         app:layout_constraintStart_toEndOf="@+id/passwordSignupTextView"
@@ -71,6 +78,7 @@
         android:layout_marginStart="124dp"
         android:layout_marginTop="44dp"
         android:text="SIGNUP"
+        android:textColor="@color/white"
         android:textSize="34sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -81,9 +89,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="76dp"
         android:layout_marginEnd="100dp"
+        android:backgroundTint="@color/PrimaryRedAndLogo"
         android:ems="10"
         android:hint="username"
         android:inputType="textPersonName"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signupTextView" />
 
@@ -93,12 +103,12 @@
         android:layout_height="24dp"
         android:layout_marginTop="84dp"
         android:text="Username :"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toStartOf="@+id/signupTextUserame"
         app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signupTextView"
         tools:text="username" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

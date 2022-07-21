@@ -10,7 +10,7 @@
     },
     "conflictResolution": {},
     "apiName": "amplifyDatasource",
-    "gqlSchemaPath": "/home/toor/Projects/courses/code401/betterMe/amplify/backend/api/amplifyDatasource/schema.graphql",
+    "gqlSchemaPath": "/Users/ballout/401/betterMe/amplify/backend/api/amplifyDatasource/schema.graphql",
     "additionalAuthTypes": []
   }
 }

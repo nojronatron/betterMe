@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 
-
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -60,42 +60,14 @@ public class RecordDailyInfo extends AppCompatActivity {
         getDailyInfo();
         getUserAttributes();
         getUser();
+        fillUserInfo();
         calcBmi();
         grabDateAndSet();
         createOrUpdate();
         navGoTo();
     }
 
-    private void getUserAttributes(){
-        Amplify.Auth.fetchUserAttributes(
-                success -> {
-                    for(AuthUserAttribute attribute : success){
-                        if(attribute.getKey().getKeyString().equals("email")){
-                            userEmail = attribute.getValue();
-                        }
-                        if(attribute.getKey().getKeyString().equals("nickname")){
-                            userNickName = attribute.getValue();
-                        }
-                    }
-                },
-                error -> Log.e(TAG, "failed")
-        );
-    }
-
-    private void getUser(){
-        userFuture = new CompletableFuture<>();
-        Amplify.API.query(
-                ModelQuery.list(User.class),
-                success -> {
-                    Log.i(TAG, "Read Users successfully");
-                    for(User user : success.getData()){
-                        if(user.getUsername().equals(userNickName)){
-                            userFuture.complete(user);
-                        }
-                    }
-                },
-                failure -> Log.i(TAG,"Failed to read Users")
-        );
+    private void fillUserInfo(){
         try {
             userInfo = userFuture.get();
         } catch (InterruptedException ie) {
@@ -106,31 +78,64 @@ public class RecordDailyInfo extends AppCompatActivity {
         }
     }
 
-    private void getDailyInfo(){
+    private void getUserAttributes() {
+        Amplify.Auth.fetchUserAttributes(
+                success -> {
+                    for (AuthUserAttribute attribute : success) {
+                        if (attribute.getKey().getKeyString().equals("email")) {
+                            userEmail = attribute.getValue();
+                        }
+                        if (attribute.getKey().getKeyString().equals("nickname")) {
+                            userNickName = attribute.getValue();
+                        }
+                    }
+                },
+                error -> Log.e(TAG, "failed")
+        );
+    }
+
+    private void getUser() {
+        userFuture = new CompletableFuture<>();
+        Amplify.API.query(
+                ModelQuery.list(User.class),
+                success -> {
+                    Log.i(TAG, "Read Users successfully");
+                    for (User user : success.getData()) {
+                        if (user.getUsername().equals(userNickName)) {
+                            userFuture.complete(user);
+                        }
+                    }
+                },
+                failure -> Log.i(TAG, "Failed to read Users")
+        );
+    }
+
+    private void getDailyInfo() {
         // create API query
 
         Amplify.API.query(
                 ModelQuery.list(DailyInfo.class),
                 onSuccess -> {
-                    for(DailyInfo info: onSuccess.getData()) {
+                    for (DailyInfo info : onSuccess.getData()) {
                         dailyInfoList.add(info);
                     }
-
                     dailyInfoListFuture.complete(dailyInfoList);
                     Log.i(TAG, "Read DailyInfo successfully.");
                 },
                 onFailure -> Log.e(TAG, "Failed to read DailyInfo.")
         );
+    }
 
+    private void fillDailyInfoHashmap(){
         try {
             dailyInfoList = dailyInfoListFuture.get();
 
-            for (DailyInfo info: dailyInfoList) {
-                if (!mapOfInfo.containsKey(info.getCalendarDate())) {
+            for (DailyInfo info : dailyInfoList) {
+                if (!mapOfInfo.containsKey(info.getCalendarDate()) && info.getUser().equals(userInfo)) {
                     mapOfInfo.put(info.getCalendarDate(), info);
                 }
             }
-        }  catch (InterruptedException ie){
+        } catch (InterruptedException ie) {
             Log.e(TAG, "InterruptedException while getting teams");
             Thread.currentThread().interrupt();
         } catch (ExecutionException ee) {
@@ -139,15 +144,16 @@ public class RecordDailyInfo extends AppCompatActivity {
     }
 
     private void createOrUpdate() {
+        fillDailyInfoHashmap();
         if (mapOfInfo.containsKey(date)) {
             // we have a dailyinfo
-            infoUpdate();
+            infoUpdate(mapOfInfo.get(date));
         } else {
             infoCreate();
         }
     }
 
-    private void infoUpdate(){
+    private void infoUpdate(DailyInfo todaysInfo) {
         Button saveBtn = findViewById(R.id.infoSaveBtn);
         String dateCreation = com.amazonaws.util.DateUtils.formatISO8601Date(new Date());
         String finalDate = date;
@@ -158,98 +164,103 @@ public class RecordDailyInfo extends AppCompatActivity {
         currentCalories = findViewById(R.id.infoConsumedCalories);
         DailyInfo currentInfo = mapOfInfo.get(date);
 
-        // TODO: getWeight can return null, maybe need a turnary or ??
-        weightInfo.setText(currentInfo.getWeight().toString());
-        bmi.setText(currentInfo.getBmi().toString());
-        currentCalories.setText(currentInfo.getCurrentCalorie().toString());
+        if(currentInfo.getWeight() != null && currentInfo.getBmi() != null && currentInfo.getCurrentCalorie() != null) {
+            weightInfo.setText(currentInfo.getWeight().toString());
+            bmi.setText(currentInfo.getBmi().toString());
+            currentCalories.setText(currentInfo.getCurrentCalorie().toString());
+        }
 
-        saveBtn.setOnClickListener(v ->{
+        saveBtn.setOnClickListener(v -> {
             weightInfo = findViewById(R.id.inforCurrentWeightInput);
             bmi = findViewById(R.id.infoBmiInput);
             currentCalories = findViewById(R.id.infoConsumedCalories);
+            if(TextUtils.isEmpty(weightInfo.getText()) || TextUtils.isEmpty(bmi.getText()) || TextUtils.isEmpty(currentCalories.getText())){
+                Toast.makeText(RecordDailyInfo.this, "Please Fill Out All Fields", Toast.LENGTH_SHORT).show();
+            } else {
+                DailyInfo newDailyInfo = DailyInfo.builder()
+                        .id(todaysInfo.getId())
+                        .user(userInfo)
+                        .calendarDate(finalDate)
+                        .weight(Integer.parseInt(weightInfo.getText().toString()))
+                        .bmi(Integer.parseInt(bmi.getText().toString()))
+                        .currentCalorie(Integer.parseInt(currentCalories.getText().toString()))
+                        .dateCreated(new Temporal.DateTime(dateCreation))
+                        .build();
 
-            DailyInfo newDailyInfo = DailyInfo.builder()
-                    .user(userInfo)
-                    .calendarDate(finalDate)
-                    .weight(Integer.parseInt(weightInfo.getText().toString()))
-                    .bmi(Integer.parseInt(bmi.getText().toString()))
-                    .currentCalorie(Integer.parseInt(currentCalories.getText().toString()))
-                    .dateCreated(new Temporal.DateTime(dateCreation))
-                    .build();
+                Amplify.API.mutate(
+                        ModelMutation.update(newDailyInfo),
+                        success -> {
+                            Log.i(TAG, "Daily Info Updated Successfully");
+                        },
+                        failure -> Log.e(TAG, "Daily Info Creation Failed" + failure.getMessage())
+                );
 
-            Amplify.API.mutate(
-                    ModelMutation.update(newDailyInfo),
-                    success -> {
-                        Log.i(TAG, "Daily Info Updated Successfully");
-                    },
-                    failure -> Log.e(TAG, "Daily Info Creation Failed" + failure.getMessage())
-            );
+                Toast.makeText(RecordDailyInfo.this,
+                        "Daily info was updated.",
+                        Toast.LENGTH_SHORT).show();
 
-            Toast.makeText(RecordDailyInfo.this,
-                    "Daily info was updated.",
-                    Toast.LENGTH_SHORT).show();
-
-            finish();
+                finish();
+            }
         });
     }
 
-    private void calcBmi(){
+    private void calcBmi() {
         Button calcBtn = findViewById(R.id.infoCalcBmiBtn);
-        // TODO: User MUST have input their height and weight on their profile BEFORE running this
-        calcBtn.setOnClickListener(v->{
+        calcBtn.setOnClickListener(v -> {
             TextView bmi = findViewById(R.id.infoBmiInput);
             EditText weightInfo = findViewById(R.id.inforCurrentWeightInput);
-            double weightNum = Double.parseDouble(weightInfo.getText().toString());
-            int height = userInfo.getHeight();
-            int userBmi = (int)((weightNum/(height * height)) * 703);
-            bmi.setText(String.valueOf(userBmi));
+            if(userInfo.getHeight() == null || TextUtils.isEmpty(weightInfo.getText())){
+                Toast.makeText(RecordDailyInfo.this, "Please make sure you have set your height and weight", Toast.LENGTH_SHORT).show();
+            } else {
+                double weightNum = Double.parseDouble(weightInfo.getText().toString());
+                int height = userInfo.getHeight();
+                int userBmi = (int) ((weightNum / (height * height)) * 703);
+                bmi.setText(String.valueOf(userBmi));
+            }
         });
-
     }
 
-    private void grabDateAndSet(){
+    private void grabDateAndSet() {
 
         Intent callingIntent = getIntent();
         date = "";
-        if(callingIntent != null){
+        if (callingIntent != null) {
             date = callingIntent.getStringExtra(CalendarActivity.CALENDAR_DATE);
         }
     }
-    
-    private void infoCreate(){
-//        Intent callingIntent = getIntent();
-//        date = "";
-//        if(callingIntent != null){
-//            date = callingIntent.getStringExtra(CalendarActivity.CALENDAR_DATE);
-//        }
+
+    private void infoCreate() {
         Button saveBtn = findViewById(R.id.infoSaveBtn);
         String dateCreation = com.amazonaws.util.DateUtils.formatISO8601Date(new Date());
         String finalDate = date;
-        saveBtn.setOnClickListener(v ->{
+        saveBtn.setOnClickListener(v -> {
             EditText weightInfo = findViewById(R.id.inforCurrentWeightInput);
             TextView bmi = findViewById(R.id.infoBmiInput);
             currentCalories = findViewById(R.id.infoConsumedCalories);
+            if(TextUtils.isEmpty(weightInfo.getText()) || TextUtils.isEmpty(bmi.getText()) || TextUtils.isEmpty(currentCalories.getText())){
+                Toast.makeText(RecordDailyInfo.this, "Please Fill Out All Fields", Toast.LENGTH_SHORT).show();
+            } else {
+                DailyInfo newDailyInfo = DailyInfo.builder()
+                        .user(userInfo)
+                        .calendarDate(finalDate)
+                        .weight(Integer.parseInt(weightInfo.getText().toString()))
+                        .bmi(Integer.parseInt(bmi.getText().toString()))
+                        .currentCalorie(Integer.parseInt(currentCalories.getText().toString()))
+                        .dateCreated(new Temporal.DateTime(dateCreation))
+                        .build();
 
-            DailyInfo newDailyInfo = DailyInfo.builder()
-                    .user(userInfo)
-                    .calendarDate(finalDate)
-                    .weight(Integer.parseInt(weightInfo.getText().toString()))
-                    .bmi(Integer.parseInt(bmi.getText().toString()))
-                    .currentCalorie(Integer.parseInt(currentCalories.getText().toString()))
-                    .dateCreated(new Temporal.DateTime(dateCreation))
-                    .build();
+                Amplify.API.mutate(
+                        ModelMutation.create(newDailyInfo),
+                        success -> Log.i(TAG, "Daily Info Created Successfully" + success),
+                        failure -> Log.e(TAG, "Daily Info Creation Failed" + failure.getMessage())
+                );
 
-            Amplify.API.mutate(
-                    ModelMutation.create(newDailyInfo),
-                    success -> Log.i(TAG, "Daily Info Created Successfully" + success),
-                    failure -> Log.e(TAG, "Daily Info Creation Failed" + failure.getMessage())
-            );
+                Toast.makeText(RecordDailyInfo.this,
+                        "Daily info was saved!",
+                        Toast.LENGTH_SHORT).show();
 
-            Toast.makeText(RecordDailyInfo.this,
-                    "Daily info was saved!",
-                    Toast.LENGTH_SHORT).show();
-
-            finish();
+                finish();
+            }
         });
     }
 
@@ -268,28 +279,28 @@ public class RecordDailyInfo extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId())
-                {
+                switch (item.getItemId()) {
                     case R.id.home_nav:
                         //we are here right now
                         break;
                     case R.id.calendar_nav:
                         startActivity(new Intent(getApplicationContext(), CalendarActivity.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         break;
                     case R.id.gps_nav:
                         startActivity(new Intent(getApplicationContext(), GPSActivity.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         break;
                     case R.id.workouts_nav:
                         startActivity(new Intent(getApplicationContext(), WorkoutPageFirst.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         break;
                     case R.id.settings_nav:
                         startActivity(new Intent(getApplicationContext(), UserProfileActivity.class));
-                        overridePendingTransition(0,0);
+                        overridePendingTransition(0, 0);
                         break;
-                    default: return false;// this is to cover all other cases if not working properly
+                    default:
+                        return false;// this is to cover all other cases if not working properly
                 }
 
                 return true;
