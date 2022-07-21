@@ -4,19 +4,13 @@ package com.doinWondrs.betterme.activities;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageButton;
-
 import com.doinWondrs.betterme.R;
 import com.doinWondrs.betterme.helpers.FetchData;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -25,11 +19,9 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.internal.IGoogleMapDelegate;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.doinWondrs.betterme.databinding.ActivityTestGoogleMapBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -37,7 +29,6 @@ import com.google.android.material.navigation.NavigationBarView;
 public class GPSActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private ActivityTestGoogleMapBinding binding;
     private FusedLocationProviderClient fusedLocationClient;
     public double lng,lat;
 
@@ -126,11 +117,11 @@ public class GPSActivity extends FragmentActivity implements OnMapReadyCallback 
         gymBtn.setOnClickListener(v -> {
 
                 StringBuilder stringBuilder = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
-                stringBuilder.append("location=" + lat + "," + lng);
+                stringBuilder.append("location=").append(lat).append(",").append(lng);
                 stringBuilder.append("&radius=8046");// in meters // 5 mile search radius
                 stringBuilder.append("&types=gym");
                 stringBuilder.append("&sensor=true");
-                stringBuilder.append("&key=" + getResources().getString(R.string.google_map_key));
+                stringBuilder.append("&key=").append(getResources().getString(R.string.google_map_key));
 
 
                 String url = stringBuilder.toString();
@@ -152,11 +143,11 @@ public class GPSActivity extends FragmentActivity implements OnMapReadyCallback 
         trailBtn.setOnClickListener(v -> {
 
             StringBuilder stringBuilder = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
-            stringBuilder.append("location=" + lat + "," + lng);
+            stringBuilder.append("location=").append(lat).append(",").append(lng);
             stringBuilder.append("&radius=8046");// in meters // 5 mile search radius
             stringBuilder.append("&types=park");
             stringBuilder.append("&sensor=true");
-            stringBuilder.append("&key=" + getResources().getString(R.string.google_map_key));
+            stringBuilder.append("&key=").append(getResources().getString(R.string.google_map_key));
 
 
             String url = stringBuilder.toString();
@@ -178,11 +169,11 @@ public class GPSActivity extends FragmentActivity implements OnMapReadyCallback 
         suppBtn.setOnClickListener(v -> {
 
             StringBuilder stringBuilder = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
-            stringBuilder.append("location=" + lat + "," + lng);
+            stringBuilder.append("location=").append(lat).append(",").append(lng);
             stringBuilder.append("&radius=8046");// in meters // 5 mile search radius
             stringBuilder.append("&types=drugstore");
             stringBuilder.append("&sensor=true");
-            stringBuilder.append("&key=" + getResources().getString(R.string.google_map_key));
+            stringBuilder.append("&key=").append(getResources().getString(R.string.google_map_key));
 
 
             String url = stringBuilder.toString();
