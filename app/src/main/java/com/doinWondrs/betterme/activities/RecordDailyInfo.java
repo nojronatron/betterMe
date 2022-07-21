@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+
+
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,6 +31,7 @@ public class RecordDailyInfo extends AppCompatActivity {
     private User userInfo;
     private String userEmail = null;
     private String userNickName = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +102,7 @@ public class RecordDailyInfo extends AppCompatActivity {
     }
 
     private void grabDateAndSet(){
+
         Intent callingIntent = getIntent();
         String date = "";
         if(callingIntent != null){
@@ -134,5 +139,4 @@ public class RecordDailyInfo extends AppCompatActivity {
             );
         });
     }
-
 }

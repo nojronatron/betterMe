@@ -49,6 +49,8 @@ google-services.json
 # Android Profiling
 *.hprof
 
+app/src/main/res/values/google_map.xml
+
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
 amplify/.config/local-*
@@ -69,4 +71,3 @@ amplifytools.xcconfig
 .secret-*
 **.sample
 #amplify-do-not-edit-end
-app/src/main/res/values/google_map.xml

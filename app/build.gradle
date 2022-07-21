@@ -6,6 +6,10 @@ plugins {
 android {
     compileSdk 32
 
+    compileOptions{
+        coreLibraryDesugaringEnabled true
+    }
+
     defaultConfig {
         applicationId "com.doinWondrs.betterme"
         minSdk 24

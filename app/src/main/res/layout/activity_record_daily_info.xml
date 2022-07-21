@@ -22,12 +22,13 @@
         android:id="@+id/inforCurrentWeightInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
         android:layout_marginTop="54dp"
         android:ems="10"
         android:hint="Current Weight"
         android:inputType="textPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/dateOfDailyInfo"
-        tools:layout_editor_absoluteX="29dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateOfDailyInfo" />
 
     <TextView
         android:id="@+id/infoBmiInput"
@@ -70,4 +71,5 @@
         android:text="SAVE"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/infoConsumedCalories" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
