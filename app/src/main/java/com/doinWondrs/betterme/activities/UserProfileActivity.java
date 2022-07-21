@@ -69,6 +69,7 @@ public class UserProfileActivity extends AppCompatActivity {
         navGoTo();//Bottom NAVBAR
         getUserAttributes();
         getUser();
+        fillUser();
         getS3ImageKey();
         setUpAddImageButton();
         setUpSpinner();
@@ -126,6 +127,9 @@ public class UserProfileActivity extends AppCompatActivity {
                 },
                 failure -> Log.i(TAG,"Failed to read Users")
         );
+    }
+
+    private void fillUser(){
         try {
             userInfo = userFuture.get();
         } catch (InterruptedException ie) {
