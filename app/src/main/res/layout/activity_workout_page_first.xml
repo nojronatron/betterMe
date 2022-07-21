@@ -8,6 +8,19 @@
     tools:context=".activities.WorkoutPageFirst">
 
 
+    <pl.droidsonroids.gif.GifImageButton
+        android:id="@+id/buttonChest"
+        android:layout_width="150dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="184dp"
+        android:layout_marginEnd="60dp"
+        android:contentDescription="@string/ok"
+        android:scaleType="fitXY"
+        android:src="@drawable/bench2nob"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/progress_horizontal"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
     <TextView
         android:id="@+id/textView"
@@ -34,94 +47,88 @@
         tools:ignore="ImageContrastCheck"
         tools:srcCompat="@drawable/icon2" />
 
+
     <pl.droidsonroids.gif.GifImageButton
-        android:id="@+id/buttonChest"
+        android:id="@+id/buttonAbdominal"
         android:layout_width="150dp"
         android:layout_height="120dp"
-        android:layout_marginTop="176dp"
-        android:layout_marginEnd="60dp"
-        android:src="@drawable/bench2"
+        android:layout_marginTop="184dp"
+        android:layout_marginEnd="212dp"
         android:contentDescription="@string/ok"
         android:scaleType="fitXY"
+        android:src="@drawable/absnob"
+        android:text="@string/abdominals"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/progress_horizontal"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
-<!--    <pl.droidsonroids.gif.GifImageButton-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:src="@drawable/bench"-->
-<!--        />-->
 
-    <ImageButton
-        android:id="@+id/buttonAbdominal"
-        android:layout_width="147dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="176dp"
-        android:layout_marginEnd="212dp"
-        android:contentDescription="@string/weightLiftButtonWithGif"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/editbox_dropdown_dark_frame" />
-
-    <ImageButton
+    <pl.droidsonroids.gif.GifImageButton
         android:id="@+id/buttonShoulders"
         android:layout_width="150dp"
         android:layout_height="120dp"
         android:layout_marginTop="424dp"
         android:layout_marginEnd="60dp"
-
         android:contentDescription="@string/ok"
+        android:scaleType="fitXY"
+        android:src="@drawable/rownob"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/progress_horizontal" />
 
-    <ImageButton
+    <pl.droidsonroids.gif.GifImageButton
         android:id="@+id/buttonBack"
         android:layout_width="150dp"
         android:layout_height="120dp"
         android:layout_marginTop="424dp"
         android:layout_marginEnd="212dp"
         android:contentDescription="@string/ok"
+        android:scaleType="fitXY"
+        android:src="@drawable/shouldersnob0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/progress_horizontal" />
 
-    <ImageButton
+    <pl.droidsonroids.gif.GifImageButton
         android:id="@+id/buttonLegs"
         android:layout_width="150dp"
         android:layout_height="120dp"
         android:layout_marginTop="304dp"
         android:layout_marginEnd="212dp"
         android:contentDescription="@string/ok"
+        android:scaleType="fitXY"
+        android:src="@drawable/legsnob"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/progress_horizontal" />
 
-    <ImageButton
+    <pl.droidsonroids.gif.GifImageButton
         android:id="@+id/buttonArms"
         android:layout_width="150dp"
         android:layout_height="120dp"
         android:layout_marginTop="304dp"
         android:layout_marginEnd="60dp"
         android:contentDescription="@string/ok"
+        android:scaleType="fitXY"
+        android:src="@drawable/curl2nob"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/progress_horizontal" />
 
 
-    <Button
-        android:id="@+id/buttontoSecondWorkout"
-        android:layout_width="209dp"
-        android:layout_height="79dp"
-        android:layout_marginTop="560dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="24dp"
-        android:text="@string/buttonNext"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <Button-->
+<!--        android:id="@+id/buttontoSecondWorkout"-->
+<!--        android:layout_width="209dp"-->
+<!--        android:layout_height="79dp"-->
+<!--        android:layout_marginTop="560dp"-->
+<!--        android:layout_marginEnd="100dp"-->
+<!--        android:layout_marginBottom="24dp"-->
+<!--        android:text="@string/buttonNext"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -131,6 +138,74 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav_menu"/>
+
+    <TextView
+        android:id="@+id/motivationalQuote"
+        android:layout_width="385dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="72dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="107dp"
+        android:layout_marginBottom="92dp"
+        android:text="Chest"
+        android:textColor="#0C0C0C"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonChest"
+        app:layout_constraintStart_toStartOf="@+id/buttonChest" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="110dp"
+        android:layout_marginBottom="92dp"
+        android:text="Legs"
+        android:textColor="#090909"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonLegs"
+        app:layout_constraintStart_toStartOf="@+id/buttonLegs" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="107dp"
+        android:layout_marginBottom="92dp"
+        android:text="Arms"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonArms"
+        app:layout_constraintStart_toStartOf="@+id/buttonArms" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="81dp"
+        android:layout_marginTop="10dp"
+        android:text="Shoulders"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/buttonBack"
+        app:layout_constraintTop_toTopOf="@+id/buttonBack" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="107dp"
+        android:layout_marginTop="10dp"
+        android:text="Back"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/buttonShoulders"
+        app:layout_constraintTop_toTopOf="@+id/buttonShoulders" />
+>>>>>>> 7454f30b9ab55ad1b2e7f26ec495189af3a5c048
 
 
     <!-- TESTING API START -->

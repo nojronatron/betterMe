@@ -25,12 +25,11 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 @ModelConfig(pluralName = "DailyInfos", authRules = {
   @AuthRule(allow = AuthStrategy.PUBLIC, operations = { ModelOperation.CREATE, ModelOperation.UPDATE, ModelOperation.DELETE, ModelOperation.READ })
 })
-@Index(name = "byUser", fields = {"userID"})
+@Index(name = "byUser", fields = {"userID","calendarDate"})
 public final class DailyInfo implements Model {
   public static final QueryField ID = field("DailyInfo", "id");
   public static final QueryField WEIGHT = field("DailyInfo", "weight");
-  public static final QueryField USER_ID = field("DailyInfo", "userID");
-  public static final QueryField USER = field("DailyInfo", "userDailyInfosId");
+  public static final QueryField USER = field("DailyInfo", "userID");
   public static final QueryField BMI = field("DailyInfo", "bmi");
   public static final QueryField CURRENT_CALORIE = field("DailyInfo", "currentCalorie");
   public static final QueryField DAY = field("DailyInfo", "day");
@@ -38,8 +37,7 @@ public final class DailyInfo implements Model {
   public static final QueryField DATE_CREATED = field("DailyInfo", "dateCreated");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="Int") Integer weight;
-  private final @ModelField(targetType="ID", isRequired = true) String userID;
-  private final @ModelField(targetType="User") @BelongsTo(targetName = "userDailyInfosId", type = User.class) User User;
+  private final @ModelField(targetType="User") @BelongsTo(targetName = "userID", type = User.class) User User;
   private final @ModelField(targetType="Int") Integer bmi;
   private final @ModelField(targetType="Int") Integer currentCalorie;
   private final @ModelField(targetType="Int") Integer day;
@@ -53,10 +51,6 @@ public final class DailyInfo implements Model {
   
   public Integer getWeight() {
       return weight;
-  }
-  
-  public String getUserId() {
-      return userID;
   }
   
   public User getUser() {
@@ -91,10 +85,9 @@ public final class DailyInfo implements Model {
       return updatedAt;
   }
   
-  private DailyInfo(String id, Integer weight, String userID, User User, Integer bmi, Integer currentCalorie, Integer day, String calendarDate, Temporal.DateTime dateCreated) {
+  private DailyInfo(String id, Integer weight, User User, Integer bmi, Integer currentCalorie, Integer day, String calendarDate, Temporal.DateTime dateCreated) {
     this.id = id;
     this.weight = weight;
-    this.userID = userID;
     this.User = User;
     this.bmi = bmi;
     this.currentCalorie = currentCalorie;
@@ -113,7 +106,6 @@ public final class DailyInfo implements Model {
       DailyInfo dailyInfo = (DailyInfo) obj;
       return ObjectsCompat.equals(getId(), dailyInfo.getId()) &&
               ObjectsCompat.equals(getWeight(), dailyInfo.getWeight()) &&
-              ObjectsCompat.equals(getUserId(), dailyInfo.getUserId()) &&
               ObjectsCompat.equals(getUser(), dailyInfo.getUser()) &&
               ObjectsCompat.equals(getBmi(), dailyInfo.getBmi()) &&
               ObjectsCompat.equals(getCurrentCalorie(), dailyInfo.getCurrentCalorie()) &&
@@ -130,7 +122,6 @@ public final class DailyInfo implements Model {
     return new StringBuilder()
       .append(getId())
       .append(getWeight())
-      .append(getUserId())
       .append(getUser())
       .append(getBmi())
       .append(getCurrentCalorie())
@@ -149,7 +140,6 @@ public final class DailyInfo implements Model {
       .append("DailyInfo {")
       .append("id=" + String.valueOf(getId()) + ", ")
       .append("weight=" + String.valueOf(getWeight()) + ", ")
-      .append("userID=" + String.valueOf(getUserId()) + ", ")
       .append("User=" + String.valueOf(getUser()) + ", ")
       .append("bmi=" + String.valueOf(getBmi()) + ", ")
       .append("currentCalorie=" + String.valueOf(getCurrentCalorie()) + ", ")
@@ -162,7 +152,7 @@ public final class DailyInfo implements Model {
       .toString();
   }
   
-  public static UserIdStep builder() {
+  public static BuildStep builder() {
       return new Builder();
   }
   
@@ -183,7 +173,6 @@ public final class DailyInfo implements Model {
       null,
       null,
       null,
-      null,
       null
     );
   }
@@ -191,7 +180,6 @@ public final class DailyInfo implements Model {
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
       weight,
-      userID,
       User,
       bmi,
       currentCalorie,
@@ -199,11 +187,6 @@ public final class DailyInfo implements Model {
       calendarDate,
       dateCreated);
   }
-  public interface UserIdStep {
-    BuildStep userId(String userId);
-  }
-  
-
   public interface BuildStep {
     DailyInfo build();
     BuildStep id(String id);
@@ -217,9 +200,8 @@ public final class DailyInfo implements Model {
   }
   
 
-  public static class Builder implements UserIdStep, BuildStep {
+  public static class Builder implements BuildStep {
     private String id;
-    private String userID;
     private Integer weight;
     private User User;
     private Integer bmi;
@@ -234,20 +216,12 @@ public final class DailyInfo implements Model {
         return new DailyInfo(
           id,
           weight,
-          userID,
           User,
           bmi,
           currentCalorie,
           day,
           calendarDate,
           dateCreated);
-    }
-    
-    @Override
-     public BuildStep userId(String userId) {
-        Objects.requireNonNull(userId);
-        this.userID = userId;
-        return this;
     }
     
     @Override
@@ -304,21 +278,15 @@ public final class DailyInfo implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, Integer weight, String userId, User user, Integer bmi, Integer currentCalorie, Integer day, String calendarDate, Temporal.DateTime dateCreated) {
+    private CopyOfBuilder(String id, Integer weight, User user, Integer bmi, Integer currentCalorie, Integer day, String calendarDate, Temporal.DateTime dateCreated) {
       super.id(id);
-      super.userId(userId)
-        .weight(weight)
+      super.weight(weight)
         .user(user)
         .bmi(bmi)
         .currentCalorie(currentCalorie)
         .day(day)
         .calendarDate(calendarDate)
         .dateCreated(dateCreated);
-    }
-    
-    @Override
-     public CopyOfBuilder userId(String userId) {
-      return (CopyOfBuilder) super.userId(userId);
     }
     
     @Override

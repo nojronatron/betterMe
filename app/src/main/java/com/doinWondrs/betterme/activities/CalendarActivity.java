@@ -17,14 +17,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.amplifyframework.api.graphql.model.ModelQuery;
+import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.generated.model.DailyInfo;
 import com.doinWondrs.betterme.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CalendarActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener{
+    private static final String TAG = "calendarActivity";
     public TextView monthYearText;
     public RecyclerView calendarRecyclerView;
     public static final String CALENDAR_DATE = "date";
@@ -37,6 +42,7 @@ public class CalendarActivity extends AppCompatActivity implements CalendarAdapt
         calendarRecyclerView = findViewById(R.id.calendarRecyclerView);
         monthYearText = findViewById(R.id.monthYearTV);
         CalendarUtils.selectedDate = LocalDate.now();
+//        getDailyInfo();
         setMonthView();
         navGoTo();
         String test = LocalDate.now().toString();
@@ -48,7 +54,12 @@ public class CalendarActivity extends AppCompatActivity implements CalendarAdapt
         monthYearText.setText(monthYearFromDate(CalendarUtils.selectedDate));
         ArrayList<LocalDate> daysInMonth = daysInMonthArray(CalendarUtils.selectedDate);
 
-        CalendarAdapter calendarAdapter = new CalendarAdapter(daysInMonth, this, this);
+        CalendarAdapter calendarAdapter = new CalendarAdapter(
+                daysInMonth,
+                this,
+                this
+        );
+
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 7);
         calendarRecyclerView.setLayoutManager(layoutManager);
         calendarRecyclerView.setAdapter(calendarAdapter);
@@ -73,6 +84,22 @@ public class CalendarActivity extends AppCompatActivity implements CalendarAdapt
             setMonthView();
         }
     }
+
+//    private void getDailyInfo(){
+//        // create API query
+//        Amplify.API.query(
+//                ModelQuery.list(DailyInfo.class),
+//                onSuccess -> {
+//                    for(DailyInfo info: onSuccess.getData()) {
+//                        if (!mapOfInfo.containsKey(info.getCalendarDate())) {
+//                            mapOfInfo.put(info.getCalendarDate(), info);
+//                        }
+//                    }
+//                    Log.i(TAG, "Read DailyInfo successfully.");
+//                },
+//                onFailure -> Log.e(TAG, "Failed to read DailyInfo.")
+//        );
+//    }
 
     public void navGoTo() {
         //notes: https://www.geeksforgeeks.org/how-to-implement-bottom-navigation-with-activities-in-android/

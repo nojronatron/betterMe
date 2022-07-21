@@ -10,10 +10,22 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.doinWondrs.betterme.R;
 import com.doinWondrs.betterme.helpers.*;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,6 +44,7 @@ public class WorkoutPageSecond extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_page_second);
+
 
 
         //declarations
@@ -100,10 +113,11 @@ public class WorkoutPageSecond extends AppCompatActivity {
         TextView workoutRoutine3 = (TextView) findViewById((R.id.routine3));
 
 
+        //int gifLocation3 = workoutsHelper.gif3;
         //GET gifs from helper
-        int gifLocation1 = workoutsHelper.gif1;
-        int gifLocation2 = workoutsHelper.gif2;
-        int gifLocation3 = workoutsHelper.gif3;
+        int gifLocation1 = Integer.parseInt(infoWorkouts.get(2));
+        int gifLocation2 = Integer.parseInt(infoWorkouts.get(5));
+        int gifLocation3 = Integer.parseInt(infoWorkouts.get(8));
 
         //GET values from helper - to place to .xml
 
@@ -152,8 +166,6 @@ public class WorkoutPageSecond extends AppCompatActivity {
         //added new comment but not important here
 
     }//END: typesWorkouts
-
-
 
     public void navGoTo() {
         //initialize, instantiate

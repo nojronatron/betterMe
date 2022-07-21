@@ -62,3 +62,9 @@ Scott Evans [GitHub](https://github.com/mScottEvans)
 Chuck Altopiedi [GitHub](https://github.com/ChuckAlto)
 
 Jon Rumsey [GitHub](https://github.com/nojronatron)
+
+## Resources
+<a target="_blank" href="https://icons8.com/icon/v551nqGeHhGn/github">GitHub</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+<a target="_blank" href="https://icons8.com/icon/UyatB5WgOdeP/linkedin-circled">LinkedIn Circled</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+https://www.geeksforgeeks.org/how-to-create-an-expandable-cardview-in-android/
+https://www.geeksforgeeks.org/cardview-using-recyclerview-in-android-with-example/

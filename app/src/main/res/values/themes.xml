@@ -13,6 +13,10 @@
         <item name="android:statusBarColor" tools:targetApi="l">@color/design_default_color_error</item>
         <!-- Customize your theme here. -->
     </style>
+
+
+    <style name="Theme.CalendarApp" parent="Theme.AppCompat.Light.NoActionBar"></style>
+
     <style name="Theme.DemoOne" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- NavBar Text and Button Faces -->
         <item name="colorPrimary">@color/PrimaryRedAndLogo</item>
@@ -58,4 +62,5 @@
         <item name="colorOnSecondary">@color/CoreGreen</item>
 
     </style>
+>>>>>>> 10b085ae79cc49c6b33a824be20cc6ef6bb99b82
 </resources>
