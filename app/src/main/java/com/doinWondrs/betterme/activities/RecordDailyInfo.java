@@ -19,14 +19,20 @@ import com.amplifyframework.datastore.generated.model.DailyInfo;
 import com.amplifyframework.datastore.generated.model.User;
 import com.doinWondrs.betterme.R;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 public class RecordDailyInfo extends AppCompatActivity {
     private static final String TAG = "dailyinfoactivity";
     private CompletableFuture<User> userFuture;
+    private CompletableFuture<List<DailyInfo>> dailyInfoListFuture;
+    private List<DailyInfo> dailyInfoList = new ArrayList<>();
+
+    private DailyInfo dailyInfo; // for completable Future
     private User userInfo;
     private String date;
     private String userEmail = null;
@@ -41,6 +47,7 @@ public class RecordDailyInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_record_daily_info);
         mapOfInfo = new HashMap<>();
+        dailyInfoListFuture = new CompletableFuture<>();
 
         getDailyInfo();
         getUserAttributes();
@@ -92,18 +99,34 @@ public class RecordDailyInfo extends AppCompatActivity {
 
     private void getDailyInfo(){
         // create API query
+
         Amplify.API.query(
                 ModelQuery.list(DailyInfo.class),
                 onSuccess -> {
                     for(DailyInfo info: onSuccess.getData()) {
-                        if (!mapOfInfo.containsKey(info.getCalendarDate())) {
-                            mapOfInfo.put(info.getCalendarDate(), info);
-                        }
+                        dailyInfoList.add(info);
                     }
+
+                    dailyInfoListFuture.complete(dailyInfoList);
                     Log.i(TAG, "Read DailyInfo successfully.");
                 },
                 onFailure -> Log.e(TAG, "Failed to read DailyInfo.")
         );
+
+        try {
+            dailyInfoList = dailyInfoListFuture.get();
+
+            for (DailyInfo info: dailyInfoList) {
+                if (!mapOfInfo.containsKey(info.getCalendarDate())) {
+                    mapOfInfo.put(info.getCalendarDate(), info);
+                }
+            }
+        }  catch (InterruptedException ie){
+            Log.e(TAG, "InterruptedException while getting teams");
+            Thread.currentThread().interrupt();
+        } catch (ExecutionException ee) {
+            Log.e(TAG, "ExecutionException while getting teams");
+        }
     }
 
     private void createOrUpdate() {
