@@ -42,7 +42,6 @@ public class CalendarActivity extends AppCompatActivity implements CalendarAdapt
         calendarRecyclerView = findViewById(R.id.calendarRecyclerView);
         monthYearText = findViewById(R.id.monthYearTV);
         CalendarUtils.selectedDate = LocalDate.now();
-//        getDailyInfo();
         setMonthView();
         navGoTo();
         String test = LocalDate.now().toString();
@@ -84,22 +83,6 @@ public class CalendarActivity extends AppCompatActivity implements CalendarAdapt
             setMonthView();
         }
     }
-
-//    private void getDailyInfo(){
-//        // create API query
-//        Amplify.API.query(
-//                ModelQuery.list(DailyInfo.class),
-//                onSuccess -> {
-//                    for(DailyInfo info: onSuccess.getData()) {
-//                        if (!mapOfInfo.containsKey(info.getCalendarDate())) {
-//                            mapOfInfo.put(info.getCalendarDate(), info);
-//                        }
-//                    }
-//                    Log.i(TAG, "Read DailyInfo successfully.");
-//                },
-//                onFailure -> Log.e(TAG, "Failed to read DailyInfo.")
-//        );
-//    }
 
     public void navGoTo() {
         //notes: https://www.geeksforgeeks.org/how-to-implement-bottom-navigation-with-activities-in-android/

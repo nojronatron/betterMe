@@ -6,7 +6,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 //import androidx.fragment.app.FragmentManager;
 //import androidx.fragment.app.FragmentTransaction;
-
 import android.Manifest;
 //import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -16,7 +15,6 @@ import android.util.Log;
 import android.view.MenuItem;
 //import android.view.View;
 import android.widget.ImageButton;
-
 import com.doinWondrs.betterme.R;
 import com.doinWondrs.betterme.helpers.FetchData;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -37,16 +35,12 @@ import com.google.android.material.navigation.NavigationBarView;
 public class GPSActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-//    private ActivityTestGoogleMapBinding binding;
     private FusedLocationProviderClient fusedLocationClient;
     public double lng,lat;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(getApplicationContext());
         fusedLocationClient.flushLocations();
@@ -56,10 +50,7 @@ public class GPSActivity extends FragmentActivity implements OnMapReadyCallback 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
-
         navGoTo();
-
         findNearestGym();
         findNearestPark();
         findNearestSupplements();
