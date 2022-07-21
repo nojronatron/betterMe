@@ -118,17 +118,17 @@
         app:srcCompat="@android:drawable/progress_horizontal" />
 
 
-    <Button
-        android:id="@+id/buttontoSecondWorkout"
-        android:layout_width="209dp"
-        android:layout_height="79dp"
-        android:layout_marginTop="560dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="24dp"
-        android:text="@string/buttonNext"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <Button-->
+<!--        android:id="@+id/buttontoSecondWorkout"-->
+<!--        android:layout_width="209dp"-->
+<!--        android:layout_height="79dp"-->
+<!--        android:layout_marginTop="560dp"-->
+<!--        android:layout_marginEnd="100dp"-->
+<!--        android:layout_marginBottom="24dp"-->
+<!--        android:text="@string/buttonNext"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -140,17 +140,16 @@
         app:menu="@menu/bottom_nav_menu"/>
 
     <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:clickable="false"
-        android:text="Abs/Core"
-        android:textColor="#0A0A0B"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonAbdominal"
-        app:layout_constraintStart_toStartOf="@+id/buttonAbdominal"
-        app:layout_constraintTop_toTopOf="@+id/buttonAbdominal"
-        app:layout_constraintVertical_bias="0.089" />
+        android:id="@+id/motivationalQuote"
+        android:layout_width="385dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="72dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView15"
@@ -206,6 +205,7 @@
         android:textColor="#000000"
         app:layout_constraintStart_toStartOf="@+id/buttonShoulders"
         app:layout_constraintTop_toTopOf="@+id/buttonShoulders" />
+>>>>>>> 7454f30b9ab55ad1b2e7f26ec495189af3a5c048
 
 
     <!-- TESTING API START -->

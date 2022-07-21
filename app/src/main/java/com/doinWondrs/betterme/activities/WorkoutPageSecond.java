@@ -10,10 +10,22 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.doinWondrs.betterme.R;
 import com.doinWondrs.betterme.helpers.*;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,6 +44,7 @@ public class WorkoutPageSecond extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_page_second);
+
 
 
         //declarations
@@ -152,8 +165,6 @@ public class WorkoutPageSecond extends AppCompatActivity {
         //added new comment but not important here
 
     }//END: typesWorkouts
-
-
 
     public void navGoTo() {
         //initialize, instantiate
