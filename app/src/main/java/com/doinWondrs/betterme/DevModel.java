@@ -6,12 +6,14 @@ public class DevModel {
     private String devLinkedIn;
     private String devGitHub;
     private int devImg;
+    private String devQuote;
 
-    public DevModel(String devName, String devLinkedIn, String devGitHub, int devImg) {
+    public DevModel(String devName, String devLinkedIn, String devGitHub, int devImg, String devQuote) {
         this.devName = devName;
         this.devLinkedIn = devLinkedIn;
         this.devGitHub = devGitHub;
         this.devImg = devImg;
+        this.devQuote = devQuote;
     }
 
     public String getDevName() {
@@ -44,5 +46,13 @@ public class DevModel {
 
     public void setDevImg(int devImg) {
         this.devImg = devImg;
+    }
+
+    public String getDevQuote() {
+        return devQuote;
+    }
+
+    public void setDevQuote(String devQuote) {
+        this.devQuote = devQuote;
     }
 }

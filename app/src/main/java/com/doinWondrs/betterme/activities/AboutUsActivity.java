@@ -43,35 +43,43 @@ public class AboutUsActivity extends AppCompatActivity {
         devModelArrayList.add(new DevModel("Raul Zarate",
                 "https://www.linkedin.com/in/raul-zarate/",
                 "https://github.com/zaratr",
-                R.drawable.icon1));
+                R.drawable.icon1,
+                "Quote"));
         devModelArrayList.add(new DevModel("Chuck Altopiedi",
                 "https://www.linkedin.com/in/chuckaltopiedi/",
                 "https://github.com/ChuckAlto",
-                R.drawable.icon1));
+                R.drawable.icon1,
+                "Quote"));
         devModelArrayList.add(new DevModel("Jon Rumsey",
                 "https://www.linkedin.com/in/jonathan-rumsey-wa/",
                 "https://github.com/nojronatron",
-                R.drawable.icon1));
+                R.drawable.icon1,
+                "Quote"));
         devModelArrayList.add(new DevModel("Roger Reyes",
                 "https://www.linkedin.com/in/rogermreyes/",
                 "https://github.com/RogerMReyes",
-                R.drawable.rogerpic));
+                R.drawable.rogerpic,
+                "\"I have failed a thousand times, and I will continue to fail. Everytime stronger than the last\""));
         devModelArrayList.add(new DevModel("Michael Brunette",
                 "https://www.linkedin.com/in/michael-brunette-0800b5233/",
                 "https://github.com/mcbrunette33",
-                R.drawable.icon1));
+                R.drawable.icon1,
+                "Quote"));
         devModelArrayList.add(new DevModel("Abdulahi Mohamud",
                 "https://www.linkedin.com/in/abdulahimmohamud/",
                 "https://github.com/AbdulahiMohamud",
-                R.drawable.icon1));
+                R.drawable.icon1,
+                "Quote"));
         devModelArrayList.add(new DevModel("Jason Wilson",
                 "https://www.linkedin.com/in/jason-wilson-5b5baa1a8/",
                 "https://github.com/WilsonJhub",
-                R.drawable.icon1));
+                R.drawable.icon1,
+                "Quote"));
         devModelArrayList.add(new DevModel("Scott Evans",
                 "https://www.linkedin.com/in/rogermreyes/",
                 "https://github.com/mScottEvans",
-                R.drawable.icon1));
+                R.drawable.icon1,
+                "Quote"));
 
         DevAdapter devAdapter = new DevAdapter(this,devModelArrayList);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL,false);

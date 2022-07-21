@@ -20,7 +20,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/aboutUsRecView"
         android:layout_width="match_parent"
-        android:layout_height="700dp"
+        android:layout_height="650dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
