@@ -7,13 +7,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
 import com.doinWondrs.betterme.R;
 import com.doinWondrs.betterme.helpers.GoToNav;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationBarView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class WorkoutPageFirst extends AppCompatActivity {
     //Field Declarations
@@ -24,7 +33,25 @@ public class WorkoutPageFirst extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_page_first);
 
+        // https://www.youtube.com/watch?v=xPi-z3nOcn8
+        // Instantiate the RequestQueue.
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url = "https://zenquotes.io/api/quotes";
 
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null, response -> {
+            String quote = "";
+            try {
+//                textView.setText("Response is: " + response.getJSONObject(0));
+                JSONObject allQuoteData = response.getJSONObject(0);
+                quote = " \" " + allQuoteData.getString("q") + "\"\n " + " - " + allQuoteData.getString("a");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            final TextView textView = (TextView) findViewById(R.id.motivationalQuote);
+            textView.setText(quote);
+        }, error -> Toast.makeText(WorkoutPageFirst.this, "Something went wrong", Toast.LENGTH_SHORT).show());
+
+        queue.add(request);
 
         //function declarations:
 
