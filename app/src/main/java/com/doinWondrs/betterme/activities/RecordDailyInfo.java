@@ -130,7 +130,7 @@ public class RecordDailyInfo extends AppCompatActivity {
             dailyInfoList = dailyInfoListFuture.get();
 
             for (DailyInfo info : dailyInfoList) {
-                if (!mapOfInfo.containsKey(info.getCalendarDate())) {
+                if (!mapOfInfo.containsKey(info.getCalendarDate()) && info.getUser().equals(userInfo)) {
                     mapOfInfo.put(info.getCalendarDate(), info);
                 }
             }
