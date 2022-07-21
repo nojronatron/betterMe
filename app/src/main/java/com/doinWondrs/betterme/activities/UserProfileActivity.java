@@ -75,6 +75,7 @@ public class UserProfileActivity extends AppCompatActivity {
         setUpInfo();
         setUpUpdateBtn();
         setUpLogout();
+        setUpAboutUs();
     }//END onCreate
 
     // Makes the Profile Image clickable to upload profile pic
@@ -281,7 +282,6 @@ public class UserProfileActivity extends AppCompatActivity {
     }
 
     // Attaches onClick listener to logout container. Clears backstack and starts loginpage activity
-    //TODO: Verify Works
     private void setUpLogout(){
         ConstraintLayout logout = findViewById(R.id.profileLogoutContainer);
         logout.setOnClickListener(v -> {
@@ -302,8 +302,15 @@ public class UserProfileActivity extends AppCompatActivity {
         });
     }//END: setupLogout
 
+    private void setUpAboutUs(){
+        ConstraintLayout aboutUs = findViewById(R.id.profileAboutUsContainer);
+        aboutUs.setOnClickListener(v ->{
+            Intent goToAboutUs = new Intent(UserProfileActivity.this, AboutUsActivity.class);
+            startActivity(goToAboutUs);
+        });
+    }
+
     // TODO: Setup Intent to go to AboutUs Activity
-    // TODO: Setup update info
 
     public void navGoTo()
     {
