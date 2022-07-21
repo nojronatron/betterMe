@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+
+
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,6 +44,7 @@ public class RecordDailyInfo extends AppCompatActivity {
     EditText weightInfo;
     TextView bmi;
     EditText currentCalories;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -199,6 +203,7 @@ public class RecordDailyInfo extends AppCompatActivity {
     }
 
     private void grabDateAndSet(){
+
         Intent callingIntent = getIntent();
         date = "";
         if(callingIntent != null){
