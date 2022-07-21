@@ -43,10 +43,6 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".TestGoogleMap"
-            android:exported="false"
-            android:label="@string/title_activity_test_google_map" />
-        <activity
             android:name=".activities.GPSActivity"
             android:exported="false"
             android:label="@string/title_activity_gpsactivity" />
@@ -55,9 +51,6 @@
             android:exported="false" />
         <activity
             android:name=".activities.CalendarActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.GPSAndGymLocation"
             android:exported="false" />
         <activity
             android:name=".activities.WorkoutPageSecond"

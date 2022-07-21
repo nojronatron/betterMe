@@ -124,7 +124,7 @@ public class CalendarActivity extends AppCompatActivity implements CalendarAdapt
                         //we are here right now
                         break;
                     case R.id.gps_nav:
-                        startActivity(new Intent(getApplicationContext(), GPSAndGymLocation.class));
+                        startActivity(new Intent(getApplicationContext(), GPSActivity.class));
                         overridePendingTransition(0,0);
                         break;
                     case R.id.workouts_nav:

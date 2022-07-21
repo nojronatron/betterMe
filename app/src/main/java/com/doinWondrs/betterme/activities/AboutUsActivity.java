@@ -102,7 +102,8 @@ public class AboutUsActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.home_nav:
-                        //we are here right now
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        overridePendingTransition(0,0);
                         break;
                     case R.id.calendar_nav:
                         startActivity(new Intent(getApplicationContext(), CalendarActivity.class));
