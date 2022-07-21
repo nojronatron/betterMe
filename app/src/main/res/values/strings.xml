@@ -8,6 +8,6 @@
     <string name="abdominals">Abdominals</string>
     <string name="title_activity_gpsactivity">GPSActivity</string>
     <string name="title_activity_test_google_map">TestGoogleMap</string>
-    <string name="google_map_key">AIzaSyAbYfi46gimxOtl-d-fgVkR52wek0HkO0M</string>
+<!--    <string name="google_map_key">AIzaSyAbYfi46gimxOtl-d-fgVkR52wek0HkO0M</string>-->
 
 </resources>
