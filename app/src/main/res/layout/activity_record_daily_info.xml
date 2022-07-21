@@ -6,4 +6,70 @@
     android:layout_height="match_parent"
     tools:context=".activities.RecordDailyInfo">
 
+    <TextView
+        android:id="@+id/dateOfDailyInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="353dp"
+        android:hint="Date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/inforCurrentWeightInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="54dp"
+        android:ems="10"
+        android:hint="Current Weight"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateOfDailyInfo" />
+
+    <TextView
+        android:id="@+id/infoBmiInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="35dp"
+        android:hint="BMI"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inforCurrentWeightInput" />
+
+    <Button
+        android:id="@+id/infoCalcBmiBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="22dp"
+        android:text="CALC"
+        app:layout_constraintStart_toEndOf="@+id/infoBmiInput"
+        app:layout_constraintTop_toBottomOf="@+id/inforCurrentWeightInput" />
+
+    <EditText
+        android:id="@+id/infoConsumedCalories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Consumed Calories"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/infoCalcBmiBtn" />
+
+    <Button
+        android:id="@+id/infoSaveBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="62dp"
+        android:text="SAVE"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/infoConsumedCalories" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

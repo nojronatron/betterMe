@@ -51,7 +51,7 @@ public class VerifyUserActivity extends AppCompatActivity {
 
                     });
             Toast.makeText(VerifyUserActivity.this, "Verification Success!", Toast.LENGTH_SHORT).show();
-            finish();
+
         });
     }
 }

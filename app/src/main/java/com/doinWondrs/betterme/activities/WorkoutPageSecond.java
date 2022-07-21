@@ -46,16 +46,22 @@ public class WorkoutPageSecond extends AppCompatActivity {
     {
         //get intents extra's here
         Intent intent = getIntent();
+        //use this to determine what workouts in helper
         typeWorkoutString = intent.getStringExtra(typeWorkoutString);
 
         //set workouts to object for later
         workoutsHelper = new TypesOfWorkouts(typeWorkoutString);
 
-
-
-        //use workout helper to get reps, sets, strings
+        //set arraylist for usage
         workoutName = new ArrayList<>();
         workoutInfo = new ArrayList<>();
+        infoWorkouts = new ArrayList<>();
+
+        /* ***********************
+         *Logic for setting arraylist from helper class workouts
+         * *******************/
+        //use workout helper to get reps, sets, strings
+
         for(String key : workoutsHelper.workoutRoutine.keySet())
         {
             workoutName.add(key);
@@ -63,8 +69,7 @@ public class WorkoutPageSecond extends AppCompatActivity {
 
         }
 
-        //pass onto xml to view new stuff by using .set...
-        infoWorkouts = new ArrayList<>();
+        //GET DATA from workouts helper class - pass iti to an array
         for(int i = 0 ; i < workoutInfo.size(); ++i)
         {
             for(String workoutInfoTemp : workoutInfo.get(i).split(","))
@@ -72,35 +77,83 @@ public class WorkoutPageSecond extends AppCompatActivity {
                 infoWorkouts.add(workoutInfoTemp);//has split data such as sets, reps, jpg, etc
             }
         }
+        /* ******************
+         * END: Logic for setting arraylist from helper class workouts
+         ************* */
 
-        //set title
+        //GET location from .xml file
         TextView workoutTitle = findViewById(R.id.textViewTest);
-        workoutTitle.setText(typeWorkoutString);
+        ImageView workoutGif  = (ImageView) findViewById(R.id.workoutGif);
+        ImageView workoutGif2 = (ImageView) findViewById(R.id.workoutGif2);
+        ImageView workoutGif3 = (ImageView) findViewById(R.id.workoutGif3);
 
-        ImageView chestTest = (ImageView) findViewById(R.id.workoutGif);
-        //use helper class.this is how to get info, sets, reps
-        //get from helper - this does work
+        TextView workoutTitle1 = (TextView) findViewById((R.id.workoutTitle1));
+        TextView workoutTitle2 = (TextView) findViewById((R.id.workoutTitle2));
+        TextView workoutTitle3 = (TextView) findViewById((R.id.workoutTitle3));
 
-        //String gifImage1 = infoWorkouts.get(2);
-        //String gifImage2 = infoWorkouts.get(5);
-        //String gifImage3 = infoWorkouts.get(8);
+        TextView  workoutDescription1 = (TextView) findViewById((R.id.description1));
+        TextView workoutDescription2 = (TextView) findViewById((R.id.description2));
+        TextView workoutDescription3 = (TextView) findViewById((R.id.description3));
+
+        TextView workoutRoutine1 = (TextView) findViewById((R.id.routine1));
+        TextView workoutRoutine2 = (TextView) findViewById((R.id.routine2));
+        TextView workoutRoutine3 = (TextView) findViewById((R.id.routine3));
+
+
+        //GET gifs from helper
         int gifLocation1 = workoutsHelper.gif1;
         int gifLocation2 = workoutsHelper.gif2;
         int gifLocation3 = workoutsHelper.gif3;
-        //set imageView
-        chestTest.setImageResource(gifLocation2);
 
+        //GET values from helper - to place to .xml
 
+        //workout title from helper to string
+        String toTextViewTitle1 = workoutName.get(0);
+        String toTextViewTitle2 = workoutName.get(1);
+        String toTextViewTitle3 = workoutName.get(2);
 
-        //TextView workout1TextView
-//        TextView workoutNameOne = findViewById(R.id.workoutOneName);
-//        workoutTitle.setText(workoutName.get(0));
+        //first workout data
+        String workoutInstructions1 = infoWorkouts.get(0);
+        String workoutLocation1     = infoWorkouts.get(1);
+        String workoutOtherInfo1    = infoWorkouts.get(2);
 
+        //second workout data
+        String workoutInstructions2 = infoWorkouts.get(3);
+        String workoutLocation2     = infoWorkouts.get(4);
+        String workoutOtherInfo2    = infoWorkouts.get(5);
 
+        //third workout data
+        String workoutInstructions3 = infoWorkouts.get(6);
+        String workoutLocation3     = infoWorkouts.get(7);
+        String workoutOtherInfo3    = infoWorkouts.get(8);
 
+        //SET title of page
+        workoutTitle.setText(typeWorkoutString);
 
+        //SET Text View: titles
+        workoutTitle1.setText(toTextViewTitle1);
+        workoutTitle2.setText(toTextViewTitle2);
+        workoutTitle3.setText(toTextViewTitle3);
+
+        //SET Text View : informations
+        workoutDescription1.setText(workoutInstructions1);
+        workoutRoutine1.setText(workoutLocation1);
+
+        workoutDescription2.setText(workoutInstructions2);
+        workoutRoutine2.setText(workoutLocation2);
+
+        workoutDescription3.setText(workoutInstructions3);
+        workoutRoutine3.setText(workoutLocation3);
+
+        //SET imageView
+        workoutGif.setImageResource(gifLocation1);
+        workoutGif2.setImageResource(gifLocation2);
+        workoutGif3.setImageResource(gifLocation3);
+        //added new comment but not important here
 
     }//END: typesWorkouts
+
+
 
     public void navGoTo() {
         //initialize, instantiate

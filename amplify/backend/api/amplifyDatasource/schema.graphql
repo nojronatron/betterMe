@@ -1,8 +1,8 @@
 type DailyInfo @model @auth(rules: [{allow: public}]) {
   id: ID!
   weight: Int
-  userID: ID! @index(name: "byUser")
-  User: User @belongsTo
+  userID: ID! @index(name: "byUser", sortKeyFields: ["calendarDate"])
+  User: User @belongsTo(fields: ["userID"])
   bmi: Int
   currentCalorie: Int
   day: Int

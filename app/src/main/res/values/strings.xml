@@ -6,4 +6,7 @@
     <string name="weightLiftButtonWithGif">WeightLiftButton</string>
     <string name="test">test</string>
     <string name="abdominals">Abdominals</string>
+    <string name="title_activity_gpsactivity">GPSActivity</string>
+    <string name="title_activity_test_google_map">TestGoogleMap</string>
+
 </resources>

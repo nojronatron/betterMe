@@ -2,26 +2,48 @@
 
 ## Project Summary
 
+BetterMe gives new and regular gym users a place to record their BMI and display a history log that shows a workout streak Mon-Fri.
+
+It also provides its users with motivational quotes to keep them fired up and ready to train.
+
 ## Requirements
 
-## Instructions:
+See [REQUIREMENTS](./REQUIREMENTS.md)
+
+## Instructions
+
 ### SETUP
- - We are using IntelliJ IDE for our project
- - Build the project after you pull. 
- - Make sure you have correct gradle version 7.3,
- - android gradle plugin version 4.1.2, 
- - and finally file>settings>Build,Execution, 
- - Deployment>BuildTools>gradle> GradleJDK: 17
- - Build you gradle and run program.
-See [REQUIREMENTS.md](./REQUIREMENTS.md)
+
+- Ensure your build/test environment meets the development requirements.
+- Fork the repo and clone to your local.
+- Load the project in AndroidStudio.
+- In File > Settings > Build,Execution,Deployment > Build Tools > Gradle set Gradle JDK to JVM version 17+
+- Click 'Sync Project with Gradle Files' to load all dependencies.
+- Build the project. 
+- Define an emulator in Device Manager with API 24 or higher (30 and up recommended for full functionality). 
+- Optional: Connect a physical device via USB to debug on hardware.
+- Run the project.
 
 ## The Team
 
-Roger "I'm done, who needs help?" Reyes
-Raul "I'll show you how complicated it is using Math and Recursive!" Zarate
-Abdulahi "It's Just a Sniffle let me code!" Mohamud
-Jason "(sounds of family in the background)" Wilson
-Mike "I'll see your PR and I'll raise you a merge conflict" 
-Scott "My mike is broken" Evans
-Chuck "You mean I can't just sit here" Altopiedi
-Jon "lungs built for rambling" Rumsey
+Roger Reyes [GitHub](https://github.com/RogerMReyes)
+
+Raul Zarate [GitHub](https://github.com/zaratr)
+
+Abdulahi Mohamud [GitHub](https://github.com/AbdulahiMohamud)
+
+Jason Wilson [GitHub](https://github.com/WilsonJhub)
+
+Mike Brunette [GitHub](https://github.com/mcbrunette33) 
+
+Scott Evans [GitHub](https://github.com/mScottEvans)
+
+Chuck Altopiedi [GitHub](https://github.com/ChuckAlto)
+
+Jon Rumsey [GitHub](https://github.com/nojronatron)
+
+## Resources
+<a target="_blank" href="https://icons8.com/icon/v551nqGeHhGn/github">GitHub</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+<a target="_blank" href="https://icons8.com/icon/UyatB5WgOdeP/linkedin-circled">LinkedIn Circled</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+https://www.geeksforgeeks.org/how-to-create-an-expandable-cardview-in-android/
+https://www.geeksforgeeks.org/cardview-using-recyclerview-in-android-with-example/
