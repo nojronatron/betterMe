@@ -23,6 +23,27 @@ See [REQUIREMENTS](./REQUIREMENTS.md)
 - Define an emulator in Device Manager with API 24 or higher (30 and up recommended for full functionality). 
 - Optional: Connect a physical device via USB to debug on hardware.
 - Run the project.
+- Log in using Signup.
+- Update Account using the Navbar.
+- Use the Navbar to navigate App.
+- Enjoy!
+
+
+### Development Requirements
+
+- AndroidStudio 2021.2.1 patch 1
+- Gradle version 7.3.3
+- Android gradle plugin version 4.1.2
+- Android API 32 SDK (minimum v.24)
+- Java Version 17
+- Physical Android device (optional)
+- gradle:4.1.2
+- amplify-tools-gradle-plugin:1.0.2
+- AWS Account
+- AWS Cognito
+- AWS S3 Storage
+- Android APK v
+- Java JDK 17
 
 ## The Team
 

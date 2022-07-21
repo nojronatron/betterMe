@@ -12,7 +12,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.doinWondrs.betterme.R;
-import com.doinWondrs.betterme.helpers.GoToNav;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import android.widget.ImageButton;
@@ -26,7 +25,6 @@ import org.json.JSONObject;
 
 public class WorkoutPageFirst extends AppCompatActivity {
     //Field Declarations
-    GoToNav helper = new GoToNav();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +53,8 @@ public class WorkoutPageFirst extends AppCompatActivity {
 
         //function declarations:
 
-        setUpAddImageButton();//clickable imagebuttons
-        navGoTo();//Our Bottom Navigation
+        setUpAddImageButton();//clickable imagebuttons setup
+        navGoTo();//Our Bottom Navigation setup
     }//end of on create
 
 
@@ -134,7 +132,7 @@ public class WorkoutPageFirst extends AppCompatActivity {
     }//END: setupImagButton
 
 //ON RESUME: next button should go back to second workout page with previous workouts
-//TODO:  Implement OnResume() for the next button
+//NOTE:  Implement OnResume() for the next button - decided not to use a next button for features
 
 
 
