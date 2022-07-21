@@ -32,111 +32,124 @@
         android:id="@+id/textViewTest"
         android:layout_width="224dp"
         android:layout_height="43dp"
-        android:layout_marginStart="108dp"
         android:layout_marginTop="40dp"
         android:text="Test"
         android:textAlignment="center"
         android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/workoutTitle1"
-        android:layout_width="88dp"
+        android:layout_width="100dp"
         android:layout_height="20dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="61dp"
         android:text="workoutTitle1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/description2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="324dp"
-        android:text="description2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/workoutTitle2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="292dp"
-        android:text="workoutTitle2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/routine1"
-        android:layout_width="88dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="24dp"
-        android:text="routine1"
-        app:layout_constraintStart_toStartOf="@+id/description1"
-        app:layout_constraintTop_toBottomOf="@+id/description1" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTest" />
 
     <TextView
         android:id="@+id/description1"
-        android:layout_width="88dp"
+        android:layout_width="100dp"
         android:layout_height="20dp"
         android:layout_marginTop="24dp"
         android:text="description1"
+        app:layout_constraintEnd_toEndOf="@+id/workoutTitle1"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/workoutTitle1"
         app:layout_constraintTop_toBottomOf="@+id/workoutTitle1" />
 
     <TextView
+        android:id="@+id/routine1"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="26dp"
+        android:text="routine1"
+        app:layout_constraintEnd_toEndOf="@+id/description1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/description1"
+        app:layout_constraintTop_toBottomOf="@+id/description1" />
+
+    <TextView
+        android:id="@+id/workoutTitle2"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="59dp"
+        android:text="workoutTitle2"
+        app:layout_constraintEnd_toEndOf="@+id/routine1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/routine1"
+        app:layout_constraintTop_toBottomOf="@+id/routine1" />
+
+    <TextView
+        android:id="@+id/description2"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="24dp"
+        android:text="description2"
+        app:layout_constraintEnd_toEndOf="@+id/workoutTitle2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/workoutTitle2"
+        app:layout_constraintTop_toBottomOf="@+id/workoutTitle2" />
+
+    <TextView
         android:id="@+id/routine2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="356dp"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="24dp"
         android:text="routine2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/description2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/description2"
+        app:layout_constraintTop_toBottomOf="@+id/description2" />
 
     <TextView
         android:id="@+id/workoutTitle3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="460dp"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="60dp"
         android:text="workoutTitle3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/routine2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/routine2"
+        app:layout_constraintTop_toBottomOf="@+id/routine2" />
 
     <TextView
         android:id="@+id/description3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="496dp"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="24dp"
         android:text="description3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/workoutTitle3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/workoutTitle3"
+        app:layout_constraintTop_toBottomOf="@+id/workoutTitle3" />
 
     <TextView
         android:id="@+id/routine3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="536dp"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:text="routine3"
+        app:layout_constraintEnd_toEndOf="@+id/description3"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/description3" />
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/workoutGif"
         android:layout_width="179dp"
         android:layout_height="121dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="61dp"
+        android:layout_marginEnd="53dp"
         android:src="@drawable/chest1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/workoutGif2"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTest"
         app:srcCompat="@drawable/chest1" />
 
     <pl.droidsonroids.gif.GifImageView
@@ -144,8 +157,10 @@
         android:layout_width="179dp"
         android:layout_height="121dp"
         android:layout_marginTop="48dp"
+        android:layout_marginEnd="53dp"
         android:src="@drawable/chest1"
-        app:layout_constraintStart_toStartOf="@+id/workoutGif"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/workoutGif3"
         app:layout_constraintTop_toBottomOf="@+id/workoutGif"
         app:srcCompat="@drawable/chest1" />
 
@@ -154,8 +169,9 @@
         android:layout_width="179dp"
         android:layout_height="121dp"
         android:layout_marginTop="48dp"
+        android:layout_marginEnd="53dp"
         android:src="@drawable/chest1"
-        app:layout_constraintStart_toStartOf="@+id/workoutGif2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/workoutGif2"
         app:srcCompat="@drawable/chest1" />
 
