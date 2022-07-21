@@ -1,6 +1,7 @@
 package com.doinWondrs.betterme.activities;
 
 
+import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -8,9 +9,11 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -22,9 +25,13 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.internal.IGoogleMapDelegate;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.doinWondrs.betterme.databinding.ActivityTestGoogleMapBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 
 public class GPSActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -32,8 +39,9 @@ public class GPSActivity extends FragmentActivity implements OnMapReadyCallback 
     private GoogleMap mMap;
     private ActivityTestGoogleMapBinding binding;
     private FusedLocationProviderClient fusedLocationClient;
-    private double lng,lat;
-    ImageButton gymBtn;
+    public double lng,lat;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,31 +58,12 @@ public class GPSActivity extends FragmentActivity implements OnMapReadyCallback 
         mapFragment.getMapAsync(this);
 
 
-//        navGoTo();
+        navGoTo();
 
-//        findNearest(gym,"gym");
-        gymBtn = findViewById(R.id.gymImageBtn);
-        gymBtn.setOnClickListener(v -> {
+        findNearestGym();
+        findNearestPark();
+        findNearestSupplements();
 
-                StringBuilder stringBuilder = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
-                stringBuilder.append("location=" + lat + "," + lng);
-                stringBuilder.append("&radius=8046");
-                stringBuilder.append("&types=gym");
-                stringBuilder.append("&sensor=true");
-                stringBuilder.append("&key=" + getResources().getString(R.string.google_map_key));
-
-
-                String url = stringBuilder.toString();
-
-                Object dataFetch[] = new Object[2];
-                dataFetch[0] = mMap;
-                dataFetch[1] = url;
-
-                FetchData fetchData = new FetchData();
-
-                fetchData.execute(dataFetch);
-
-        });
     }
 
 
@@ -97,7 +86,8 @@ public class GPSActivity extends FragmentActivity implements OnMapReadyCallback 
     }
 
 
-    private void setUpLocation(){
+    private void setUpLocation()
+    {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -116,7 +106,10 @@ public class GPSActivity extends FragmentActivity implements OnMapReadyCallback 
             lng = location.getLongitude();
 
             LatLng latLng = new LatLng(lat,lng);
-            mMap.addMarker(new MarkerOptions().position(latLng).title("Current Location"));
+            mMap.addMarker(new MarkerOptions()
+                    .position(latLng)
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.location_icon))
+                    .title("Current Location"));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,15));
 
@@ -125,15 +118,17 @@ public class GPSActivity extends FragmentActivity implements OnMapReadyCallback 
         });
     }
 
-    private void findNearest(ImageButton place, String placeName)
+    private void findNearestGym()
     {
-        place.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                StringBuilder stringBuilder = new StringBuilder("http://maps.googleapis.com/maps/api/place/nearbysearch/json?");
+        if (mMap != null) mMap.clear();
+
+        ImageButton gymBtn = findViewById(R.id.gymImageBtn);
+        gymBtn.setOnClickListener(v -> {
+
+                StringBuilder stringBuilder = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
                 stringBuilder.append("location=" + lat + "," + lng);
-                stringBuilder.append("&radius=1000");
-                stringBuilder.append("&type=" + placeName+"");
+                stringBuilder.append("&radius=8046");// in meters // 5 mile search radius
+                stringBuilder.append("&types=gym");
                 stringBuilder.append("&sensor=true");
                 stringBuilder.append("&key=" + getResources().getString(R.string.google_map_key));
 
@@ -148,9 +143,101 @@ public class GPSActivity extends FragmentActivity implements OnMapReadyCallback 
 
                 fetchData.execute(dataFetch);
 
-            }
+        });
+    }
 
+    private void findNearestPark()
+    {
+        ImageButton trailBtn = findViewById(R.id.trail);
+        trailBtn.setOnClickListener(v -> {
+
+            StringBuilder stringBuilder = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
+            stringBuilder.append("location=" + lat + "," + lng);
+            stringBuilder.append("&radius=8046");// in meters // 5 mile search radius
+            stringBuilder.append("&types=park");
+            stringBuilder.append("&sensor=true");
+            stringBuilder.append("&key=" + getResources().getString(R.string.google_map_key));
+
+
+            String url = stringBuilder.toString();
+
+            Object dataFetch[] = new Object[2];
+            dataFetch[0] = mMap;
+            dataFetch[1] = url;
+
+            FetchData fetchData = new FetchData();
+
+            fetchData.execute(dataFetch);
 
         });
     }
+
+    private void findNearestSupplements()
+    {
+        ImageButton suppBtn = findViewById(R.id.drugStore);
+        suppBtn.setOnClickListener(v -> {
+
+            StringBuilder stringBuilder = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
+            stringBuilder.append("location=" + lat + "," + lng);
+            stringBuilder.append("&radius=8046");// in meters // 5 mile search radius
+            stringBuilder.append("&types=drugstore");
+            stringBuilder.append("&sensor=true");
+            stringBuilder.append("&key=" + getResources().getString(R.string.google_map_key));
+
+
+            String url = stringBuilder.toString();
+
+            Object dataFetch[] = new Object[2];
+            dataFetch[0] = mMap;
+            dataFetch[1] = url;
+
+            FetchData fetchData = new FetchData();
+
+            fetchData.execute(dataFetch);
+
+        });
+    }
+
+    public void navGoTo()
+    {
+        //NOTES: https://www.geeksforgeeks.org/how-to-implement-bottom-navigation-with-activities-in-android/
+        //NOTES: bottomnavbar is deprecated: https://developer.android.com/reference/com/google/android/material/bottomnavigation/BottomNavigationView.OnNavigationItemSelectedListener
+
+        //initialize, instantiate
+        NavigationBarView navigationBarView;//new way to do nav's but more research needed
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        //set home selected: home
+        bottomNavigationView.setSelectedItemId(R.id.gps_nav);
+        //perform item selected listener
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId())
+                {
+                    case R.id.home_nav:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        overridePendingTransition(0,0);
+                        break;
+                    case R.id.calendar_nav:
+                        startActivity(new Intent(getApplicationContext(), CalendarActivity.class));
+                        overridePendingTransition(0,0);
+                        break;
+                    case R.id.gps_nav:
+                        //we are here right now
+                        break;
+                    case R.id.workouts_nav:
+                        startActivity(new Intent(getApplicationContext(), WorkoutPageFirst.class));
+                        overridePendingTransition(0,0);
+                        break;
+                    case R.id.settings_nav:
+                        startActivity(new Intent(getApplicationContext(), UserProfileActivity.class));
+                        overridePendingTransition(0,0);
+                        break;
+                    default: return false;// this is to cover all other cases if not working properly
+                }
+
+                return true;
+            }
+        });//end lambda: bottomNavview
+    }//end method: navGoTo
 }
