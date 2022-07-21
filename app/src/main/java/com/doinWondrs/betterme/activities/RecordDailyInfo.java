@@ -125,10 +125,11 @@ public class RecordDailyInfo extends AppCompatActivity {
         bmi = findViewById(R.id.infoBmiInput);
         currentCalories = findViewById(R.id.infoConsumedCalories);
         DailyInfo currentInfo = mapOfInfo.get(date);
+
         // TODO: getWeight can return null, maybe need a turnary or ??
-        weightInfo.setText(currentInfo.getWeight());
-        bmi.setText(currentInfo.getBmi());
-        currentCalories.setText(currentInfo.getCurrentCalorie());
+        weightInfo.setText(currentInfo.getWeight().toString());
+        bmi.setText(currentInfo.getBmi().toString());
+        currentCalories.setText(currentInfo.getCurrentCalorie().toString());
 
         saveBtn.setOnClickListener(v ->{
             weightInfo = findViewById(R.id.inforCurrentWeightInput);
@@ -136,7 +137,6 @@ public class RecordDailyInfo extends AppCompatActivity {
             currentCalories = findViewById(R.id.infoConsumedCalories);
 
             DailyInfo newDailyInfo = DailyInfo.builder()
-                    .userId(userInfo.getId())
                     .user(userInfo)
                     .calendarDate(finalDate)
                     .weight(Integer.parseInt(weightInfo.getText().toString()))
@@ -157,6 +157,7 @@ public class RecordDailyInfo extends AppCompatActivity {
                     "Daily info was updated.",
                     Toast.LENGTH_SHORT).show();
 
+            finish();
         });
     }
 
@@ -197,7 +198,6 @@ public class RecordDailyInfo extends AppCompatActivity {
             currentCalories = findViewById(R.id.infoConsumedCalories);
 
             DailyInfo newDailyInfo = DailyInfo.builder()
-                    .userId(userInfo.getId())
                     .user(userInfo)
                     .calendarDate(finalDate)
                     .weight(Integer.parseInt(weightInfo.getText().toString()))
@@ -216,7 +216,66 @@ public class RecordDailyInfo extends AppCompatActivity {
                     "Daily info was saved!",
                     Toast.LENGTH_SHORT).show();
 
+            finish();
         });
     }
 
+    //Bottom Navbar: NOTE: to link new activity just create a new switch cases and use new intents
+    //EXCEPT if you are at workoutpagefirst.java then you dont need to do anything just break out of switch case.
+//    public void navGoTo()
+//    {
+//        //NOTES: https://www.geeksforgeeks.org/how-to-implement-bottom-navigation-with-activities-in-android/
+//        //NOTES: bottomnavbar is deprecated: https://developer.android.com/reference/com/google/android/material/bottomnavigation/BottomNavigationView.OnNavigationItemSelectedListener
+//
+//        //initialize, instantiate
+//        NavigationBarView navigationBarView;//new way to do nav's but more research needed
+//        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+//        //set home selected: home
+//        bottomNavigationView.setSelectedItemId(R.id.home_nav);
+//        //perform item selected listener
+//        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                switch (item.getItemId())
+//                {
+//                    case R.id.home_nav:
+//                        //we are here right now
+//                        break;
+//                    case R.id.calendar_nav:
+//                        startActivity(new Intent(getApplicationContext(), CalendarActivity.class));
+//                        overridePendingTransition(0,0);
+//                        break;
+//                    case R.id.gps_nav:
+//                        startActivity(new Intent(getApplicationContext(), GPSActivity.class));
+//                        overridePendingTransition(0,0);
+//                        break;
+//                    case R.id.workouts_nav:
+//                        startActivity(new Intent(getApplicationContext(), WorkoutPageFirst.class));
+//                        overridePendingTransition(0,0);
+//                        break;
+//                    case R.id.settings_nav:
+//                        startActivity(new Intent(getApplicationContext(), UserProfileActivity.class));
+//                        overridePendingTransition(0,0);
+//                        break;
+//                    default: return false;// this is to cover all other cases if not working properly
+//                }
+//
+//                return true;
+//            }
+//        });//end lambda: bottomNavview
+//    }//end method: navGoTo
+
+//    class DailyInfoCreator {
+//        String dateCreation;
+//        String finalDate;
+//        EditText weightInfo;
+//        TextView bmi;
+//        EditText currentCalories;
+//
+//        public DailyInfoCreator(String dateCreation, String finaldate) {
+//            this.dateCreation = dateCreation;
+//            this.
+//        }
+//
+//    }
 }

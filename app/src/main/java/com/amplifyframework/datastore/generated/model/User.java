@@ -42,7 +42,7 @@ public final class User implements Model {
   private final @ModelField(targetType="Int") Integer currentWeight;
   private final @ModelField(targetType="String") String profileImgKey;
   private final @ModelField(targetType="ActivityEnum") ActivityEnum activityLevel;
-  private final @ModelField(targetType="DailyInfo") @HasMany(associatedWith = "userID", type = DailyInfo.class) List<DailyInfo> DailyInfos = null;
+  private final @ModelField(targetType="DailyInfo") @HasMany(associatedWith = "User", type = DailyInfo.class) List<DailyInfo> DailyInfos = null;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   public String getId() {
