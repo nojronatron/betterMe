@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -146,13 +147,13 @@ public class RecordDailyInfo extends AppCompatActivity {
         fillDailyInfoHashmap();
         if (mapOfInfo.containsKey(date)) {
             // we have a dailyinfo
-            infoUpdate();
+            infoUpdate(mapOfInfo.get(date));
         } else {
             infoCreate();
         }
     }
 
-    private void infoUpdate() {
+    private void infoUpdate(DailyInfo todaysInfo) {
         Button saveBtn = findViewById(R.id.infoSaveBtn);
         String dateCreation = com.amazonaws.util.DateUtils.formatISO8601Date(new Date());
         String finalDate = date;
@@ -163,53 +164,60 @@ public class RecordDailyInfo extends AppCompatActivity {
         currentCalories = findViewById(R.id.infoConsumedCalories);
         DailyInfo currentInfo = mapOfInfo.get(date);
 
-        // TODO: getWeight can return null, maybe need a turnary or ??
-        weightInfo.setText(currentInfo.getWeight().toString());
-        bmi.setText(currentInfo.getBmi().toString());
-        currentCalories.setText(currentInfo.getCurrentCalorie().toString());
+        if(currentInfo.getWeight() != null && currentInfo.getBmi() != null && currentInfo.getCurrentCalorie() != null) {
+            weightInfo.setText(currentInfo.getWeight().toString());
+            bmi.setText(currentInfo.getBmi().toString());
+            currentCalories.setText(currentInfo.getCurrentCalorie().toString());
+        }
 
         saveBtn.setOnClickListener(v -> {
             weightInfo = findViewById(R.id.inforCurrentWeightInput);
             bmi = findViewById(R.id.infoBmiInput);
             currentCalories = findViewById(R.id.infoConsumedCalories);
+            if(TextUtils.isEmpty(weightInfo.getText()) || TextUtils.isEmpty(bmi.getText()) || TextUtils.isEmpty(currentCalories.getText())){
+                Toast.makeText(RecordDailyInfo.this, "Please Fill Out All Fields", Toast.LENGTH_SHORT).show();
+            } else {
+                DailyInfo newDailyInfo = DailyInfo.builder()
+                        .id(todaysInfo.getId())
+                        .user(userInfo)
+                        .calendarDate(finalDate)
+                        .weight(Integer.parseInt(weightInfo.getText().toString()))
+                        .bmi(Integer.parseInt(bmi.getText().toString()))
+                        .currentCalorie(Integer.parseInt(currentCalories.getText().toString()))
+                        .dateCreated(new Temporal.DateTime(dateCreation))
+                        .build();
 
-            DailyInfo newDailyInfo = DailyInfo.builder()
-                    .user(userInfo)
-                    .calendarDate(finalDate)
-                    .weight(Integer.parseInt(weightInfo.getText().toString()))
-                    .bmi(Integer.parseInt(bmi.getText().toString()))
-                    .currentCalorie(Integer.parseInt(currentCalories.getText().toString()))
-                    .dateCreated(new Temporal.DateTime(dateCreation))
-                    .build();
+                Amplify.API.mutate(
+                        ModelMutation.update(newDailyInfo),
+                        success -> {
+                            Log.i(TAG, "Daily Info Updated Successfully");
+                        },
+                        failure -> Log.e(TAG, "Daily Info Creation Failed" + failure.getMessage())
+                );
 
-            Amplify.API.mutate(
-                    ModelMutation.update(newDailyInfo),
-                    success -> {
-                        Log.i(TAG, "Daily Info Updated Successfully");
-                    },
-                    failure -> Log.e(TAG, "Daily Info Creation Failed" + failure.getMessage())
-            );
+                Toast.makeText(RecordDailyInfo.this,
+                        "Daily info was updated.",
+                        Toast.LENGTH_SHORT).show();
 
-            Toast.makeText(RecordDailyInfo.this,
-                    "Daily info was updated.",
-                    Toast.LENGTH_SHORT).show();
-
-            finish();
+                finish();
+            }
         });
     }
 
     private void calcBmi() {
         Button calcBtn = findViewById(R.id.infoCalcBmiBtn);
-        // TODO: User MUST have input their height and weight on their profile BEFORE running this
         calcBtn.setOnClickListener(v -> {
             TextView bmi = findViewById(R.id.infoBmiInput);
             EditText weightInfo = findViewById(R.id.inforCurrentWeightInput);
-            double weightNum = Double.parseDouble(weightInfo.getText().toString());
-            int height = userInfo.getHeight();
-            int userBmi = (int) ((weightNum / (height * height)) * 703);
-            bmi.setText(String.valueOf(userBmi));
+            if(userInfo.getHeight() == null || TextUtils.isEmpty(weightInfo.getText())){
+                Toast.makeText(RecordDailyInfo.this, "Please make sure you have set your height and weight", Toast.LENGTH_SHORT).show();
+            } else {
+                double weightNum = Double.parseDouble(weightInfo.getText().toString());
+                int height = userInfo.getHeight();
+                int userBmi = (int) ((weightNum / (height * height)) * 703);
+                bmi.setText(String.valueOf(userBmi));
+            }
         });
-
     }
 
     private void grabDateAndSet() {
@@ -229,27 +237,30 @@ public class RecordDailyInfo extends AppCompatActivity {
             EditText weightInfo = findViewById(R.id.inforCurrentWeightInput);
             TextView bmi = findViewById(R.id.infoBmiInput);
             currentCalories = findViewById(R.id.infoConsumedCalories);
+            if(TextUtils.isEmpty(weightInfo.getText()) || TextUtils.isEmpty(bmi.getText()) || TextUtils.isEmpty(currentCalories.getText())){
+                Toast.makeText(RecordDailyInfo.this, "Please Fill Out All Fields", Toast.LENGTH_SHORT).show();
+            } else {
+                DailyInfo newDailyInfo = DailyInfo.builder()
+                        .user(userInfo)
+                        .calendarDate(finalDate)
+                        .weight(Integer.parseInt(weightInfo.getText().toString()))
+                        .bmi(Integer.parseInt(bmi.getText().toString()))
+                        .currentCalorie(Integer.parseInt(currentCalories.getText().toString()))
+                        .dateCreated(new Temporal.DateTime(dateCreation))
+                        .build();
 
-            DailyInfo newDailyInfo = DailyInfo.builder()
-                    .user(userInfo)
-                    .calendarDate(finalDate)
-                    .weight(Integer.parseInt(weightInfo.getText().toString()))
-                    .bmi(Integer.parseInt(bmi.getText().toString()))
-                    .currentCalorie(Integer.parseInt(currentCalories.getText().toString()))
-                    .dateCreated(new Temporal.DateTime(dateCreation))
-                    .build();
+                Amplify.API.mutate(
+                        ModelMutation.create(newDailyInfo),
+                        success -> Log.i(TAG, "Daily Info Created Successfully" + success),
+                        failure -> Log.e(TAG, "Daily Info Creation Failed" + failure.getMessage())
+                );
 
-            Amplify.API.mutate(
-                    ModelMutation.create(newDailyInfo),
-                    success -> Log.i(TAG, "Daily Info Created Successfully" + success),
-                    failure -> Log.e(TAG, "Daily Info Creation Failed" + failure.getMessage())
-            );
+                Toast.makeText(RecordDailyInfo.this,
+                        "Daily info was saved!",
+                        Toast.LENGTH_SHORT).show();
 
-            Toast.makeText(RecordDailyInfo.this,
-                    "Daily info was saved!",
-                    Toast.LENGTH_SHORT).show();
-
-            finish();
+                finish();
+            }
         });
     }
 
