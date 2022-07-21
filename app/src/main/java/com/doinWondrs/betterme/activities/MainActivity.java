@@ -4,8 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.VideoView;
 
 import com.amplifyframework.datastore.generated.model.User;
 import com.doinWondrs.betterme.R;
@@ -27,15 +30,41 @@ public class MainActivity extends AppCompatActivity {
 
 
         navGoTo();
+        renderBackground();
+
 
     }
 
 
+    //TODO: Dynamicall use API for Moto quotes
     //TODO: Use current auth user to Pull "nickname/username" and save User to use
 
 
 
 
+
+    private void renderBackground()
+    {
+        final VideoView videoView = (VideoView) findViewById(R.id.videoBackground1);
+        final String videopath = Uri.parse("android.resource://"+getPackageName() + "/" + R.raw.testbackground).toString();
+        videoView.setVideoPath(videopath);
+        videoView.start();
+        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mediaPlayer) {
+                mediaPlayer.start();
+                mediaPlayer.setLooping(true);
+            }
+        });
+        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener(){
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer)
+            {
+                videoView.setVideoPath(videopath);
+                videoView.start();
+            }
+        });
+    }
 
 
     //Bottom Navbar: NOTE: to link new activity just create a new switch cases and use new intents
