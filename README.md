@@ -26,7 +26,11 @@ See [REQUIREMENTS](./REQUIREMENTS.md)
 - Log in using Signup.
 - Update Account using the Navbar.
 - Use the Navbar to navigate App.
+- Select a workout.
 - Enjoy!
+- ![Step 1](Public/signup.png)
+- ![Step 2](Public/update%20info.JPG)
+- ![Step 3](Public/selectworkout.png)
 
 
 ### Development Requirements
@@ -44,6 +48,7 @@ See [REQUIREMENTS](./REQUIREMENTS.md)
 - AWS S3 Storage
 - Android APK v
 - Java JDK 17
+- Use Google API Key by placing it in: ()
 
 ## The Team
 
