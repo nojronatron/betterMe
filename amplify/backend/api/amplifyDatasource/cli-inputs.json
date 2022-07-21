@@ -5,12 +5,12 @@
     "defaultAuthType": {
       "mode": "API_KEY",
       "expirationTime": 365,
-      "apiKeyExpirationDate": "2023-07-15T21:53:53.889Z",
+      "apiKeyExpirationDate": "2023-07-20T23:16:19.763Z",
       "keyDescription": "betterMe"
     },
     "conflictResolution": {},
     "apiName": "amplifyDatasource",
-    "gqlSchemaPath": "C:\\Users\\roger\\Java\\CF401\\BetterMe\\amplify\\backend\\api\\amplifyDatasource\\schema.graphql",
+    "gqlSchemaPath": "/home/toor/Projects/courses/code401/betterMe/amplify/backend/api/amplifyDatasource/schema.graphql",
     "additionalAuthTypes": []
   }
 }
