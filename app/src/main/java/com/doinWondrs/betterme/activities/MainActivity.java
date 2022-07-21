@@ -10,12 +10,9 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.VideoView;
 
-import com.amplifyframework.datastore.generated.model.User;
 import com.doinWondrs.betterme.R;
 
-import com.doinWondrs.betterme.TestGoogleMap;
 import com.doinWondrs.betterme.helpers.GoToNav;
-import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
