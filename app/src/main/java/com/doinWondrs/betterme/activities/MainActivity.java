@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private void renderBackground()
     {
         final VideoView videoView = (VideoView) findViewById(R.id.videoBackground1);
-        final String videopath = Uri.parse("android.resource://"+getPackageName() + "/" + R.raw.testbackground).toString();
+        final String videopath = Uri.parse("android.resource://"+getPackageName() + "/" + R.raw.workout_intro).toString();
         videoView.setVideoPath(videopath);
         videoView.start();
         videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
