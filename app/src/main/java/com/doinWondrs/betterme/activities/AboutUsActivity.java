@@ -118,8 +118,6 @@ public class AboutUsActivity extends AppCompatActivity {
                         overridePendingTransition(0, 0);
                         break;
                     case R.id.settings_nav:
-                        startActivity(new Intent(getApplicationContext(), UserProfileActivity.class));
-                        overridePendingTransition(0, 0);
                         break;
                     default:
                         return false;// this is to cover all other cases if not working properly
