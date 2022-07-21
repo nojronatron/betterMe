@@ -90,11 +90,10 @@ public class UserProfileActivity extends AppCompatActivity {
 
     private void setUpSpinner() {
         activitySpinner = findViewById(R.id.profileActivityLevelSpinner);
-        activitySpinner.setAdapter(new ArrayAdapter<>(
-                this,
-                androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
-                ActivityEnum.values()
-        ));
+        ArrayAdapter<ActivityEnum> enums = new ArrayAdapter<>(this,androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, ActivityEnum.values());
+        activitySpinner.setAdapter(enums);
+        int actLevelPosition = enums.getPosition(userInfo.getActivityLevel());
+        activitySpinner.setSelection(actLevelPosition);
     }
 
     private void getUserAttributes(){
