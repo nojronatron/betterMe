@@ -57,6 +57,8 @@
         android:contentDescription="@string/ok"
         android:scaleType="fitXY"
         android:src="@drawable/absnob"
+        android:text="@string/abdominals"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/progress_horizontal"
@@ -69,9 +71,9 @@
         android:layout_height="120dp"
         android:layout_marginTop="424dp"
         android:layout_marginEnd="60dp"
+        android:contentDescription="@string/ok"
         android:scaleType="fitXY"
         android:src="@drawable/rownob"
-        android:contentDescription="@string/ok"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/progress_horizontal" />
@@ -82,9 +84,9 @@
         android:layout_height="120dp"
         android:layout_marginTop="424dp"
         android:layout_marginEnd="212dp"
+        android:contentDescription="@string/ok"
         android:scaleType="fitXY"
         android:src="@drawable/shouldersnob0"
-        android:contentDescription="@string/ok"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/progress_horizontal" />
@@ -95,9 +97,9 @@
         android:layout_height="120dp"
         android:layout_marginTop="304dp"
         android:layout_marginEnd="212dp"
+        android:contentDescription="@string/ok"
         android:scaleType="fitXY"
         android:src="@drawable/legsnob"
-        android:contentDescription="@string/ok"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/progress_horizontal" />
@@ -108,9 +110,9 @@
         android:layout_height="120dp"
         android:layout_marginTop="304dp"
         android:layout_marginEnd="60dp"
+        android:contentDescription="@string/ok"
         android:scaleType="fitXY"
         android:src="@drawable/curl2nob"
-        android:contentDescription="@string/ok"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/progress_horizontal" />
@@ -136,6 +138,74 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav_menu"/>
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:clickable="false"
+        android:text="Abs/Core"
+        android:textColor="#0A0A0B"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonAbdominal"
+        app:layout_constraintStart_toStartOf="@+id/buttonAbdominal"
+        app:layout_constraintTop_toTopOf="@+id/buttonAbdominal"
+        app:layout_constraintVertical_bias="0.089" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="107dp"
+        android:layout_marginBottom="92dp"
+        android:text="Chest"
+        android:textColor="#0C0C0C"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonChest"
+        app:layout_constraintStart_toStartOf="@+id/buttonChest" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="110dp"
+        android:layout_marginBottom="92dp"
+        android:text="Legs"
+        android:textColor="#090909"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonLegs"
+        app:layout_constraintStart_toStartOf="@+id/buttonLegs" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="107dp"
+        android:layout_marginBottom="92dp"
+        android:text="Arms"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonArms"
+        app:layout_constraintStart_toStartOf="@+id/buttonArms" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="81dp"
+        android:layout_marginTop="10dp"
+        android:text="Shoulders"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/buttonBack"
+        app:layout_constraintTop_toTopOf="@+id/buttonBack" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="107dp"
+        android:layout_marginTop="10dp"
+        android:text="Back"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/buttonShoulders"
+        app:layout_constraintTop_toTopOf="@+id/buttonShoulders" />
 
 
     <!-- TESTING API START -->
