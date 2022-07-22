@@ -86,18 +86,22 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="220dp"
+        android:layout_marginEnd="148dp"
         android:text="lbs"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="218dp"
-        tools:layout_editor_absoluteY="221dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="396dp"
+        android:layout_marginEnd="148dp"
         android:text="Cals"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="205dp"
-        tools:layout_editor_absoluteY="397dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
