@@ -39,17 +39,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_launcher_foreground" />
 
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="68dp"
-            android:layout_marginTop="16dp"
-            android:background="#02FFFFFF"
-            android:scaleType="fitCenter"
-            app:layout_constraintStart_toEndOf="@+id/userProfileImg"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/icons8_settings_48" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
