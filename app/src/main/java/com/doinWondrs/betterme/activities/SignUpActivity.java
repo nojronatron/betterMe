@@ -36,7 +36,7 @@ public class SignUpActivity extends AppCompatActivity {
 
             String email = ((EditText) findViewById(R.id.signupTextEmailAddress)).getText().toString();
             String password = ((EditText) findViewById(R.id.signupTextPassword)).getText().toString();
-            String username = ((EditText) findViewById(R.id.signupTextUserame)).getText().toString();
+            String username = ((EditText) findViewById(R.id.signupTextUsername)).getText().toString();
 
             Amplify.Auth.signUp(
                     email,
