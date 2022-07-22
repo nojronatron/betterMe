@@ -53,8 +53,8 @@ public class AboutUsActivity extends AppCompatActivity {
         devModelArrayList.add(new DevModel("Jon Rumsey",
                 "https://www.linkedin.com/in/jonathan-rumsey-wa/",
                 "https://github.com/nojronatron",
-                R.drawable.icon1,
-                "Quote"));
+                R.drawable.jonrumsey,
+                "Full Stack Software Developer"));
         devModelArrayList.add(new DevModel("Roger Reyes",
                 "https://www.linkedin.com/in/rogermreyes/",
                 "https://github.com/RogerMReyes",
