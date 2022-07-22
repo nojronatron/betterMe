@@ -23,14 +23,18 @@ See [REQUIREMENTS](./REQUIREMENTS.md)
 - Define an emulator in Device Manager with API 24 or higher (30 and up recommended for full functionality). 
 - Optional: Connect a physical device via USB to debug on hardware.
 - Run the project.
+- Open emulators google maps and accept the location request when using app
+- open BetterMe app
 - Log in using Signup.
 - Update Account using the Navbar.
 - Use the Navbar to navigate App.
 - Select a workout.
+- Search nearest Gym,Park or Supplement stores and get route to them.
 - Enjoy!
 - ![Step 1](Public/signup.png)
 - ![Step 2](Public/update%20info.JPG)
 - ![Step 3](Public/selectworkout.png)
+- ![Gps](Public/img.png)
 
 
 ### Development Requirements
