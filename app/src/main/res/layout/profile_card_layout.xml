@@ -104,7 +104,7 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
                     android:background="#00FFFFFF"
-                    app:srcCompat="@drawable/linkedin" />
+                    app:srcCompat="@drawable/linkin_icon" />
 
                 <TextView
                     android:id="@+id/linkedInTextView"
@@ -133,7 +133,7 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="10dp"
                     android:background="#00FFFFFF"
-                    app:srcCompat="@drawable/github" />
+                    app:srcCompat="@drawable/github_icon" />
 
                 <TextView
                     android:id="@+id/gitHubTextView"
