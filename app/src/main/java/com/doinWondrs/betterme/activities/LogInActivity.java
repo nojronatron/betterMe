@@ -36,9 +36,9 @@ public class LogInActivity extends AppCompatActivity {
 
     // RR: Takes in User input to login
     public void setUpLoginBtn() {
-        Button loginBtn = findViewById(R.id.loginButton);
+        Button loginBtn = findViewById(R.id.signinButton);
         EditText loginEmail = findViewById(R.id.loginTextEmailAddress);
-        EditText loginPassword = findViewById(R.id.loginTextPassword);
+        EditText loginPassword = findViewById(R.id.signupTextPassword);
 
         loginBtn.setOnClickListener(v -> {
             String userEmail = loginEmail.getText().toString();
