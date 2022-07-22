@@ -57,9 +57,6 @@ public class GPSActivity extends FragmentActivity implements OnMapReadyCallback 
 
     }
 
-
-
-
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -77,8 +74,7 @@ public class GPSActivity extends FragmentActivity implements OnMapReadyCallback 
     }
 
 
-    private void setUpLocation()
-    {
+    private void setUpLocation() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions

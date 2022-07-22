@@ -4,6 +4,8 @@ import android.os.AsyncTask;
 
 import com.doinWondrs.betterme.R;
 import com.doinWondrs.betterme.activities.GPSActivity;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -43,7 +45,6 @@ public class FetchData extends AsyncTask<Object,String,String> {
         try {
             JSONObject jsonObject = new JSONObject(s);
             JSONArray jsonArray = jsonObject.getJSONArray("results");
-
 
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject1 = jsonArray.getJSONObject(i);
