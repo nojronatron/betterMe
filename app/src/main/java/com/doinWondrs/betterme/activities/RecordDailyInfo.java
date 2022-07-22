@@ -227,6 +227,8 @@ public class RecordDailyInfo extends AppCompatActivity {
         if (callingIntent != null) {
             date = callingIntent.getStringExtra(CalendarActivity.CALENDAR_DATE);
         }
+        TextView dateView = findViewById(R.id.dateOfDailyInfo);
+        dateView.setText(date);
     }
 
     private void infoCreate() {

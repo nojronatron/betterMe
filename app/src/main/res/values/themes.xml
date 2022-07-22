@@ -41,7 +41,7 @@
         <item name="android:colorBackground">@color/BlueGrey</item>
 
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">@color/GreenGrey</item>
+        <item name="android:statusBarColor">@color/DarkerBlue</item>
 
         <!-- Activity background type -->
         <item name="android:background">@color/Transparent</item>
