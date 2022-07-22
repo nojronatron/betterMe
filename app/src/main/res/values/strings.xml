@@ -8,5 +8,5 @@
     <string name="abdominals">Abdominals</string>
     <string name="title_activity_gpsactivity">GPSActivity</string>
     <string name="title_activity_test_google_map">TestGoogleMap</string>
-
+    <string name="workout_motivational_quote">Motivational Quote</string>
 </resources>
