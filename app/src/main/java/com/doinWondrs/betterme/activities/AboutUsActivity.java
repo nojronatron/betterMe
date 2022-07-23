@@ -54,7 +54,7 @@ public class AboutUsActivity extends AppCompatActivity {
                 "https://www.linkedin.com/in/jonathan-rumsey-wa/",
                 "https://github.com/nojronatron",
                 R.drawable.jonrumsey,
-                "Full Stack Software Developer"));
+                "Without judgement perception would increase a million times. -Chuck Schuldiner"));
         devModelArrayList.add(new DevModel("Roger Reyes",
                 "https://www.linkedin.com/in/rogermreyes/",
                 "https://github.com/RogerMReyes",
