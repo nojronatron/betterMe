@@ -2,7 +2,10 @@ package com.doinWondrs.betterme;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-import java.util.Date;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
 import com.doinWondrs.betterme.activities.CalendarUtils;
 
 /**
@@ -17,23 +20,34 @@ public class BetterMeUnittests {
     }
 
     @Test
+    public void test_CalendarViewHolder() {
+        // TODO: implement mocking and/or refactor business logic into new class to test this code page
+        assertEquals(4, 2 + 2);
+    }
+
+    @Test
     public void test_CalendarUtils() {
 //        CalendarUtils cu = new CalendarUtils();
-        var thingy = new Date();
-        String formattedDate;
+        CalendarUtils.selectedDate = LocalDate.now();
 
         assertThrows(Exception.class, ()-> CalendarUtils.formattedDate(null));
+        String formattedTime = CalendarUtils.formattedTime(LocalTime.now());
+        String monthYearFromDate = CalendarUtils.monthYearFromDate(LocalDate.now());
+        ArrayList<LocalDate> daysInMonthArray = CalendarUtils.daysInMonthArray(LocalDate.now());
+        ArrayList<LocalDate> daysInWeekArray = CalendarUtils.daysInWeekArray(LocalDate.now());
 
+        LocalDate localDate = CalendarUtils.selectedDate.withDayOfMonth(1);
 
-//        String formattedTime = CalendarUtils.formattedTime(null);
-//        String monthYearFromDate = CalendarUtils.monthYearFromDate(null);
-//        ArrayList<LocalDate> daysInMonthArray = CalendarUtils.daysInMonthArray(null);
-//        ArrayList<LocalDate> daysInWeekArray = CalendarUtils.daysInWeekArray(null);
-//
-//        // following method is private...
-//        // var sundayForDate = CalendarUtils.sundayForDate(null);
-//
-//        LocalDate localDate = CalendarUtils.selectedDate.withDayOfMonth(1);
+        // following method is private...
+        // var sundayForDate = CalendarUtils.sundayForDate(null);
+
+        assertNotNull(formattedTime);
+        assertNotNull(monthYearFromDate);
+        assertNotNull(daysInMonthArray);
+        assertEquals("Month array is 6 weeks x 7 days large to cover 28 min and 31 max days in any month.",
+                42, daysInMonthArray.size());
+        assertNotNull(daysInWeekArray);
+        assertEquals(7,daysInWeekArray.size());
         assertEquals(4, 2 + 2);
     }
 
@@ -45,13 +59,13 @@ public class BetterMeUnittests {
 
     @Test
     public void test_CalendarActivity_RequiresMocking() {
-        // TODO: implement mocking and/or refactor business logic into new class to test this code page        assertEquals(4, 2 + 2);
+        // TODO: implement mocking and/or refactor business logic into new class to test this code page
         assertEquals(4, 2 + 2);
     }
 
     @Test
     public void test_AboutUsActivity_RequiresMocking() {
-        // TODO: implement mocking and/or refactor business logic into new class to test this code page        System.out.println("This is AboutUsActivity class and might require Mocking in order to unit test.");
+        // TODO: implement mocking and/or refactor business logic into new class to test this code page
         assertEquals(4, 2 + 2);
     }
 
@@ -94,7 +108,7 @@ public class BetterMeUnittests {
 
     @Test
     public void test_BetterMeAmplifyApplication() {
-        // TODO: implement mocking and/or refactor business logic into new class to test this code pageSystem.out.println("This is the Amplify plug-ins initialization class and will not be unit-tested.");
+        // TODO: implement mocking and/or refactor business logic into new class to test this code page
         assertEquals(4, 2 + 2);
     }
 }
