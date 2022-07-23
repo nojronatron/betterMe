@@ -37,6 +37,7 @@ public class BetterMeUnittests {
     @Test
     public void test_CalendarActivity_RequiresMocking() {
         // TODO: implement mocking and/or refactor business logic into new class to test this code page        assertEquals(4, 2 + 2);
+        assertEquals(4, 2 + 2);
     }
 
     @Test
