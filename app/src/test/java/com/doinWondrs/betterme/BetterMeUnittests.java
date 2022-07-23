@@ -4,6 +4,8 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+import com.doinWondrs.betterme.activities.AboutUsActivity;
+
 /**
  * Example local unit test, which will execute on the development machine (host).
  *
@@ -12,6 +14,13 @@ import static org.junit.Assert.*;
 public class BetterMeUnittests {
     @Test
     public void addition_isCorrect() {
+        assertEquals(4, 2 + 2);
+    }
+
+    @Test
+    public void test_AboutUsActivity_NoAccessibleFieldsOrReturns() {
+        // TODO: implement mocking to test this class directly
+        System.out.println("This is AboutUsActivity class and might require Mocking in order to unit test.");
         assertEquals(4, 2 + 2);
     }
 
@@ -54,6 +63,7 @@ public class BetterMeUnittests {
 
     @Test
     public void test_BetterMeAmplifyApplication() {
+        // TODO: determine if mocking will enable unit testing this
         System.out.println("This is the Amplify plug-ins initialization class and will not be unit-tested.");
         assertEquals(4, 2 + 2);
     }
