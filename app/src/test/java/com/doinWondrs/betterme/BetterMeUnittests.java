@@ -1,15 +1,9 @@
 package com.doinWondrs.betterme;
 
 import org.junit.Test;
-
 import static org.junit.Assert.*;
-
-import com.doinWondrs.betterme.activities.AboutUsActivity;
-import com.doinWondrs.betterme.activities.CalendarActivity;
-import com.doinWondrs.betterme.activities.CalendarAdapter;
+import java.util.Date;
 import com.doinWondrs.betterme.activities.CalendarUtils;
-
-import java.time.LocalDate;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -24,7 +18,22 @@ public class BetterMeUnittests {
 
     @Test
     public void test_CalendarUtils() {
-        LocalDate localDate = CalendarUtils.selectedDate.withDayOfMonth(1);
+//        CalendarUtils cu = new CalendarUtils();
+        var thingy = new Date();
+        String formattedDate;
+
+        assertThrows(Exception.class, ()-> CalendarUtils.formattedDate(null));
+
+
+//        String formattedTime = CalendarUtils.formattedTime(null);
+//        String monthYearFromDate = CalendarUtils.monthYearFromDate(null);
+//        ArrayList<LocalDate> daysInMonthArray = CalendarUtils.daysInMonthArray(null);
+//        ArrayList<LocalDate> daysInWeekArray = CalendarUtils.daysInWeekArray(null);
+//
+//        // following method is private...
+//        // var sundayForDate = CalendarUtils.sundayForDate(null);
+//
+//        LocalDate localDate = CalendarUtils.selectedDate.withDayOfMonth(1);
         assertEquals(4, 2 + 2);
     }
 
